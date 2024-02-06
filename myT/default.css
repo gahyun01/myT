@@ -1,0 +1,171 @@
+* {
+  font-size: 15px;
+}
+
+header {
+  width: 1300px;
+  height: 20px;
+  margin: 15px auto;
+}
+
+
+nav {
+  width: 1300px;
+  height: 30px;
+  margin: 0 auto;
+}
+
+body {
+  margin: 0 auto;
+}
+
+#logo {
+  float: left;
+  width: 645px;
+  height: 20px;
+}
+
+#topmenu {
+  float: right;
+  width: 645px;
+  height: 20px;
+}
+
+#topmenu ul {
+  margin-top: 0px;
+
+}
+
+#topmenu ul li {
+  float: right;
+  list-style: none;
+  padding-left: 30px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+#menu {
+  height: 30px;
+}
+
+#menu ul {
+  width: 600px;
+  margin: 0 auto;
+}
+
+#menu ul li {
+  float: left;
+  list-style: none;
+  text-align: center;
+  padding: 0 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#bg {
+  width: 1300px;
+  margin: 0 auto;
+}
+
+
+#bg2 {
+  width: 1300px;
+  height: 770px;
+  margin: 30px auto;
+
+}
+
+#bgtop {
+  height: 330px;
+  background-image: url("img/sky2.jpg");
+  background-size: 1903px 330px;
+  margin-top: 30px
+}
+
+#choice {
+  width: 1300px;
+  height: 105px;
+  margin: 0 auto;
+
+}
+
+.choice0 {
+  float: left;
+  width: 200px;
+  height: 27px;
+  margin-top: 70px;
+  padding-top: 8px;
+  text-align: center;
+  font-weight: bold;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+}
+
+/* 가장 첫번째 탭*/
+.choice1 {
+  background-color: white;
+  color: black;
+}
+
+/* 가장 첫번째 이외의 탭*/
+.choice2 {
+  margin-left: 1px;
+  background-color: #263e50;
+  color: white;
+
+}
+
+.air_menu {
+  color: white;
+  text-decoration-line: none;
+}
+
+.air_menu:visited {
+  color: white;
+}
+
+.air_menu:hover {
+  text-decoration-line: underline;
+}
+
+.bttn {
+  width: 100px;
+  height: 30px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #263e50;
+  padding: 10px 20px;
+  justify-content: center;
+  border-width: 0px
+}
+
+.text {
+  font-weight: bold;
+}
+
+.caution1 {
+  height: 40px;
+  margin-top: 15px;
+  padding-top: 21px;
+  padding-left: 30px;
+  font-weight: bold;
+  border: solid 1px lightgrey;
+}
+
+.caution2 {
+  height: 150px;
+  padding-top: 16px;
+  padding-left: 10px;
+  padding-bottom: 16px;
+  line-height: 170%;
+  border: solid 1px lightgrey;
+}
+
+#tour {
+  width: 1300px;
+  height: 300px;
+  margin-top: 30px;
+  border: solid 1px gray;
+}
