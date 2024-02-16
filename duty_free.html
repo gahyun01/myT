@@ -3,51 +3,50 @@
 
 <head>
   <meta charset="utf-8">
-  <title>항공권예매2</title>
+  <title>기내면세품</title>
   <style>
-    .bg1 {
+ 
+    #best {
       width: 1300px;
-      margin: 0 auto;
+      height: 200px;
+      margin-top: 30px;
+      border: solid 1px gray;
     }
 
-    #sched {
-      height: 30px;
-      margin-top: 30px;
-      color: white;
+    #duty_menu {
+      width: 1300px;
+      height: 105px;
+      margin: 0 auto;
+
+    }
+
+    .duty_menu0 {
+      float: left;
+      width: 150px;
+      height: 27px;
+      margin-top: 295px;
+      padding-top: 8px;
+      text-align: center;
       font-weight: bold;
-      background-color: #263e50;
-      padding-left: 15px;
-      padding-top: 11px;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
+
     }
 
-    #sched1 {
-      height: 30px;
-      background-color: #e7f4ff;
-      padding-left: 15px;
-      padding-top: 11px;
+    /* 가장 첫번째 탭*/
+    .duty_menu1 {
+      background-color: #263e50;
+      color: white;
     }
 
-    #guest {
-      width: 990px;
-      margin-top: 20px;
+    /* 가장 첫번째 이외의 탭*/
+    .duty_menu2 {
+      margin-left: 1px;
+      background-color: #263e50;
+      color: white;
+
     }
 
-    #guest_info {
-      width: 990px;
-      height: 200px;
-      border: solid 1px lightgrey;
-    }
-
-    #fixed_pay {
-      position: fixed;
-      width: 300px;
-      height: 410px;
-      top: 335px;
-      left: 1300px;
-      border: solid 1px lightgrey;
-    }
   </style>
 
 </head>
@@ -114,41 +113,26 @@
     </div>
     </nav>
 
-    <div class="line"></div>
-
-    <div id="bg">
-      <div id="sched">ICN 서울/인천 >>>>>>>> KIX 오사카/간사이</div>
-      <div id="sched1">가는 편 출발지 ICN 서울/김포 도착지 KIX 오사카/간사이</div>
-      <div id="sched1">2024년 02월 13일 (화) 출발시간 08:55 -도착시간 10:45KE2117 일반석(M)</div>
-      <div id="sched1">오는 편 출발지 ICN 서울/김포 도착지 KIX 오사카/간사이</div>
-      <div id="sched1">2024년 02월 13일 (화) 출발시간 08:55 -도착시간 10:45KE2117 일반석(M)</div>
-
-      <div class="bg1">
-        <div id="guest">
-          <div id="guest_info">승객 정보입력
-          </div>
-
-          <div id="guest_info" style="margin-top: 10px">승객 기타정보입력(연락처..)
-          </div>
+  <!-- 기본 바탕 하늘 이미지 -->
+  <div id="bgtop_duty">
+        <div id="duty_menu">
+          <div class="duty_menu0 duty_menu1"><a href="duty_free_list.html" class="air_menu">화장품</a></div>
+          <div class="duty_menu0 duty_menu2">향수</div>
+          <div class="duty_menu0 duty_menu2">패션잡화</div>
+          <div class="duty_menu0 duty_menu2">건강식품</div>
+          <div class="duty_menu0 duty_menu2">주류</div>
         </div>
-      </div>
+  </div>
 
-      <div id="fixed_pay">결제정보</div>
-
-      <div class="caution1">
-        알아두세요!
-      </div>
-      <div class="caution2">
-        <ul>
-          <li>각 운임에 따라 기본 위탁 수하물 허용량이 제공되며, 수하물 추가 구매 시에는 별도 요금이 부과됩니다.</li>
-          <li>"항공운임 등 총액"은 유류할증료와 세금을 포함한 총 운임으로 구매 시점과 환율에 따라 변동될 수 있습니다.</li>
-          <li>출발/도착 시간은 현지 시간 기준이며, 항공기 스케줄은 정부인가 조건으로 예고 없이 변경될 수 있습니다.</li>
-          <li>공동운항편의 탑승 및 기내서비스는 운항사의 규정을 따릅니다.</li>
-          <li>할인 운임을 구매하고 싶으신 경우 예약 취소 후 재구매하여 주시기 바랍니다.</li>
-        </ul>
-      </div>
+  <div id="bg2">
+    <div id="best">베스트상품
     </div>
-  </form>
+    <div>
+        <div id="tour">고객님을 위한 추천상품
+        </div>
+    </div>
+  </div>
+</form>
 </body>
 
 </html>

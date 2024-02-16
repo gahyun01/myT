@@ -5,22 +5,6 @@
   <meta charset="utf-8">
   <title>항공권 좌석지정</title>
   <style>
-    table tr td div {
-      height: 35px;
-      text-align: center;
-      padding-top: 8px;
-
-    }
-
-    .title {
-      height: 35px;
-      color: white;
-      text-align: center;
-      padding-left: 18px;
-      padding-right: 18px;
-      background-color: #5891BE;
-      font-weight: bold;
-    }
 
     .cont {
       height: 35px;
@@ -35,16 +19,6 @@
       padding-right: 1px;
     }
 
-    #research {
-      width: 1300px;
-      height: 150px;
-      margin: 0 auto;
-      background-color: white;
-      border-top-right-radius: 10px;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-
-    }
 
     #seat {
       width: 1300px;
@@ -61,42 +35,72 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Nanum+Gothic&display=swap" rel="stylesheet">
 -->
-<link href="default.css" rel="stylesheet" type="text/css">
-
+<link href="css/default.css" rel="stylesheet" type="text/css">
+<link href="css/banner.css" rel="stylesheet" >
 
 <body>
-  <form>
-    <header>
-      <div id="logo"><img src="img/myT2.jpg" height="50">
-      </div>
-      <div id="topmenu">
-        <ul>
-          <li>로그아웃</li>
-          <li>마이페이지</li>
+<form>  
+  <header> 
+    <div id="logo">
+          <a href="main.html"><img src="img/myT2.jpg" height="50px"></a>
+    </div>
+    <div id="topmenu">
+        <ul><a href="login.html">
+          <li>로그인</li></a>
+            <a href="sign_up2.html"><li>회원가입</li></a>
         </ul>
-      </div>
-    </header>
+    </div>
+  </header>
 
-    <nav>
-      <div id="menu">
+  <nav> 
+    <div id="menu">
         <ul>
-          <li>플래너</li>
-          <li>다이어리</li>
-          <li>여행정보</li>
-          <li>예약</li>
+            <li><a href="t_planner.html">T플래너</a></li>
+            <li  class="top"><a href="t_diary.html">T다이어리</a>
+              <ul class="sub">
+                  <li><a href="t_diary.html">myT다이어리</a></li>
+                  <li><a href="t_d_home.html">T다이어리홈</a></li>
+              </ul>
+            </li>
+            <li class="top"><a href="t_info.html">여행정보</a>
+              <ul class="sub">
+                <li><a href="t_spot.html">관광지</a></li>
+                <li><a href="festv.html">축제</a></li>
+                <li><a href="rest.html">레스토랑</a></li>
+                <li><a href="hotel.html">호텔</a></li>
+              </ul>
+            </li>
+            <li class="top"><a href="t_info.html">예약</a>
+              <ul class="sub">
+                <li><a href="hotel_resv.html">호텔</a></li>
+                <li><a href="air_resv.html">항공권</a></li>
+                <li><a href="car_resv.html">차량</a></li>
+              </ul>
+            </li>
         </ul>
+ 
+       <!-- 검색창 -->
+    <div class="search-container">
+        <input type="text" class="search-box">
+        <button class="search-button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+          viewBox="0 0 1664 1664">
+            <path fill="#263e50"
+            d="M1152 704q0-185-131.5-316.5T704 256T387.5 387.5T256 704t131.5 316.5T704 1152t316.5-131.5T1152 704m512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124q-143 0-273.5-55.5t-225-150t-150-225T0 704t55.5-273.5t150-225t225-150T704 0t273.5 55.5t225 150t150 225T1408 704q0 220-124 399l343 343q37 37 37 90">
+            </path>
+        </svg></button>
+    </div>
       </div>
-    </nav>
+  </nav>
 
     <!-- 기본 바탕 하늘 이미지 -->
     <div id="bgtop">
       <div id="choice">
-        <div class="choice0 choice1"><a href="air_resv.html">항공권 예매</a></div>
-        <div class="choice0 choice2"><a class="air_menu" href="air_resv_list.html">예약조회</a></div>
+        <div class="choice0 choice_not"><a class="air_menu" href="air_resv.html">항공권 예매</a></div>
+        <div class="choice0 choice2 choice_not"><a class="air_menu" href="air_resv_list.html">예약조회</a></div>
         <div class="choice0 choice2">좌석 지정</div>
-        <div class="choice0 choice2"><a class="air_menu" href="air_meal.html">기내식 신청</a></div>
-        <div class="choice0 choice2"><a class="air_menu" href="air_service.html">기타 서비스 신청</a></div>
-
+        <div class="choice0 choice2 choice_not"><a class="air_menu" href="air_meal.html">기내식 신청</a></div>
+        <div class="choice0 choice2 choice_not"><a class="air_menu" href="air_service.html">기타 서비스 신청</a></div>
+        <div class="choice0 choice2 choice2_duty"><a class="air_menu" href="duty_free.html">기내면세품</a></div>
       </div>
       <div id="research">
       </div>

@@ -3,26 +3,34 @@
 
 <head>
   <meta charset="utf-8">
-  <title>기내식 신청</title>
+  <title>항공권예매</title>
   <style>
-     .cont {
-      height: 35px;
-      text-align: center;
-      padding-left: 21px;
-      padding-right: 21px;
-      background-color: #e7f4ff;
+
+    
+    #text2 {
+      width: 1288px;
+      height: 30px;
+      color: white;
+      background-color: #5891BE;
+      padding-top: 11px;
+      padding-left: 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
     }
 
-    .cont1 {
-      padding-left: 1px;
-      padding-right: 0px;
-    }
-
-    #meal {
+     #flightlist {
       width: 1300px;
       height: 200px;
       margin-top: 30px;
       border: solid 1px gray;
+    }
+
+    .tbl_sch {
+      width: 180px;
+      height: 30px;
+      text-align: center;
+      padding-top: 8px;
+
     }
   </style>
 
@@ -33,6 +41,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Nanum+Gothic&display=swap" rel="stylesheet">
 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="javascript/air_resv.js"></script>
 <link href="css/default.css" rel="stylesheet" type="text/css">
 <link href="css/banner.css" rel="stylesheet" >
 
@@ -87,57 +97,89 @@
             </path>
         </svg></button>
     </div>
-      </div>
-  </nav>
+    </div>
+    </nav>
 
     <!-- 기본 바탕 하늘 이미지 -->
     <div id="bgtop">
       <div id="choice">
-        <div class="choice0 choice_not"><a class="air_menu" href="air_resv.html">항공권 예매</a></div>
-        <div class="choice0 choice2 choice_not"><a class="air_menu" href="air_resv.html">예약조회</a></div>
+        <div class="choice0">항공권 예매</div>
+        <div class="choice0 choice2 choice_not"><a class="air_menu" href="air_resv_list.html">예약조회</a></div>
         <div class="choice0 choice2 choice_not"><a class="air_menu" href="air_seat.html">좌석 지정</a></div>
-        <div class="choice0 choice2">기내식 신청</div>
+        <div class="choice0 choice2 choice_not"><a class="air_menu" href="air_meal.html">기내식 신청</a></div>
         <div class="choice0 choice2 choice_not"><a class="air_menu" href="air_service.html">기타 서비스 신청</a></div>
         <div class="choice0 choice2 choice2_duty"><a class="air_menu" href="duty_free.html">기내면세품</a></div>
       </div>
-      <div id="research">
+      <div id="search">
+        <div class="search1">
+          <button class="btn_trip0 btn_trip1">왕복</button><button class="btn_trip0 btn_trip2">편도</button> 
+
+        </div>
+        <div class="search2"> 
+          <div class="air_0 air_city"><ul><li>출발지</li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/city.png" height="19px" ></li></ul></div>
+          <div class="air_0 air_city"><ul><li>도착지</li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/city.png" height="19px" ></li></ul></div>
+          <div class="air_0 air_date" style="margin-left: 25px;"><ul><li>가는 날&nbsp;</li><li>&nbsp;<img src="img/date.png" height="19px" ></li></ul></div>
+          <div class="gap">~</div>
+          <div class="air_0 air_date" id="return_date"><ul><li>오는 날&nbsp;</li><li>&nbsp;<img src="img/date.png" height="19px" ></li></ul></div>
+          <div class="air_0 air_date" style="margin-left: 40px;"><ul><li>인원수&nbsp;</li><li>&nbsp;<img src="img/person.png" height="19px" ></li></ul></div>
+          <button class="air_btn">항공편 검색</button> 
+      </div>
       </div>
     </div>
 
     <div id="bg2">
-      <div>
+      <div class="text" id="text2">ICN 서울/인천 >>>>>>>> KIX 오사카/간사이</div>
+      <div style="background-color: #e7f4ff">
         <table border="0" cellspacing="0">
           <tr>
-            <td class="title" style="border-top-left-radius: 10px">예약번호</td>
-            <td class="title">비행기편명</td>
-            <td class="title" colspan="3">출발지/도착지</td>
-            <td class="title">비행일자</td>
-            <td class="title" colspan="3">출발/도착시간</td>
-            <td class="title">소요시간</td>
-            <td class="title">탑승자명</td>
-            <td class="title">금액</td>
-            <td class="title">결제일자</td>
-            <td class="title" style="border-top-right-radius: 10px">기내식 신청</td>
+            <td>
+              <div class="tbl_sch">06(화)</div>
+            </td>
+            <td>
+              <div class="tbl_sch">07(수)</div>
+            </td>
+            <td>
+              <div class="tbl_sch">08(목)</div>
+            </td>
+            <td>
+              <div class="tbl_sch">09(금)</div>
+            </td>
+            <td>
+              <div class="tbl_sch">10(토)</div>
+            </td>
+            <td>
+              <div class="tbl_sch">11(일)</div>
+            </td>
+            <td>
+              <div class="tbl_sch">12(월)</div>
+            </td>
           </tr>
           <tr>
-            <td class="cont">2024011500000000000</td>
-            <td class="cont">KE725</td>
-            <td class="cont">서울</td>
-            <td class="cont cont1">-></td>
-            <td class="cont">오사카</td>
-            <td class="cont">02월07일(수)</td>
-            <td class="cont">09:00</td>
-            <td class="cont cont1">-></td>
-            <td class="cont">10:45</td>
-            <td class="cont">1시간45</td>
-            <td class="cont">홍길동</td>
-            <td class="cont">288,000</td>
-            <td class="cont">01월15일</td>
-            <td class="cont"><input type="checkbox" name=“cancel” value="1"></td>
+            <td>
+              <div class="tbl_sch">360,000</div>
+            </td>
+            <td>
+              <div class="tbl_sch">365,000</div>
+            </td>
+            <td>
+              <div class="tbl_sch">364,000</div>
+            </td>
+            <td>
+              <div class="tbl_sch">378,000</div>
+            </td>
+            <td>
+              <div class="tbl_sch">395,000</div>
+            </td>
+            <td>
+              <div class="tbl_sch">400,000</div>
+            </td>
+            <td>
+              <div class="tbl_sch">365,000</div>
+            </td>
           </tr>
         </table>
       </div>
-      <div id="meal"> 기내식 선택부분
+      <div id="flightlist"> 항공권 검색결과 보여줌
       </div>
       <div>
         <div class="caution1">

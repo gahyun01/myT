@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>myT</title>
+  <link rel="stylesheet" href="css/banner.css">
+  <link rel="stylesheet" href="css/Signlog.css">
+  <link rel="javascript" href="javascript/Signup.js">
+  <style>
+    .Signup {
+      text-align: center;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div id="logo">
+      <a href="main.html">
+        <img src="img/myT2.jpg" alt="myT" height="50px">
+      </a>
+    </div>
+    <div id="topmenu">
+      <ul>
+        <a href="login.html">
+          <li>로그인</li>
+        </a>
+        <a href="sign_up.html">
+          <li>회원가입</li>
+        </a>
+      </ul>
+    </div>
+  </header>
+
+  <nav>
+    <div id="menu">
+      <ul>
+        <li>
+          <a href="t_planner.html">
+            T플래너
+          </a>
+        </li>
+        <li class="top">
+          <a href="t_diary.html">T다이어리</a>
+          <ul class="sub">
+            <li>
+              <a href="t_diary.html">
+                myT다이어리
+              </a>
+            </li>
+            <li>
+              <a href="t_d_home.html">
+                T다이어리홈
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="top">
+          <a href="t_inf.html">여행정보</a>
+          <ul class="sub">
+            <li>
+              <a href="t_spot.html">
+                관광지
+              </a>
+            </li>
+            <li>
+              <a href="festv.html">
+                축제
+              </a>
+            </li>
+            <li>
+              <a href="rest.html">
+                레스토랑
+              </a>
+            </li>
+            <li>
+              <a href="hotel.html">
+                호텔
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="top">
+          <a href="t_inf.html">예약</a>
+          <ul class="sub">
+            <li>
+              <a href="hotel_resv.html">
+                호텔
+              </a>
+            </li>
+            <li>
+              <a href="air_resv.html">
+                항공권
+              </a>
+            </li>
+            <li>
+              <a href="car_resv.html">
+                차량
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- 검색창 -->
+      <div class="search-container">
+        <input type="text" class="search-box">
+        <button class="search-button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+            viewBox="0 0 1664 1664">
+            <path fill="#263e50"
+              d="M1152 704q0-185-131.5-316.5T704 256T387.5 387.5T256 704t131.5 316.5T704 1152t316.5-131.5T1152 704m512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124q-143 0-273.5-55.5t-225-150t-150-225T0 704t55.5-273.5t150-225t225-150T704 0t273.5 55.5t225 150t150 225T1408 704q0 220-124 399l343 343q37 37 37 90">
+            </path>
+          </svg></button>
+      </div>
+    </div>
+  </nav>
+  <div class="line"></div>
+
+  
+  <form class="signup">
+    <h1 class="jua-regular">회원가입</h1>
+    <table>
+      <tr>
+        <td>고객번호</td>
+        <td><input type="text" class="text" id="guest_no"></td>
+      </tr>
+      <tr class="tr1">
+        <td>아이디</td>
+        <td><input type="text" class="text1" id="user_id" placeholder="6~15자리 영문 또는 숫자"></td>
+        <td><button type="submit" class="btn2">중복확인</button></td>
+      </tr>
+      <tr>
+        <td>비밀번호</td>
+        <td><input type="password" class="text" id="pwd" name="pw" onchange="pass()" placeholder="8~15자리 영문, 숫자 또는 문자">
+        </td>
+      </tr>
+      <tr>
+        <td>비밀번호 확인</td>
+        <td><input type="password" class="text" id="pwd1" oninput="pass()" placeholder="8~15자리 영문, 숫자 또는 문자"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><span id="pwConfirm"></span></td>
+      </tr>
+      <tr>
+        <td>국문 성</td>
+        <td><input type="text" class="text" id="k_lastnm"></td>
+      </tr>
+      <tr>
+        <td>국문 이름</td>
+        <td><input type="text" class="text" id="k_firstnm"></td>
+      </tr>
+      <tr>
+        <td>영문 성</td>
+        <td><input type="text" class="text" id="e_lastnm"></td>
+      </tr>
+      <tr>
+        <td>영문 이름</td>
+        <td><input type="text" class="text" id="e_firstnm"></td>
+      </tr>
+      <tr>
+        <td>성별</td>
+        <td>
+          <label>
+            <input type="radio" name="gender" value="MALE" />
+            남자
+          </label>
+
+          <label>
+            <input type="radio" name="gender" value="FEMALE" />
+            여자
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td class="textbg">생년월일 </td>
+        <td><input type="text" class="textt" id="birth"></td>
+        <td class="tea"> - </td>
+        <td>●●●●●●●</td>
+      </tr>
+      <tr>
+        <td>이메일</td>
+        <td><input type="email" class="textt" id="email"></td>
+        <td class="tea"> @ </td>
+        <td>
+          <select class="select">
+            <option value="naver.com">naver.com</option>
+            <option value="daum.net">daum.net</option>
+            <option value="gmail.com">gmail.com</option>
+            <option value="nate.com">nate.com</option>
+            <option value="yahoo.com">yahoo.com</option>
+          </select>
+        </td>
+      </tr>
+      <!-- <tr>
+        <td>전화번호</td>
+        <td class="text3">
+          <select class="select">
+            <option value="010">010</option>
+            <option value="011">011</option>
+            <option value="016">016</option>
+            <option value="017">017</option>
+            <option value="018">018</option>
+            <option value="019">019</option>
+          </select>
+        </td>
+        <td class="testt"> - </td>
+        <td><input type="text" class="text1" id="phone"></td>
+        <td> - </td>
+        <td><input type="text" class="text1" id="phone1"></td>
+      </tr> -->
+      <tr>
+        <td>주소</td>
+        <td><input type="text" class="text" id="addr"></td>
+      </tr>
+      <tr>
+        <td>상세주소</td>
+        <td><input type="text" class="text" id="address"></td>
+      </tr>
+      <tr>
+        <td>등록 일시</td>
+        <td><input type="datetime-local" id="reg_date" class="date"></td>
+      </tr>
+      <tr>
+        <td colspan="2"><button type="submit" class="btn1">회원 가입</button></td>
+      </tr>
+    </table>
+  </form>
+</body>

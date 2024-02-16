@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>회원가입</title>
+</head>
+
+<script src="javascript/sign_up2.js"></script>
+<style>
+ 		
+	#box{
+		width: 800px;			
+		height: 1040px;
+		margin: 50px auto;
+		border: 2px lightgray solid;
+		border-radius: 20px;
+		background-color: #e7f4ff;
+	}
+	.title1{
+		font-size: 30px;
+		margin: 50px auto;
+ 		text-align: center;
+ 	}
+
+	table tr td{
+		font-size: 16px;
+		font-weight: bold;
+ 	}
+	
+	input{
+		height: 35px;
+		font-size: 16px;
+		color: grey;
+		padding-left: 10px;
+		border-radius: 3px;
+		border-width: 1px;
+
+	}
+
+	.input2{
+		font-size: 15px;		
+		padding-left: 0px;
+		text-align: center
+	}
+	select{
+		width: 93px;
+ 		height: 40px;
+		text-align: center
+
+	}
+
+	#msg{
+		font-size: 14px; 
+		color: red;
+	}
+
+</style>
+
+<!-- 구글폰트 다운 받아서 적용함 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Nanum+Gothic&display=swap" rel="stylesheet">
+-->
+<link href="css/banner.css" rel="stylesheet" >
+<link href="css/default.css" rel="stylesheet" type="text/css">
+
+<body>
+<form>	
+	<header> 
+		<div id="logo">
+       		<a href="main.html"><img src="img/myT2.jpg" height="50px"></a>
+		</div>
+		<div id="topmenu">
+        <ul><a href="login.html">
+         	<li>로그인</li></a>
+            <a href="sign_up2.html"><li>회원가입</li></a>
+        </ul>
+		</div>
+	</header>
+
+	<nav> 
+		<div id="menu">
+        <ul>
+            <li><a href="t_planner.html">T플래너</a></li>
+            <li  class="top"><a href="t_diary.html">T다이어리</a>
+            	<ul class="sub">
+              		<li><a href="t_diary.html">myT다이어리</a></li>
+              		<li><a href="t_d_home.html">T다이어리홈</a></li>
+            	</ul>
+          	</li>
+           	<li class="top"><a href="t_info.html">여행정보</a>
+           		<ul class="sub">
+             		<li><a href="t_spot.html">관광지</a></li>
+             		<li><a href="festv.html">축제</a></li>
+             		<li><a href="rest.html">레스토랑</a></li>
+            		<li><a href="hotel.html">호텔</a></li>
+           		</ul>
+          	</li>
+            <li class="top"><a href="t_info.html">예약</a>
+          		<ul class="sub">
+             		<li><a href="hotel_resv.html">호텔</a></li>
+             		<li><a href="air_resv.html">항공권</a></li>
+             		<li><a href="car_resv.html">차량</a></li>
+           		</ul>
+            </li>
+        </ul>
+ 
+       <!-- 검색창 -->
+ 		<div class="search-container">
+		  	<input type="text" class="search-box">
+		  	<button class="search-button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+		      viewBox="0 0 1664 1664">
+		      	<path fill="#263e50"
+		        d="M1152 704q0-185-131.5-316.5T704 256T387.5 387.5T256 704t131.5 316.5T704 1152t316.5-131.5T1152 704m512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124q-143 0-273.5-55.5t-225-150t-150-225T0 704t55.5-273.5t150-225t225-150T704 0t273.5 55.5t225 150t150 225T1408 704q0 220-124 399l343 343q37 37 37 90">
+		      	</path>
+		    </svg></button>
+		</div>
+    	</div>
+	</nav>
+
+   	<div class="line"></div>
+
+	<!-- 본문 -->
+	<div id="bg">
+	<!-- 	
+			1. 온라인회원정보	member						
+		아이디	user_id	varchar	15	nn		PK
+		패스워드	pwd	varchar	15	nn		
+		국문 성	k_lastnm	varchar	30	nn		
+		국문 이름	k_firstnm	varchar	30	nn		
+		영문 성	e_lastnm	varchar	30	nn		
+		영문 이름	e_firstnm	varchar	30	nn		
+		성별 ( 주	gender	varchar	1	nn		
+		생년월일	birth	varchar	8	nn		
+		이메일주소	email	varchar	30			
+		연락처	phone	varchar	11	nn	
+		우편번호	post	varchar	5	nn
+		주소1	addr1	varchar	50	nn		
+		주소2	addr2	varchar	50	nn		
+		가입일자(온라인)	reg_date	datetime				
+ -->
+ 		<div class="title1">
+			회원가입
+		</div>
+		<div id="box">
+		<table border="0" cellpadding="9"align="center" style="margin-top: 45px">
+			<tr>
+				<td><label>아이디</label></td> 	
+				<td><input type="text" name="user_id" size="30" maxlength="15" value="6~15자 영문, 숫자의 조합" onfocus="clearText(this)">
+					<button type="button" name="btn_id" class="btn" style="width: 113px; height: 37px; font-size: 14px;">중복확인</button> 
+				</td>
+			</tr>
+			<tr>
+				<td><label>비밀번호</label></td> 	
+				<td><input type="text" name="pwd" size="30" maxlength="15"  value="8~15자 영문, 숫자의 조합" onfocus="clearPasswd(this)"> </td> 
+			</tr>
+			<tr>
+				<td><label>비밀번호 확인</label></td> 	
+				<td><input type="password" name="pwd2" size="30" maxlength="15" onfocus="returnText()"> 
+					<button type="button" name="btn_pwd" class="btn" style="width: 113px; height: 37px; font-size: 14px;" onclick="checkPasswd(this)">확인</button> 
+				</td> 
+			</tr>
+				<tr>
+				<td colspan="2" id="msg">※ 국영문 성함은 반드시 본인의 실명을 입력해주시기 바랍니다.(추후 변경 불가)</td>
+			</tr>
+			<tr>
+				<td class="title2 "><label>국문 성</label></td> 	
+				<td><input type="text" name="k_lastnm" size="30" maxlength="30"></td>
+			</tr>
+			<tr>
+				<td><label>국문 이름</label></td> 	
+				<td><input type="text" name="k_firstnm" size="30" maxlength="30"></td>
+		</tr>
+			<tr>
+				<td><label>영문 성</label></td> 	
+				<td><input type="text" name="e_lastnm" size="30" maxlength="30"></td>
+			</tr>
+			<tr>
+				<td><label>영문 이름</label></td> 	
+				<td><input type="text" name="e_firstnm" size="30" maxlength="30"></td>
+			</tr>
+			<tr>
+				<td><label>성별</label></td> 	
+				<td><input type="radio" name="gender"  style="vertical-align:middle; margin-right: 10px;" checked />남
+					&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" style="vertical-align:middle; margin-right: 10px;"/>여</td>
+			</tr>
+			<tr>
+				<td><label>생년월일</label></td> 
+				<td><select name="birth1">
+						<option>선택</option>
+						<option>1950</option>
+						<option>1951</option>
+						<option>1952</option>
+						<option>1953</option>
+						<option>1954</option>
+						<option>1955</option>
+						<option>1956</option>
+						<option>1957</option>
+						<option>1958</option>
+						<option>1959</option>
+						<option>1960</option>
+						<option>1961</option>
+						<option>1962</option>
+						<option>1963</option>
+						<option>1964</option>
+						<option>1965</option>
+						<option>1966</option>
+						<option>1967</option>
+						<option>1968</option>
+						<option>1969</option>
+						<option>1970</option>
+						<option>1971</option>
+						<option>1972</option>
+						<option>1973</option>
+						<option>1974</option>
+						<option>1975</option>
+						<option>1976</option>
+						<option>1977</option>
+						<option>1978</option>
+						<option>1979</option>
+						<option>1980</option>
+						<option>1981</option>
+						<option>1982</option>
+						<option>1983</option>
+						<option>1984</option>
+						<option>1985</option>
+						<option>1986</option>
+						<option>1987</option>
+						<option>1988</option>
+						<option>1989</option>
+						<option>1990</option>
+						<option>1991</option>
+						<option>1992</option>
+						<option>1993</option>
+						<option>1994</option>
+						<option>1995</option>
+						<option>1996</option>
+						<option>1997</option>
+						<option>1998</option>
+						<option>1999</option>
+						<option>2000</option>
+						<option>2001</option>
+						<option>2002</option>
+						<option>2003</option>
+						<option>2004</option>
+						<option>2005</option>
+						<option>2006</option>
+						<option>2007</option>
+						<option>2008</option>
+						<option>2009</option>
+						<option>2010</option>
+					</select>
+					<select name="birth2">
+						<option>선택</option>
+						<option>01</option>
+						<option>02</option>
+						<option>03</option>
+						<option>04</option>
+						<option>05</option>
+						<option>06</option>
+						<option>07</option>
+						<option>08</option>
+						<option>09</option>
+						<option>10</option>
+						<option>11</option>
+						<option>12</option>
+					</select>
+					<select name="birth3">
+						<option>선택</option>
+						<option>01</option>
+						<option>02</option>
+						<option>03</option>
+						<option>04</option>
+						<option>05</option>
+						<option>06</option>
+						<option>07</option>
+						<option>08</option>
+						<option>09</option>
+						<option>10</option>												
+						<option>11</option>												
+						<option>12</option>
+						<option>13</option>
+						<option>14</option>
+						<option>15</option>
+						<option>16</option>
+						<option>17</option>
+						<option>18</option>
+						<option>19</option>
+						<option>20</option>												
+						<option>21</option>												
+						<option>22</option>
+						<option>23</option>
+						<option>24</option>
+						<option>25</option>
+						<option>26</option>
+						<option>27</option>
+						<option>28</option>
+						<option>29</option>
+						<option>30</option>												
+						<option>31</option>												
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label>이메일주소</label></td> 	
+				<td><input type="text" name="email" size="13" maxlength="15"> @
+					<input type="text" name="email1" size="8" maxlength="15"  disabled="true">
+					<select name="email2" style="width: 113px"  onchange="setEmail(this.value)">
+						<option value="0">선택</option>
+						<option value="naver.com">naver.com</option>
+						<option value="hanmail.net">hanmail.net</option>
+						<option value="gmail.com">gmail.com</option>
+						<option value="1">직접입력</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<!-- 지역번호
+					서울	인천	대전	부산	울산	대구	광주	제주
+					02	032	042	051	052	053	062	064
+					경기	강원	충남	충북	경북	경남	전남	전북
+					031	033	041	043	054	055	061	063
+					-->
+				<td><label>연락처</td> 	
+				<td><select name="phone0">
+					<option>선택</option>
+					<option>010</option>
+					<option>011</option>
+					<option>016</option>
+					<option>017</option>
+					<option>019</option>
+					<option>02</option>
+					<option>031</option>
+					<option>032</option>
+					<option>033</option>
+					<option>041</option>
+					<option>042</option>
+					<option>043</option>
+					<option>051</option>
+					<option>052</option>
+					<option>053</option>
+					<option>054</option>
+					<option>061</option>
+					<option>062</option>
+					<option>063</option>
+					<option>064</option>
+					</select>
+				 	- <input class="input2" type="text" name="phone1" size="4" maxlength="4" >
+					- <input class="input2" type="text" name="phone2" size="4" maxlength="4" style="text-align: center"></td>
+			</tr>
+ 			<tr>
+				<td><label>주소</label></td> 	
+				<td><input class="input2" type="text" name="post" size="5" maxlength="5">
+					<button type="button" name="btn_post" style="width: 100px; height: 39px;">우편번호</button></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="text" name="addr1" size="30" maxlength="50" disabled="true"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="text" name="addr2" size="30" maxlength="50" disabled="true"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><br><button type="button" name="btn_submit" class="btn" 
+					style="width: 550px; height: 40px;" onclick="checkAll()">확 인</button>
+				</td> 	
+			</tr>
+		</table>
+	</div>
+	</div>
+
+</form>
+</body>
+</html>
