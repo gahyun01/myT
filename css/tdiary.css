@@ -1,0 +1,224 @@
+body{
+    margin: 0 0;
+}
+ 
+a{
+    color: black;
+    text-decoration-line: none;
+}
+
+/* Line-spacing let you free!! */
+/* 상단 */
+header{
+       /*header has no width.*/
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #6f3a00;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+header .banner {
+    display: flex;
+    justify-content: space-between;   
+    width: 1300px;
+    height: 100px;
+}
+
+header .banner .logo{
+    width: 100px;
+    margin-top: 20px;
+}
+ 
+ header .banner .posticon{
+    width: 30px;
+    margin-top: 50px;
+ }
+ 
+ /* 메인 */
+ section{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;  
+ }
+ 
+ section .cardpage{
+    display: block;
+    width: 1300px;
+ }
+ 
+ /* 게시물 카드 */
+ section .cardpage .card{
+    display: flex;
+    justify-content: space-between;
+    width: 900px;
+    padding: 30px;
+    margin: 0 auto;
+    margin-top: 30px;
+    box-shadow: 0px 0px 5px #bdbdbd;
+    border-radius: 10px;
+ }
+ 
+ section .cardpage .card .cardhalf{
+    display: inline-block;
+    width: 500px;
+ }
+ 
+ /* 카드 왼쪽  */
+ section .cardpage .card .prfbox{
+    display: flex;
+ 
+ }
+ 
+ section .cardpage .card .prfbox .prfpics{
+    width: 80px;
+    height: 80px;
+ }
+ 
+ section .cardpage .card .prfbox .fbpic{
+    display: inline-block;
+    width: 270px;
+    height: 270px;
+ }
+ 
+ section .cardpage .card .imgslider{
+    margin-top: 20px;
+ }
+ 
+ section .cardpage .card .fbcont{
+    width: 480px;
+    height: 230px;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #dc8b35;
+    border-radius: 5px;
+    font-size: 20px;
+ }
+ 
+ section .cardpage .card .iconmom{
+    display: flex;
+    justify-content: space-between;
+    width: 530px;
+    margin-top: 10px;
+ }
+ 
+ section .cardpage .card .iconmom img{
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    cursor: pointer;
+ }
+ 
+ /*카드 오른쪽*/
+ .pcard{
+    background-color: lightyellow; /*학원가서 바꾸기*/
+ }
+ 
+ .icon{
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+ }
+ 
+ .smallicon{
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+ }
+ 
+ .pficonmom{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+ }
+ 
+ .fdbox{
+    width: 400px;
+    height: 150px;
+    display: inline-block;
+ }
+ 
+ .rplbox{
+    width: 480px;
+    height: 400px;
+ }
+ 
+ .rpl{
+ /*    text-align: left;
+      box-sizing: border-box;
+      overflow-wrap: break-word;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      margin: 0 15px;
+      margin-bottom: 20px;
+      color: rgba(58, 58, 58, 0.7);
+      float: none;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: 0px;
+      white-space: pre-line;
+      word-break:keep-all;
+ */
+    width: 500px;
+    height: 70px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #dc8b35;
+ 
+ }
+ 
+ .rplcont{
+    width: 300px;
+    border: 0px;
+ }
+ 
+ .makerpl{
+    width : 480px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #dc8b35;
+    border-radius: 5px;
+ }
+ 
+ .rpltext{
+    width: 300px;
+    border: 0px;
+ }
+ 
+ .inl{
+    display: inline-block;
+ }
+ 
+ .makerpl .btn{
+    width: 80px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+    background-color: orange;
+    border: orange;
+    border-radius: 20px;
+    padding: 5px;
+    cursor: pointer;
+ }
+ 
+ .algnr{
+    text-align: right;
+ }
+ 
+ .heightgap{ /*나중에 다시 손보기*/
+    height: 320px;
+ }
+ 
+ #heart{
+ 
+ }
+ 
+ #b{
+    background-color: green;
+ }

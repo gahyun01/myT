@@ -32,6 +32,13 @@
   margin: 0 0;
 }
 
+.planner h1 img{
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+
+}
+
 .cardback {
   display: flex;
   flex-wrap: wrap;
@@ -44,7 +51,7 @@
 .cardback .cardpage {
   display: flex;
   width: 1300px;
-  gap: 70px;
+  gap: 49px;
   overflow:hidden;
 }
 
@@ -54,6 +61,8 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  padding: 10px;
+  margin: 10px 0;
 }
 
 .cardpage .position {
@@ -94,7 +103,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity : 0.5;
+  cursor: pointer;
   width: 100px;
   height: 300px;
 }
@@ -103,6 +112,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   opacity : 0.5;
   width: 100px;
   height: 300px;
@@ -274,7 +284,6 @@ option {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
   margin: 0 15px;
-  margin-bottom: 20px;
   color: rgba(58, 58, 58, 0.7);
   float: none;
   font-weight: 500;
@@ -285,24 +294,45 @@ option {
   word-break:keep-all;
 }
 
-.pinfo .cgood {
-  width: 1px;
-}
-
-.pinfo .icon {
+/* 아이콘 */
+.splanner .planners .planshow .pinfo .cicon{
   display: flex;
-  gap: 30px;
+  justify-content: space-between;
+  margin: 0 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.pinfo .icon li {
+.splanner .planners .planshow .pinfo .cicon .ci{
   display: flex;
-  list-style: none;
-  text-align: center;
-  justify-content: center;
+  align-items: center;
+  margin: 0 15px;
 }
 
-.pinfo .icon a {
+.splanner .planners .planshow .pinfo .cicon img{
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.splanner .planners .planshow .pinfo .cicon .ci a{
   font-weight: bold;
-  padding-top: 15px;
-  padding-left: 10px;
+  font-size: 13px;
+}
+
+/* 카드 강조 효과 */
+.card-highlight {
+  animation: sparkle 0.5s ease; /* 애니메이션 적용 */
+}
+
+/* @keyframes를 사용한 반짝임 애니메이션 정의 */
+@keyframes sparkle {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }

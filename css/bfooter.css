@@ -1,5 +1,6 @@
 footer {
-  background-color: #d7e4ee;
+  background-color: #f1f9ff;
+  height: 308px;
   padding: 10px 10px;
   display: flex;
   justify-content: center;
@@ -12,4 +13,5 @@ footer .footer {
 footer .footer p {
   font-size: 12px;
   color: #000;
+  color: gray;
 }

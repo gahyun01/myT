@@ -4,6 +4,7 @@
 
 body {
   margin: 0 0;
+  min-width : 1610px;
 }
 
 body a {
@@ -19,6 +20,7 @@ header {
 
 #logo {
   float: left;
+  margin-top: 15px;
 }
 
 /* 마이페이지, 로그아웃 */
@@ -142,10 +144,11 @@ nav {
   width: 30%;
 }
 
+/* 선 */
 .line {
   display: flex;
   width: 100%;
   margin-top: 25px;
-  border-bottom: 1px solid #bfd1df;
+  border-bottom: 1px solid #263e50;
   
 }
