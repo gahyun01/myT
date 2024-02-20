@@ -1,130 +1,8 @@
-/* 추천 플래너 */
-.pback{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-image: url("/img/sunset.jpg");
-  background-size: cover;
-  width: 100%;
-  margin-top: 25px;
-  padding: 50px 0;
-}
-
-.pback .pbinner{
-  text-align: center;
-  width: 1600px;
-  background-image: url("/img/pbinner.png");
-  padding-top: 20px;
-  border-radius: 20px;
-  padding-bottom: 20px;
-}
-
-.planner {
-  width: 1300px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.planner h1 {
-  font-size: 35px;
-  font-weight: bolder;
-  margin: 0 0;
-}
-
-.planner h1 img{
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-
-}
-
-.cardback {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 30px;
-  justify-content: center;
-  height: 300px;
-}
-
-.cardback .cardpage {
-  display: flex;
-  width: 1300px;
-  gap: 49px;
-  overflow:hidden;
-}
-
-.cardpage .card {
-  display: flex;
-  width: 200px;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 10px;
-  margin: 10px 0;
-}
-
-.cardpage .position {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-align: center;
-  margin-left: 10px;
-}
-
-.cardback .cardpage .card img {
-  width: 200px;
-  height: 200px;
-  border-radius: 20px;
-}
-
-.cardback .cardpage .card .name {
-  font-size: 15px;
-  font-weight: bold;
-  margin-top: 20px;
-}
-
-.cardback .cardpage .card .planInfo {
-  padding-top: 5px;
-  width: 100%;
-  display: inline-block;
-  color: #6f3a00;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.cardback .cardpage .card .planInfo .category {
-  float: right;
-  font-size: 13px;
-}
-
-.cardback .sab1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  width: 100px;
-  height: 300px;
-}
-
-.cardback .sab2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  opacity : 0.5;
-  width: 100px;
-  height: 300px;
-}
-
-
-
-/* main 검색 */
+/* 메인 검색 */
 .mainp {
   display: block;
   text-align: center;
-  margin-top: 80px;
+  padding-top: 80px;
 }
 
 .mainp .psearch {
@@ -193,27 +71,23 @@ option {
   width: 30%;
 }
 
-/* main */
-
+/* 메인 카드 */
 .mainp .pplanner{
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   width: 1300px;
+  height: 1770px;
+  cursor: pointer;
   margin: 0 auto;
   margin-bottom: 50px;
 }
 
-
-.mainp .splanner {
+.mainp .pplanner .pcards{
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.splanner .planners {
-  display: inline-block;
-}
-
-.splanner .planners .planshow {
+.mainp .pplanner .splanner {
   display: flex;
   justify-content: space-between;
   width: 360px;
@@ -222,21 +96,21 @@ option {
   margin-top: 50px;
 }
 
-.splanner .planners .planshow .pinfo {
+.mainp .pplanner .splanner .pinfo {
   display: inline-block;
   text-align: center;
   border-radius: 10px;
-  box-shadow: 0px 0px 5px #bdbdbd;
+  box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.7);
 }
 
-.splanner .planners .planshow img {
+.mainp .pplanner .splanner img {
   width: 100%;
   height: 250px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
-.splanner .planners .planshow .pfphotos {
+.mainp .pplanner .splanner .pfphotos {
   display: flex;
   justify-content: space-between;
   position:relative;
@@ -245,7 +119,7 @@ option {
   margin-top: 10px;
 }
 
-.splanner .planners .planshow .pfphotos .pfphoto {
+.mainp .pplanner .splanner .pfphotos .pfphoto {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -256,7 +130,7 @@ option {
   background-color: #6f3a00;
 }
 
-.splanner .planners .planshow .position {
+.mainp .pplanner .splanner .position {
   display: flex;
   width: 95%;
   font-size: 15px;
@@ -267,14 +141,14 @@ option {
   opacity: 0.7;
 }
 
-.splanner .planners .planshow .pinfo .title{
+.mainp .pplanner .splanner .pinfo .title{
   font-size: 18px;
   font-weight: bold;
   margin: 10px 0;
   margin-top: 20px;
 }
 
-.splanner .planners .planshow .text {
+.mainp .pplanner .splanner .text {
   text-align: left;
   box-sizing: border-box;
   overflow-wrap: break-word;
@@ -294,8 +168,8 @@ option {
   word-break:keep-all;
 }
 
-/* 아이콘 */
-.splanner .planners .planshow .pinfo .cicon{
+/* 메인 카드 아이콘 */
+.mainp .pplanner .splanner .pinfo .cicon{
   display: flex;
   justify-content: space-between;
   margin: 0 15px;
@@ -303,36 +177,59 @@ option {
   margin-bottom: 20px;
 }
 
-.splanner .planners .planshow .pinfo .cicon .ci{
+.mainp .pplanner .splanner .pinfo .cicon .ci{
   display: flex;
   align-items: center;
   margin: 0 15px;
 }
 
-.splanner .planners .planshow .pinfo .cicon img{
+.mainp .pplanner .splanner .pinfo .cicon img{
   width: 20px;
   height: 20px;
   margin-right: 5px;
 }
-.splanner .planners .planshow .pinfo .cicon .ci a{
+.mainp .pplanner .splanner .pinfo .cicon .ci a{
   font-weight: bold;
   font-size: 13px;
 }
-
-/* 카드 강조 효과 */
-.card-highlight {
-  animation: sparkle 0.5s ease; /* 애니메이션 적용 */
+/* 메인 카드 페이지네이션 */
+.mainp .pplanner .paging {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1300px;
+  height: 50px;
+  margin: 50px auto;
+  margin-top: auto;
 }
 
-/* @keyframes를 사용한 반짝임 애니메이션 정의 */
-@keyframes sparkle {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
+.mainp .pplanner .paging .pagination {
+  display: flex;
+  list-style: none;
+}
+
+.mainp .pplanner .paging .pagination a {
+  margin: 0 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.mainp .pplanner .paging .pagination a.page-number {
+  background-color: #ffeccc;
+  color: #333;
+}
+
+.mainp .pplanner .paging .pagination a.active {
+  background-color: #dc8b35;
+  color: white;
+}
+
+/* 화살표 버튼에 스타일 적용하지 않음 */
+.mainp .pplanner .paging .pagination a.left,
+.mainp .pplanner .paging .pagination a.right,
+.mainp .pplanner .paging .pagination a.double-left,
+.mainp .pplanner .paging .pagination a.double-right {
+  background-color: transparent;
+  color: inherit;
 }

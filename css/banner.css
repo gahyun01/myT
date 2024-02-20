@@ -5,6 +5,10 @@
 body {
   margin: 0 0;
   min-width : 1610px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
 }
 
 body a {
@@ -12,29 +16,40 @@ body a {
   color: black;
 }
 
-header {
-  width: 1300px;
-  height: 20px;
-  margin: 15px auto;
+body .top{
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  padding-top: 10px;
+  z-index: 1000;
 }
 
-#logo {
+body .top header {
+  width: 1300px;
+  height: 20px;
+  margin: 10px auto;
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+body .top #logo {
   float: left;
   margin-top: 15px;
 }
 
 /* 마이페이지, 로그아웃 */
-#topmenu {
+body .top #topmenu {
   float: right;
   width: 645px;
   height: 20px;
 }
 
-#topmenu ul {
+body .top #topmenu ul {
   margin-top: 0px;
 }
 
-#topmenu ul li {
+body .top #topmenu ul li {
   float: right;
   list-style: none;
   padding-left: 30px;
@@ -45,69 +60,83 @@ header {
 /* T플래너, T다이어리, 여행정보, 예약 */
 nav {
   width: 1300px;
-  height: 30px;
+  height: 47px;
+  top: 20px;
   margin: 0 auto;
+  transition: 0.3s ease;
+  z-index: 1000;
 }
 
-#menu {
+nav #menu {
   float: right;
   display: flex;
-  height: 30px;
   justify-content: center;
 }
 
-#menu ul {
+nav #menu ul {
   display: flex;
+  justify-content: centers;
+  align-items: center;
   margin: 0 auto;
-  width: 600px;
+  width: 700px;
   gap: 60px;
   padding: 0;
 }
 
-#menu ul li {
+nav #menu ul li {
+  position: relative;
   list-style: none;
   text-align: center;
+  flex: 1;
 }
 
-#menu a {
+nav #menu  ul li .bold {
+  display: block;
   font-size: 20px;
   font-weight: bold;
-  padding: 10px 10px;
+  white-space: nowrap;
+  padding: 10px 0;
+  padding-bottom: 0px;
 }
 
-#menu .sub {
+nav #menu ul li .sub{
+  position: absolute;
+  left: 0;
+  width: 100%;
   display: none;
-  width: 150px;
   padding: 10px 0;
 }
 
-#menu a:hover {
-  background-color: #bfd1df;
-  color: #fff;
+nav #menu li:hover {
+  background-color: #dc8b35;
+  color: white;
   text-decoration: underline;
 }
 
-#menu .top:hover .sub {
+nav #menu li:hover a {
+  color: white;
+}
+
+nav #menu .bmenu:hover .sub {
   display: block;
   position: absolute;
-  top: 75px;
   transition: background-color 0.3s, color 0.3s;
-  color: #fff;
+  color: white;
   white-space: nowrap;
-  background: #bfd1df;
+  background: #dc8b35;
 }
 
-#menu .top:hover .sub li {
+nav #menu .bmenu:hover .sub li {
   display: block;
   text-align: left;
-  padding: 10px 10px;
-  font-size: 15px;
 }
 
-#menu .top:hover .sub li a {
-  color: #fff;
+nav #menu .bmenu:hover .sub li a {
+  display: block;
+  color: white;
   background: none;
-  font-size: 15px;
+  font-size: 13px;
+  padding: 8px 20px;
 }
 
 /* 검색창 */
@@ -148,7 +177,6 @@ nav {
 .line {
   display: flex;
   width: 100%;
-  margin-top: 25px;
-  border-bottom: 1px solid #263e50;
-  
+  height: 1px;
+  box-shadow: 0 2px 5px rgba(38, 62, 80, 0.8); /* 그림자 효과 추가 */
 }

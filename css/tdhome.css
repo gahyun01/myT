@@ -1,0 +1,289 @@
+body{
+    margin: 0 0;
+}
+ 
+a{
+    color: black;
+    text-decoration-line: none;
+}
+
+/* 상단 */
+header{
+       /*header has no width.*/
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #6f3a00;
+    margin-top: 20px;
+}
+
+header .banner {
+    display: flex;
+    justify-content: space-between;   
+    width: 1300px;
+    height: 100px;
+}
+
+header .banner .logo{
+    width: 100px;
+    margin-top: 20px;
+}
+ 
+ header .banner .posticon{
+    width: 30px;
+    margin-top: 50px;
+ }
+ 
+ /* 메인 */
+ section{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+ }
+ 
+ section .cardpage{
+    display: block;
+    width: 1300px;
+ }
+ 
+ /* 게시물 카드 */
+ section .cardpage .card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1024px;
+    margin: 0 auto;
+    margin-top: 10px;
+   border: 1px solid lightgray;
+    border-radius: 5px;
+ }
+ 
+ section .cardpage .card .cardhalf{
+    display: inline-block;
+    padding: 24px;
+    width: 448px;
+    height: 700px;
+ }
+ 
+ /* 카드 왼쪽  */
+ section .cardpage .card .prfbox{
+    display: flex;
+    margin-top: 3px;
+ }
+ 
+ section .cardpage .card .prfbox .prfpics{
+    width: 70px;
+    height: 70px;
+ }
+ 
+ section .cardpage .card .prfbox .profile{
+   margin-top: 40px;
+   font-size: 14px;
+ }
+
+ section .cardpage .card .prfbox .fbpic{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+ }
+
+section .cardpage .card .imgslider{
+   width: 100%;    
+   height: 350px;
+   margin-top: 10px;
+   background-image: url('../img/cheesec.png');
+   background-size: cover;
+}
+
+section .cardpage .card .fb{
+   height: 170px;
+   padding: 20px 10px;
+   font-size: 14px;
+}
+
+ section .cardpage .card .fbcont{    
+   text-align: left;
+   overflow-wrap: break-word;
+   text-overflow: ellipsis;
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 9; /* later */
+   float: none;
+   line-height: 20px;
+   letter-spacing: 0px;
+   word-break: keep-all;   
+   box-sizing: border-box;
+   margin: 0 0;
+ }
+ 
+ section .cardpage .card .iconmom{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 10px;
+ }
+
+section .cardpage .card .iconmom .iconblock{
+   display: flex;
+   padding-left: 8px;
+   gap: 10px;
+}
+ 
+section .cardpage .card .iconmom img{
+    width: 40px;
+    height: 40px; 
+    cursor: pointer;
+ }
+ 
+ /*카드 오른쪽*/
+.cardpage .card a .pcard{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   box-shadow: 0px 0px 5px #bdbdbd;
+   padding: 5px;
+   border-radius: 30px;
+ }
+
+.cardpage .card a .pcard .pimg{
+   width: 120px;
+   margin-left: 5px;
+   border-radius: 20px;
+}
+
+.cardhalf a .pcard .pinf{
+   display: inline-block;
+   width: 300px;
+   padding: 10px 20px;
+   font-size: 14px;
+}
+
+.cardhalf a .pcard .pinf #ptitle{
+   font-size: 16px;
+   font-weight: bold;
+   margin: 0 0;
+   margin-bottom: 15px;
+}
+
+.cardhalf a .pcard .pinf #pcity{
+   font-size: 14px;
+   margin: 0 0;
+   margin-bottom: 5px;
+}
+
+.cardhalf a .pcard .pinf #pdate{
+   font-size: 12px;
+   color: #dc8b35;
+   opacity: 0.7;
+   margin: 0 0;
+}
+
+.cardhalf h3{
+   font-size: 18px;
+   padding-top: 30px;
+   margin: 0 0;
+}
+
+.card .icon{
+    width: 50px;
+    height: 50px;
+ }
+ 
+.card .cardhalf .rplbox .rpl .smallicon{
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+ }
+ 
+/*댓글*/
+.card .cardhalf .rplbox{
+    width: 430px;
+    height: 430px;
+    margin: 10px;
+    margin-bottom: 20px;
+   }
+ 
+.cardhalf .rplbox .rpl{
+    width: 400px;    
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #dc8b35;
+    font-size: 14px;
+ }
+
+.cardhalf .rplbox .rpl a{
+   font-weight: bold;
+   margin-top: 30px;
+}
+ 
+.cardhalf .rplbox .rpl .rplcont{
+    width: 260px;
+    text-align: left;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* later */
+    float: none;
+    line-height: 20px;
+    letter-spacing: 0px;
+    word-break: keep-all;   
+    box-sizing: border-box;
+    margin: 0 0;
+ }
+ 
+.card .cardhalf .makerpl{
+    width : 400px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #dc8b35;
+    border-radius: 5px;
+ }
+ 
+.card .cardhalf .makerpl .rpltext{
+    width: 260px;
+    border: 0px;
+ }
+ 
+.card .cardhalf .makerpl .btn{
+    width: 80px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+    background-color: orange;
+    border: orange;
+    border-radius: 20px;
+    padding: 5px;
+    cursor: pointer;
+ }
+
+ #b{
+    background-color: green;
+ }
+
+ /* 
+width: 260px;
+    border: 0px;
+    text-align: left;
+      box-sizing: border-box;
+      overflow-wrap: break-word;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      margin: 0 15px;
+      margin-bottom: 20px;
+      color: rgba(58, 58, 58, 0.7);
+      float: none;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: 0px;
+      white-space: pre-line;
+      word-break:keep-all;
+       */
