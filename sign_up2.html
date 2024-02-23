@@ -3,6 +3,24 @@
 <head>
 	<meta charset="utf-8">
 	<title>회원가입</title>
+
+	<link rel="stylesheet" href="css/banner.css" />
+	<link rel="stylesheet" href="css/sign_up2.css" />
+	<link rel="stylesheet" href="css/footer.css" />
+	
+	<!-- 기본 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+	
+	<!-- 날씨 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="javascript/banner.js"></script>
+
 </head>
 
 <script src="javascript/sign_up2.js"></script>
@@ -14,7 +32,7 @@
 		margin: 50px auto;
 		border: 2px lightgray solid;
 		border-radius: 20px;
-		background-color: #e7f4ff;
+		background-color: #f5f5f5;
 	}
 	.title1{
 		font-size: 30px;
@@ -56,69 +74,135 @@
 
 </style>
 
-<!-- 구글폰트 다운 받아서 적용함 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Nanum+Gothic&display=swap" rel="stylesheet">
--->
-<link href="css/banner.css" rel="stylesheet" >
-<link href="css/default.css" rel="stylesheet" type="text/css">
+
+
 
 <body>
-<form>	
-	<header> 
-		<div id="logo">
-       		<a href="main.html"><img src="img/myT2.jpg" height="50px"></a>
+<form>  
+	<!-- 상단 -->
+	<div class="top">
+	<header>
+		<!-- 로고 -->
+		<a class="logo" href="main.html">
+		<img src="img/logo.png" alt="myT" height="35px">
+		</a>
+		<!-- 검색창 -->
+		<div class="search-container">
+		<button class="search-button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+			viewBox="0 0 1664 1664">
+			<path fill="#000000"
+				d="M1152 704q0-185-131.5-316.5T704 256T387.5 387.5T256 704t131.5 316.5T704 1152t316.5-131.5T1152 704m512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124q-143 0-273.5-55.5t-225-150t-150-225T0 704t55.5-273.5t150-225t225-150T704 0t273.5 55.5t225 150t150 225T1408 704q0 220-124 399l343 343q37 37 37 90">
+			</path>
+			</svg>
+		</button>
+		<input type="text" class="search-box">
 		</div>
-		<div id="topmenu">
-        <ul><a href="login.html">
-         	<li>로그인</li></a>
-            <a href="sign_up2.html"><li>회원가입</li></a>
-        </ul>
+		<!-- banner -->
+		<ul class="banner">
+		<!-- T플래너 -->
+		<li class="btop">
+			<a href="t_planner.html">T플래너</a>
+			<ul class="sub">
+			<a href="t_planner.html">
+				<li>
+				<img src="img/diary.png" width="20px" height="20px">
+				<p >myT플래너</p>
+				</li>
+			</a>
+			<a href="t_diary.html">
+				<li>
+				<img src="img/list.png" width="20px" height="20px">
+				<p>T플래너</p>
+				</li>
+			</a>
+			
+			</ul>
+		</li>
+		<!-- T다이어리 -->
+		<li class="btop">
+			<a href="t_diary.html">T다이어리</a>
+			<ul class="sub">
+			<a href="t_diary.html">
+				<li>
+				<img src="img/diary.png" width="20px" height="20px">
+				<p>myT다이어리</p>
+				</li>
+			</a>
+			<a  href="t_d_home.html">
+				<li>
+				<img src="img/list.png" width="20px" height="20px">
+				<p>T다이어리</p>
+				</li>
+			</a>
+			</ul>
+		</li> 
+		<!-- 여행정보 -->
+		<li class="btop">
+			<a href="t_info.html">여행정보</a>
+			<ul class="sub">
+			<a href="t_info.html">
+				<li>
+				<img src="img/mountain.png" width="20px" height="20px">
+				<p>관광지</p>
+				</li>
+			</a>
+			<a  href="festv.html">
+				<li>
+				<img src="img/festival.png" width="20px" height="20px">
+				<p>축제</p>
+				</li>
+			</a>
+			<a href="rest.html">
+				<li>
+				<img src="img/restaurant.png" width="20px" height="20px">
+				<p>레스토랑</p>
+				</li>
+			</a>
+			<a  href="hotel.html">
+				<li>
+				<img src="img/hotel.png" width="20px" height="20px">
+				<p>호텔</p>
+				</li>
+			</a>
+			</ul>
+		</li>
+		<!-- 예약 -->
+		<li class="btop">
+			<a href="t_info.html">예약</a>
+			<ul class="sub">
+			<a href="hotel_resv.html">
+				<li>
+				<img src="img/hotel.png" width="20px" height="20px">
+				<p>호텔</p>
+				</li>
+			</a>
+			<a href="air_resv.html">
+				<li>
+				<img src="img/airplane.png" width="20px" height="20px">
+				<p>항공권</p>
+				</li>
+			</a>
+			<a  href="car_resv.html">
+				<li>
+				<img src="img/car.png" width="20px" height="20px">
+				<p>차량</p>
+				</li>
+			</a>
+			</ul>
+		</li>
+		</ul> 
+		<!-- 날씨 -->
+		<div class="weather">
+		<img src="img/weather_sunny.svg" width="30px" height="30px">
+		<p>24℃</p>
 		</div>
+		<!-- 로그인 -->
+		<a href="login.html">
+		<p class="login">로그인</p>
+		</a>
 	</header>
-
-	<nav> 
-		<div id="menu">
-        <ul>
-            <li><a href="t_planner.html">T플래너</a></li>
-            <li  class="top"><a href="t_diary.html">T다이어리</a>
-            	<ul class="sub">
-              		<li><a href="t_diary.html">myT다이어리</a></li>
-              		<li><a href="t_d_home.html">T다이어리홈</a></li>
-            	</ul>
-          	</li>
-           	<li class="top"><a href="t_info.html">여행정보</a>
-           		<ul class="sub">
-             		<li><a href="t_spot.html">관광지</a></li>
-             		<li><a href="festv.html">축제</a></li>
-             		<li><a href="rest.html">레스토랑</a></li>
-            		<li><a href="hotel.html">호텔</a></li>
-           		</ul>
-          	</li>
-            <li class="top"><a href="t_info.html">예약</a>
-          		<ul class="sub">
-             		<li><a href="hotel_resv.html">호텔</a></li>
-             		<li><a href="air_resv.html">항공권</a></li>
-             		<li><a href="car_resv.html">차량</a></li>
-           		</ul>
-            </li>
-        </ul>
- 
-       <!-- 검색창 -->
- 		<div class="search-container">
-		  	<input type="text" class="search-box">
-		  	<button class="search-button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-		      viewBox="0 0 1664 1664">
-		      	<path fill="#263e50"
-		        d="M1152 704q0-185-131.5-316.5T704 256T387.5 387.5T256 704t131.5 316.5T704 1152t316.5-131.5T1152 704m512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124q-143 0-273.5-55.5t-225-150t-150-225T0 704t55.5-273.5t150-225t225-150T704 0t273.5 55.5t225 150t150 225T1408 704q0 220-124 399l343 343q37 37 37 90">
-		      	</path>
-		    </svg></button>
-		</div>
-    	</div>
-	</nav>
-
-   	<div class="line"></div>
+	</div>
+	<div class="bnav">/</div>
 
 	<!-- 본문 -->
 	<div id="bg">
@@ -146,17 +230,17 @@
 		<table border="0" cellpadding="9"align="center" style="margin-top: 45px">
 			<tr>
 				<td><label>아이디</label></td> 	
-				<td><input type="text" name="user_id" size="30" maxlength="15" value="6~15자 영문, 숫자의 조합" onfocus="clearText(this)">
+				<td><input type="text" name="user_id" size="30" maxlength="15" value="6~15자 영문, 숫자의 조합" class="engnum" onfocus="clearText(this)">
 					<button type="button" name="btn_id" class="btn" style="width: 113px; height: 37px; font-size: 14px;">중복확인</button> 
 				</td>
 			</tr>
 			<tr>
 				<td><label>비밀번호</label></td> 	
-				<td><input type="text" name="pwd" size="30" maxlength="15"  value="8~15자 영문, 숫자의 조합" onfocus="clearPasswd(this)"> </td> 
+				<td><input type="text" name="pwd" size="30" maxlength="15"  value="8~15자 영문, 숫자의 조합" class="engnum" onfocus="clearPasswd(this)"> </td> 
 			</tr>
 			<tr>
 				<td><label>비밀번호 확인</label></td> 	
-				<td><input type="password" name="pwd2" size="30" maxlength="15" onfocus="returnText()"> 
+				<td><input type="password" name="pwd2" size="30" maxlength="15" class="engnum" onfocus="returnText()"> 
 					<button type="button" name="btn_pwd" class="btn" style="width: 113px; height: 37px; font-size: 14px;" onclick="checkPasswd(this)">확인</button> 
 				</td> 
 			</tr>
@@ -173,11 +257,11 @@
 		</tr>
 			<tr>
 				<td><label>영문 성</label></td> 	
-				<td><input type="text" name="e_lastnm" size="30" maxlength="30"></td>
+				<td><input type="text" name="e_lastnm" size="30" maxlength="30" class="eng"></td>
 			</tr>
 			<tr>
 				<td><label>영문 이름</label></td> 	
-				<td><input type="text" name="e_firstnm" size="30" maxlength="30"></td>
+				<td><input type="text" name="e_firstnm" size="30" maxlength="30"  class="eng"></td>
 			</tr>
 			<tr>
 				<td><label>성별</label></td> 	
@@ -303,9 +387,9 @@
 			</tr>
 			<tr>
 				<td><label>이메일주소</label></td> 	
-				<td><input type="text" name="email" size="13" maxlength="15"> @
+				<td><input type="text" name="email" size="13" maxlength="15" class="engnum" > @
 					<input type="text" name="email1" size="8" maxlength="15"  disabled="true">
-					<select name="email2" style="width: 113px"  onchange="setEmail(this.value)">
+					<select name="email2" style="width: 113px"  class="eng" onchange="setEmail(this.value)">
 						<option value="0">선택</option>
 						<option value="naver.com">naver.com</option>
 						<option value="hanmail.net">hanmail.net</option>
@@ -345,12 +429,12 @@
 					<option>063</option>
 					<option>064</option>
 					</select>
-				 	- <input class="input2" type="text" name="phone1" size="4" maxlength="4" >
-					- <input class="input2" type="text" name="phone2" size="4" maxlength="4" style="text-align: center"></td>
+				 	- <input class="input2" type="text" name="phone1" size="4" maxlength="4" class="num" id="phone1">
+					- <input class="input2" type="text" name="phone2" size="4" maxlength="4" class="num"  id="phone2" style="text-align: center"></td>
 			</tr>
  			<tr>
 				<td><label>주소</label></td> 	
-				<td><input class="input2" type="text" name="post" size="5" maxlength="5">
+				<td><input class="input2" type="text" name="post" size="5" maxlength="5" id="post"  >
 					<button type="button" name="btn_post" style="width: 100px; height: 39px;">우편번호</button></td>
 			</tr>
 			<tr>
@@ -369,7 +453,24 @@
 		</table>
 	</div>
 	</div>
-
 </form>
+<footer>
+<div class="footer">
+<div class="footer_box1">
+  <p>주식회사 마이티 | 대표 정가현</p>
+  <p>사업자등록번호 649-88-37824</p>
+  <p>서울특별시 강남구 강남대로 428 10F</p>
+</div>
+<div class="footer_box1">
+  <p>대표번호 | 1588 - 1111</p>
+  <p>contact@myt.co.kr</p>
+  <p class="support"> 이용약관 | 개인정보처리방침 | 고객지원 | 1:1문의</p></div>
+<div class="footer_box2">
+<div><ul><li><img src="img/banner-appstore.png"  width="100px"></li><li><img src="img/banner-googleplay.png" width="100px"></li></ul></div>
+<div><img src="img/banner2.png"  height="30px"></div>
+</div>
+</div>
+</footer>
+
 </body>
 </html>
