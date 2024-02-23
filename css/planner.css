@@ -1,0 +1,270 @@
+/* 메인 검색 */
+.mainp {
+  display: block;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.mainp .psearch {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin: 0 auto;
+}
+
+select {
+  padding: 5px 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 2px solid #6f3a00;
+  border-radius: 5px;
+  color: #6f3a00;
+  cursor: pointer;
+  outline: none;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+option {
+  background-color: #6f3a00;
+  color: #ffffff;
+}
+
+.search-hash {
+  float: right;
+  display: flex;
+  justify-content: center;
+  border: 2px solid #6f3a00;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: white;
+  width: 500px;
+  height: 50px;
+  margin-left: 20px;
+  padding-left: 15px;
+}
+
+.search-hash a {
+  color: #dc8b35;
+  font-size: 25px;
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+.search-box {
+  border: none;
+  padding: 10px;
+  font-size: 25px;
+  width: 100%;
+}
+
+.search-box:focus {
+  outline: none;
+}
+
+.search-button {
+  background-color: #ffffff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  width: 30%;
+}
+
+/* 메인 카드 */
+.mainp .pplanner{
+  display: flex;
+  flex-direction: column;
+  width: 1300px;
+  height: 1770px;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.mainp .pplanner .pcards{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mainp .pplanner .splanner {
+  display: flex;
+  justify-content: space-between;
+  width: 360px;
+  padding: 10px;
+  margin: 0 25px;
+  margin-top: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mainp .pplanner .splanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  z-index: 2;
+  display: block;
+  width: 50%;
+  height: 100%;
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+  transform: skewX(-25deg);
+  opacity: 0;
+  transition: opacity 0.75s;
+}
+
+.mainp .pplanner .splanner:hover::before {
+  animation: shine .75s;
+}
+
+@keyframes shine {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    left: 125%;
+    opacity: 0;
+  }
+}
+
+.mainp .pplanner .splanner .pinfo {
+  display: inline-block;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.7);
+}
+
+.mainp .pplanner .splanner img {
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.mainp .pplanner .splanner .pfphotos {
+  display: flex;
+  justify-content: space-between;
+  position:relative;
+  align-items: center;
+  margin: 0 5px;
+  margin-top: 10px;
+}
+
+.mainp .pplanner .splanner .pfphotos .pfphoto {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-top: -40px;
+  margin-left: 10px;
+  padding: 0 0;
+  background-color: #6f3a00;
+}
+
+.mainp .pplanner .splanner .position {
+  display: flex;
+  width: 95%;
+  font-size: 15px;
+  font-weight: bold;
+  color: #dc8b35;
+  opacity: 0.7;
+  margin: 10px 0;
+  margin-left: 20px;
+}
+
+.mainp .pplanner .splanner .pinfo .title{
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+  margin-top: 20px;
+}
+
+.mainp .pplanner .splanner .text {
+  text-align: left;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  margin: 0 15px;
+  color: rgba(58, 58, 58, 0.7);
+  float: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0px;
+  white-space: pre-line;
+  word-break:keep-all;
+}
+
+/* 메인 카드 아이콘 */
+.mainp .pplanner .splanner .pinfo .cicon{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.mainp .pplanner .splanner .pinfo .cicon .ci{
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+}
+
+.mainp .pplanner .splanner .pinfo .cicon img{
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.mainp .pplanner .splanner .pinfo .cicon .ci a{
+  font-weight: bold;
+  font-size: 13px;
+}
+/* 메인 카드 페이지네이션 */
+.mainp .pplanner .paging {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1300px;
+  height: 50px;
+  margin: 50px auto;
+  margin-top: auto;
+}
+
+.mainp .pplanner .paging .pagination {
+  display: flex;
+  list-style: none;
+}
+
+.mainp .pplanner .paging .pagination a {
+  margin: 0 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.mainp .pplanner .paging .pagination a.page-number {
+  background-color: #ffeccc;
+  color: #333;
+}
+
+.mainp .pplanner .paging .pagination a.active {
+  background-color: #dc8b35;
+  color: white;
+}
+
+/* 화살표 버튼에 스타일 적용하지 않음 */
+.mainp .pplanner .paging .pagination a.left,
+.mainp .pplanner .paging .pagination a.right,
+.mainp .pplanner .paging .pagination a.double-left,
+.mainp .pplanner .paging .pagination a.double-right {
+  background-color: transparent;
+  color: inherit;
+}

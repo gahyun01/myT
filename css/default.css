@@ -1,0 +1,148 @@
+#bg {
+  width: 1300px;
+  margin: 0 auto;
+}
+
+
+#bg2 {
+  width: 1300px;
+  margin: 30px auto;
+
+}
+
+
+#caution {
+  width: 1300px;
+  margin: 30px auto;
+}
+
+#bgtop {
+  height: 360px;
+  background-image: url("../img/sky3.jpg");
+  background-size: 1903px 360px;
+}
+
+#bgtop_car {
+  height: 330px;
+  background-image: url("../img/bgcar.jpg");
+  background-size: 1903px 330px;
+}
+
+#bgtop_duty {
+  height: 330px;
+  background-image: url("../img/dutyfree.png");
+  background-size: 1903px 330px;
+}
+
+#choice {
+  width: 1300px;
+  height: 105px;
+  margin: 0 auto;
+
+}
+
+.choice0 {
+  float: left;
+  width: 200px;
+  height: 27px;
+  margin-top: 70px;
+  padding-top: 8px;
+  text-align: center;
+  font-weight: bold;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: white;
+  color: black;
+}
+
+/* 선택되지 않은 탭*/
+.choice_not {
+  background-color: #263e50;
+  color: white;
+}
+
+/* 가장 첫번째 이외의 탭*/
+.choice2 {
+  margin-left: 1px;
+}
+
+.choice2_duty {
+  background-color: #dc8b35;
+
+}
+
+.air_menu {
+  color: white;
+  text-decoration-line: none;
+}
+
+.air_menu:visited {
+  color: white;
+}
+
+.air_menu:hover {
+  text-decoration-line: underline;
+}
+
+#search {
+  width: 1300px;
+  height: 180px;
+  margin: 0 auto;
+  background-color: white;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+
+
+.title {
+  width: 200px;
+  height: 35px;
+  color: white;
+  text-align: center;
+  padding-left: 18px;
+  padding-right: 18px;
+  background-color: #5891BE;
+  font-weight: bold;
+}
+
+.btn {
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #263e50;
+  cursor: pointer;
+}
+    
+
+.text {
+  font-weight: bold;
+}
+
+
+.caution1 {
+  height: 40px;
+  margin-top: 15px;
+  padding-top: 21px;
+  padding-left: 30px;
+  font-weight: bold;
+  border: solid 1px lightgrey;
+}
+
+.caution2 {
+  height: 155px;
+  margin-top: 3px;
+  padding-top: 16px;
+  padding-left: 10px;
+  padding-bottom: 16px;
+  line-height: 170%;
+  border: solid 1px lightgrey;
+}
+
+#tour {
+  width: 1300px;
+  height: 300px;
+  margin-top: 30px;
+  border: solid 1px gray;
+}

@@ -1,0 +1,40 @@
+* {
+  font-size: 15px;
+}
+
+body {
+  min-width : 1610px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin: 0 0;
+}
+
+body a{
+  text-decoration: none;
+  color: black;
+}
+
+/* 상단 */
+header{
+  /*header has no width.*/
+  text-align: center;
+  background-color: #6F3A00;
+}
+
+header .banner {
+  display: flex;
+  justify-content: space-between;
+  width: 1300px;
+  height: 61px;
+}
+
+header .banner .logo{
+  width: 100px;
+  margin-top: 10px;
+}
+
+header .banner .posticon{
+  width: 30px;
+  margin-top: 30px;
+ }

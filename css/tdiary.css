@@ -1,0 +1,122 @@
+body{
+    margin: 0 0;
+}
+
+a{
+    color: black;
+    text-decoration-line: none;
+}
+
+body header{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    width: 100%;
+}
+
+body header .banner{
+    width: 1300px;
+    display: flex;
+    justify-content: space-between;		
+}
+
+header .banner .logo{
+    width: 100px;
+}
+
+header .banner .posticon{
+    width: 30px;
+    height: 30px;	
+    margin-top: 20px;
+}
+
+body .bgpic{
+    width: 100%;
+    height: 300px;
+    background-image: url('../img/tomato.jpg');
+}
+
+body .bgpic .bgdots{
+    width: 50px;
+}
+
+body section {
+    margin: 0 auto;
+    width: 900px;
+    height: 2000px; 
+    background-color: rgb(179, 250, 226);
+}
+
+section .prfpicmom{
+    display: inline-block;
+}
+
+section .prfpicmom #prfpic{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background-color: greenyellow;
+}
+
+section .prfpicmom #prfplus{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-left: -35px;
+    background-color: blue;
+}
+
+section .prfpicmom .prfcont{
+    display: inline-block;
+    font-size: 14px;
+}
+
+section .infbx
+{
+    font-size: 18px;
+}
+
+section article h4{
+    font-size: 14px;
+}
+
+
+/*
+
+.artc{
+    display: flex;
+    justify-content: center;
+    width: 1300px;
+    height: 700px;
+    padding: 20px;
+    border: 1px solid #dc8b35;
+    border-radius: 5px;
+}
+.artcbtn{
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    background-color: orange;
+    border: orange;
+    border-radius: 20px;
+    margin: 20px;
+    padding: 10px;
+}
+.artcpic{
+    display: inline-block;
+    width: 270px;
+    height: 280px;
+    margin: 20px;
+    background-color: green;
+}
+.gapbox{
+    display: inline-block;
+    width: 820px;
+    height: 100px;
+}
+
+#btnclk{
+    background-color: #6F3A00;
+    color: white;
+}
+*/
