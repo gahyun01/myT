@@ -26,7 +26,7 @@ $(document).ready(function(){
 	}
 
 	//	선택된 로우 색상 바꾸고 가격 계산해서 예상 결제금액에 셋팅
-	function setColor(tr){
+	function setSelected(tr){
 	   	tr.parent().children().css({				
 	   		"background-color" : "white"
 		});
@@ -45,8 +45,6 @@ $(document).ready(function(){
         td.each(function(i){
             tdArr.push(td.eq(i).text());
         });
-            
-        //console.log("배열에 담긴 값 : "+tdArr);
             
         // 	td.eq(index)를 통해 값을 가져올 수도 있다
         //	index 9가 가격임
@@ -94,6 +92,10 @@ $(document).ready(function(){
 		$('#gap0').hide();
 		$('#rtn_d').hide();
 
+		//	만약 돌아오는 여정 스케쥴 리스트가 있다면 닫고 다음여정 버튼을 탑승객 정보입력으로 바꿈
+		$('#rtn_list').hide();
+		$('#btn_next').text("탑승객 정보 입력");
+
 		$('.btn_trip0').attr('value', "1");
 		console.log("편도 셋팅값 : " + $('.btn_trip0').attr('value'));
 
@@ -121,6 +123,10 @@ $(document).ready(function(){
 		//	~ (gap) 과 오는 날 보이게 함
 		$('#gap0').show();
 		$('#rtn_d').show();
+
+		//	만약 돌아오는 여정 스케쥴 리스트가 있다면 닫고 혹시 변경되었을 다음여정 버튼을 재세팅함
+		$('#rtn_list').hide();
+		$('#btn_next').text("다음여정 선택");
 
 		$('.btn_trip0').attr('value', "2");
 		console.log("편도 셋팅값 : " + $('.btn_trip0').attr('value'));
@@ -379,9 +385,14 @@ $(document).ready(function(){
 		search_flight();
 	});
 
-	//	다음 여정 버튼 누르면 다음 여정 화면 보여주기
+	//	다음 여정 버튼 누르면 다음 여정 화면(왕복)/탑승자 정보입력(편도) 보여주기
 	$('#btn_next').click(function(){
-		$('#rtn_list').slideDown("slow");
+		//	왕복이면 오는 스케쥴 보여줌
+		if($('.btn_trip0').attr('value') == "2")
+			$('#rtn_list').slideDown("slow");
+		//	편도이면 탑승객 입력정보 버튼 누른 것과 같은 이벤트 발생
+		else
+			$('#per_info').trigger("click");
 	});
 
 	//	탑승객 정보 입력 버튼 누르면 탑승객 정보 입력 화면 보여주기
@@ -474,11 +485,55 @@ $(document).ready(function(){
 		}
 	}
 
-	// 테이블의 Row 클릭시 값 가져오기
+	// 가는 여정 테이블의 Row 클릭시 값 가져오기
     $("#tbl_dept tr").click(function(){    
 
-      	setColor($(this));
+      	var checkbox = $(this).find('td:first-child :checkbox');
+ 		//checkbox.attr('checked', !checkbox.is(':checked'));
+ 		console.log(checkbox);
+		//checkbox.prop('checked', true);
+		$(this).find('td:first-child :checkbox').prop('checked', true);
 
-    });    
+		// if(checkbox.prop('checked')){
+		// 	//	checkbox 전체를 해제 후 click한 요소만 true로 지정
+		// 	$('.chk_choice').prop('checked', false);
+		// 	myThis.prop('checked', true);
+		// }
+
+		// //	click 이벤트 발생했는지 체크
+		// if(myThis.prop('checked')){
+		// 	//	checkbox 전체를 해제 후 click한 요소만 true로 지정
+		// 	$('.chk_choice').prop('checked', false);
+		// 	myThis.prop('checked', true);
+		// }
+
+ 		//	선택한 row 색상 변경
+     	setSelected($(this));
+
+    	//	row를 선택해야 예상 결제가격과 버튼이 작동하게 함
+     	$('#btn_next').prop('disabled', false);
+
+    });  
+
+      
+
+    //	가는 여정의 날짜/가격 정보 클릭시
+    $('.tbl_sch').click(function(){
+    	console.log("선택된 날짜 " + $(this).text());
+    	console.log("부모 : " + $(this).parent().text());
+        
+        var tdArr = new Array();    // 배열 선언
+ 		var td = $(this).parent().children();;
+
+    	// 반복문을 이용해서 배열에 값을 담아 사용할 수 도 있다.
+        td.each(function(i){
+             tdArr.push(td.eq(i).text());
+             console.log(i + ": " + td.eq(i).text());
+       });
+
+		console.log("선택한 날짜 : " + td.eq(0).text());
+    	
+	});
+
 
 });

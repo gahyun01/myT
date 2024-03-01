@@ -1,6 +1,13 @@
 $(document).ready(function () {
   var timeoutId;
 
+  // 로그인 시 베너 변경
+  if (result === "SUCCESS") {
+    $("body form .top header .login").css('display', 'none');
+    $("body form .top header .prof").css('display', 'block');
+  }
+
+
   $('body .top header .banner .btop a').mouseenter(function() {
       clearTimeout(timeoutId); // 기존에 예약된 setTimeout 제거
       timeoutId = setTimeout(function() {

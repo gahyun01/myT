@@ -1,84 +1,32 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% String result = request.getParameter("RESULT"); %>
+<%@ page import="java.io.*" %>
 <html>
 
 <head>
   <meta charset="utf-8">
-  <title>기내면세품</title>
-  <style>
- 
-    #best {
-      width: 1300px;
-      height: 200px;
-      margin-top: 30px;
-      border: solid 1px gray;
-    }
+  <title>myT</title>
+  <link rel="stylesheet" href="css/banner.css" />
+  <link href="css/default.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/footer.css" />
 
-    #duty_menu {
-      width: 1300px;
-      height: 105px;
-      margin: 0 auto;
+  <!-- 기본 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  
+  <!-- 날씨 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
 
-    }
-
-    .duty_menu0 {
-      float: left;
-      width: 150px;
-      height: 27px;
-      margin-top: 295px;
-      padding-top: 8px;
-      text-align: center;
-      font-weight: bold;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-
-    }
-
-    /* 가장 첫번째 탭*/
-    .duty_menu1 {
-      background-color: #263e50;
-      color: white;
-    }
-
-    /* 가장 첫번째 이외의 탭*/
-    .duty_menu2 {
-      margin-left: 1px;
-      background-color: #263e50;
-      color: white;
-
-    }
-
-  </style>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="javascript/banner.js"></script>
 </head>
 
-<!-- 구s글폰트 다운 받아서 적용함 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Nanum+Gothic&display=swap" rel="stylesheet">
--->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="javascript/air_resv.js"></script>
-<link href="css/banner.css" rel="stylesheet" >
-<link href="css/footer.css" rel="stylesheet" >
-<link href="css/default.css" rel="stylesheet" type="text/css">
-<link href="css/air_resv.css" rel="stylesheet" type="text/css">
-
-<!-- 달력추가 -->
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
-<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
-
-<!-- 배너 기본 폰트 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-
-<!-- 배너 날씨 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
-
-<!-- 배너 스크립트 -->
-<script src="javascript/banner.js"></script>
+<% 
+  var result = (String) section.getAttribute("result");
+%>
 
 <body>
   <form>
@@ -200,33 +148,55 @@
           <p>24℃</p>
         </div>
         <!-- 로그인 -->
+        <img class="prof" src="img/Doong.jpg" width="50px" height="50px">
         <a href="login.html">
           <p class="login">로그인</p>
         </a>
       </header>
     </div>
     <div class="bnav">/</div>
+  </form>
 
-  <!-- 기본 바탕 하늘 이미지 -->
-  <div id="bgtop_duty">
-        <div id="duty_menu">
-          <div class="duty_menu0 duty_menu1"><a href="duty_free_list.html" class="air_menu">화장품</a></div>
-          <div class="duty_menu0 duty_menu2">향수</div>
-          <div class="duty_menu0 duty_menu2">패션잡화</div>
-          <div class="duty_menu0 duty_menu2">건강식품</div>
-          <div class="duty_menu0 duty_menu2">주류</div>
+  <section>
+  <div id="bg">
+    <div class="idx">
+      <div class="idx_top">
+        <div class="idx1">
+          <div id="idx1_1">내가 만들어가는<br>나만의 여행 플래너</div>
+          <div id="idx1_2">나만의 여행친구, 친구와의 여행을 기록하고 스케쥴링 해봐요.</div>
+          <div id="idx1_3"><input type="button" id="myt_btn" value="마이티 시작하기"/></div>
         </div>
+        <div class="idx2"></div>
+      </div><!-- idx_top-->
+      <div class="idx_bttm"><div id="idx_info">
+        <div id="idx_info1">myT 여행자들이 만든 일정 수</div><div id="idx_info_cnt">5,324</div>
+        <div id="idx_info1">여행지 수</div><div id="idx_info_cnt">96</div></div>
+      </div>
+    </div>
   </div>
+  </section>
+  <!--img src="img/main2.png" width="1300px" />
+  <img src="img/main3.png" width="1300px" />
+  <img src="img/main4.png" width="1300px" />
+  <img src="img/main5.png" width="1300px" /-->
 
-  <div id="bg2">
-    <div id="best">베스트상품
+  <footer>
+  <div class="footer">
+    <div class="footer_box1">
+      <p>주식회사 마이티 | 대표 정가현</p>
+      <p>사업자등록번호 649-88-37824</p>
+      <p>서울특별시 강남구 강남대로 428 10F</p>
     </div>
-    <div>
-        <div id="tour">고객님을 위한 추천상품
-        </div>
-    </div>
+    <div class="footer_box1">
+      <p>대표번호 | 1588 - 1111</p>
+      <p>contact@myt.co.kr</p>
+      <p class="support"> 이용약관 | 개인정보처리방침 | 고객지원 | 1:1문의</p></div>
+   <div class="footer_box2">
+    <div><ul><li><img src="img/banner-appstore.png"  width="100px"></li><li><img src="img/banner-googleplay.png" width="100px"></li></ul></div>
+    <div><img src="img/banner2.png"  height="30px"></div>
   </div>
-</form>
+  </div>
+</footer>
 </body>
 
 </html>

@@ -39,7 +39,7 @@ function checkAll(){
 			alert(warning);
 			tag[i].focus();
 			tag[i].select();
-			return;
+			return ok;
 		}				
 		warning = warning + str + "\n";
 	}
@@ -48,76 +48,86 @@ function checkAll(){
 	if(tag[8].checked){
 		warning = warning + "남성\n";
 	}
-	else{
+	else{	//	tag[9].checked
 		warning = warning + "여성\n";
 	}
 
-	// 생년월일
-	var select = document.getElementsByTagName('select');
-	for(i=0 ; i < select.length ; i++){	//	생년월일 3개 + 이메일 도메인1개 + 연락처 1개 -> 총5개
-		str = select[i].value;
-	
-		//	중간의 이메일 주소 입력창 확인
-		//	select[3] 이메일 도메인 선택창임
-		if(i == 3){
-			str = tag[10].value;	//	중간의 이메일 주소 입력창 확인
-			len = tag[10].value.length;
+	//	생년월일
+	str = tag[10].value;
+	len = tag[10].value.length;
 
-			if(len == 0){
-				ok = false;
-				warning = "이메일 주소를 입력하세요";
-			}else if(len < 6 || len > 15 ){
-				ok = false;
-				warning = "6~15자리 이메일 주소로 입력하세요";
-			}
+	if(len == 0){
+		ok = false;
+		warning = "생년월일을 입력하세요";
+		alert(warning);
+		tag[10].focus();	//	focus가 가면 자동으로 달력 창이 뜸
+		tag[10].select();
 
-			if(!ok){
-				alert(warning);
-				tag[10].focus();	//	중간의 이메일 주소 입력창 확인
-				tag[10].select();
-				return;
-			}
-			warning = warning + str + "\n";
-
-			str = tag[11].value;	//	중간의 이메일 주소 입력창 확인
-			len = tag[11].value.length;
-
-			//	이메일 도메인 칸이 비었거나 최소 5자리 미만일 경우
-			if(len == 0 || len < 5){
-				ok = false;
-				warning = "최소 5자리 이상의 이메일 도메인을 입력하세요";
-
-				alert(warning);
-
-				//	value == 1이면 직접입력이므로 tag[11]에 포커스가 가야 함
-				if(select[i].value == 0)
-					select[i].focus();
-				else if(select[i].value == 1)
-					tag[11].focus();
-
-				return;
-			}
-		}
-
-		if(str == "선택"){	//	특정값 선택전인 상태
-			ok = false;
-			if(i < 3)
-				warning = label[8].innerText + "을 선택하세요";	//	label[8] 부터 시작 : 생년월일
-			else 
-				warning = label[i+6].innerText + "를 선택하세요";	//	[9]이메일 주소 [10]연락처
-		}
-
-		if(!ok){
-			alert(warning);
-			select[i].focus();
-			return;
-		}				
-		warning = warning + str + "\n";
+		return ok;
 	}
+
+	//	이메일 주소
+	str = tag[11].value;	//	중간의 이메일 주소 입력창 확인
+	len = tag[11].value.length;
+
+	if(len == 0){
+		ok = false;
+		warning = "이메일 주소를 입력하세요";
+	}else if(len < 6 || len > 15 ){
+		ok = false;
+		warning = "6~15자리 이메일 주소로 입력하세요";
+	}
+
+	if(!ok){
+		alert(warning);
+		tag[11].focus();	//	이메일 주소 입력창 확인
+		tag[11].select();
+		return ok;
+	}
+	warning = warning + str + "\n";
+
+	var select = document.getElementsByTagName('select');	//	이메일 도메인1개 + 연락처 1개 -> 총2개
+	//	이메일 도메인 입력창 확인
+	str = tag[12].value;	
+	len = tag[12].value.length;
+
+	//	이메일 도메인 칸이 비었거나 최소 5자리 미만일 경우
+	if(len == 0 || len < 5){
+		ok = false;
+		warning = "최소 5자리 이상의 이메일 도메인을 입력하세요";
+
+		alert(warning);
+
+		//	value == 1이면 직접입력이므로 tag[12]에 포커스가 가야 함
+		if(select[0].value == 0)
+			select[0].focus();
+		else if(select[0].value == 1)
+			tag[12].focus();
+
+		return ok;
+
+	}
+	warning = warning + str;
+
+	//	연락처1 
+	str = select[1].value;
+
+	if(str == "선택"){	//	연락처가 특정값 선택전인 상태
+		ok = false;
+		warning = "연락처를 선택하세요";	//	[9]이메일 주소 [10]연락처
+	}
+
+	if(!ok){
+		alert(warning);
+		select[1].focus();
+		return ok;
+	}				
+	warning = warning + str + "\n";
+
 
 	//	연락처1 선택 후 4자리 연락처 넣으라고 한 후 포커스가 연락처2로 안감
 	//	tag[12] 연락처2, tag[13] 연락처3
-	for(i=12 ; i < 14 ; i++){	//	연락처2, 연락처3
+	for(i=13 ; i <= 14 ; i++){	//	연락처2, 연락처3
 		str = tag[i].value;
 		len = tag[i].value.length;
 
@@ -130,14 +140,14 @@ function checkAll(){
 			alert(warning);
 			tag[i].focus();
 			tag[i].select();
-			return;
+			return ok;
 		}
 		warning = warning + str + "\n";
 	}
 
 	// 주소의 우편번호 
-	str = tag[14].value;
-	len = tag[14].value.length;
+	str = tag[15].value;
+	len = tag[15].value.length;
 
 	if(len != 5){
 		ok = false;
@@ -146,13 +156,15 @@ function checkAll(){
 
 	if(!ok){
 		alert(warning);
-		tag[14].focus();
-		tag[14].select();
-		return;
+		//tag[15].focus();
+		//tag[15].select();
+		return ok;
 	}			
 	warning = warning + str;
 
 	alert(warning);
+
+	return ok;		//		true 리턴
 }
 
 /* 아이디 창 clear */
@@ -174,6 +186,16 @@ function checkPasswd(btn){
 	pwd2 = p2[0].value;
 
 	var msg = document.querySelector('#msg');		/* 선택자를 통해서 1개만 */
+
+	if(pwd.length == 0){
+		msg.textContent = "※ 비밀번호를 입력해주세요.";
+		p[0].focus();
+		return;
+	}else if(pwd2.length == 0){
+		msg.textContent = "※ 비밀번호 확인을 입력해주세요.";
+		p2[0].focus();
+		return;
+	}
 
 	if(pwd != pwd2){
 		//alert("비밀번호가 서로 다릅니다. 다시 입력해주세요.");
@@ -237,4 +259,19 @@ $(document).ready(function(){
 
 		console.log($(this).val());
 	});
+
+	//	날짜 클릭시 달력나옴
+	$(function() {
+		$('.datepicker').datepicker({
+			dateFormat:'yy-mm-dd',
+			monthNamesShort:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+			dayNamesMin:['일','월','화','수','목','금','토'],
+			changeMonth:true, // 월변경가능
+			changeYear:true,  // 년변경가능
+			minDate: "-75Y",
+			showMonthAfterYear:true // 년 뒤에 월표시
+	      }).datepicker("setDate", new Date());
+
+     });
+
 });

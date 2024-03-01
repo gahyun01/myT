@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -142,7 +142,11 @@
 <script src="javascript/banner.js"></script>
 
 <body>
-	<form>    
+	<!-- 확인 버튼 누르면 jsp 화면으로 넘어가는 법 -->
+	<!--form action="sign_up2_result.jsp" onsubmit="return checkAll()"-->    
+
+	<!-- 확인 버튼 누르면 servlet 화면으로 넘어가는 법 -->
+	<form action="sign_up2" onsubmit="return checkAll()">    
     <!-- 상단 -->
     <div class="top">
 		<header>
@@ -329,12 +333,12 @@
 			</tr>
 			<tr>
 				<td><label>성별</label></td> 	
-				<td><input type="radio" name="gender"  style="vertical-align:middle; margin-right: 10px;" checked />남
-					&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" style="vertical-align:middle; margin-right: 10px;"/>여</td>
+				<td><input type="radio" name="gender" value="1" style="vertical-align:middle; margin-right: 10px;" checked />남
+					&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="2" style="vertical-align:middle; margin-right: 10px;"/>여</td>
 			</tr>
 			<tr>
 				<td><label>생년월일</label></td> 
-				<td><input type="text" class="datepicker input2" size="10" maxlength="10" style="text-align: center;" />
+				<td><input type="text" name="birth" class="datepicker input2" size="10" maxlength="10" style="text-align: center;" />
 				</td>
 			</tr>
 			<tr>
@@ -386,24 +390,26 @@
 			</tr>
  			<tr>
 				<td><label>주소</label></td> 	
-				<td><input type="text" class="input2" id="sample6_postcode" size="5" maxlength="5" disabled="true"  style="text-align: center">
+				<td><input type="text" name="post" class="input2" id="sample6_postcode" size="5" maxlength="5" style="text-align: center">
 						<button type="button" name="btn_post" class="btn" style="width: 90px; height: 36px;" onclick="sample6_execDaumPostcode()" id="btn_post" >우편번호</button></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="text" id="sample6_address" placeholder="주소" size="30" maxlength="50" disabled="true">
+				<td><input type="text" name="addr1" id="sample6_address" placeholder="주소" size="30" maxlength="50">
 					<span id="guide" style="color:#999;display:none"></span>
 				</td>
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="text" id="sample6_detailAddress" placeholder="상세주소" size="20" maxlength="30">
-					<input type="text" class="input2" id="sample6_extraAddress" placeholder="참고항목" size="20">
+				<td><input type="text" name="addr2" id="sample6_detailAddress" placeholder="상세주소" size="20" maxlength="30">
+					<input type="text" name="addr3" class="input2" id="sample6_extraAddress" placeholder="참고항목" size="20">
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><br><button type="button" name="btn_submit" class="btn" 
-					style="width: 550px; height: 40px;" onclick="checkAll()">확 인</button>
+				<!--td colspan="2" align="center"><br><button type="submit" name="btn_submit" class="btn" 
+					style="width: 550px; height: 40px;" onclick="checkAll()">확 인</button-->
+				<td colspan="2" align="center"><br><button type="submit" name="btn_submit" class="btn" 
+					style="width: 550px; height: 40px;">확 인</button>
 				</td> 	
 			</tr>
 		</table>

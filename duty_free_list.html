@@ -3,22 +3,72 @@
 
 <head>
   <meta charset="utf-8">
-  <title>항공권 예약조회</title>
+  <title>기내면세품</title>
   <style>
- 
-    .cont {
-      height: 35px;
+    .bg1 {
+      width: 1300px;
+      margin: 0 auto;
+    }
+
+    .duty_list {
+      height: 30px;
+      margin-top: 15px;
+      border:solid 1px grey;
+    }
+
+    .list_menu0 {
+      float: left;
+      width: 150px;
+      height: 27px;
+      padding-top: 8px;
       text-align: center;
-      padding-left: 24px;
-      padding-right: 23px;
-      background-color: #e7f4ff;
+      font-weight: bold;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+
     }
 
-    .cont1 {
-      padding-left: 2px;
-      padding-right: 1px;
+    /* 가장 첫번째 탭*/
+    .list_menu1 {
+      background-color: #263e50;
+      color: white;
     }
 
+    /* 가장 첫번째 이외의 탭*/
+    .list_menu2 {
+      margin-left: 1px;
+      background-color: #263e50;
+      color: white;
+
+    }
+
+    .list_info{
+      float: right;
+      width: 250px;
+      margin-bottom: 10px;
+      border:solid 1px red;
+   
+    }
+
+    #guest {
+      width: 990px;
+      margin-top: 20px;
+    }
+
+    #guest_info {
+      width: 990px;
+      height: 200px;
+      border: solid 1px lightgrey;
+    }
+
+    #fixed_pay {
+      position: fixed;
+      width: 300px;
+      height: 410px;
+      top: 335px;
+      left: 1300px;
+      border: solid 1px lightgrey;
+    }
   </style>
 
 </head>
@@ -178,69 +228,37 @@
       </header>
     </div>
     <div class="bnav">/</div>
-
-  <!-- 기본 바탕 하늘 이미지 -->
-  <div id="bgtop">
-    <div id="choice">
-      <div class="choice0 choice_not"><a class="air_menu" href="air_resv.html">항공권 예매</a></div>
-      <div class="choice0 choice2">예약조회</div>
-      <div class="choice0 choice2 choice_not"><a class="air_menu" href="air_seat.html">좌석 지정</a></div>
-      <div class="choice0 choice2 choice_not"><a class="air_menu" href="air_meal.html">기내식 신청</a></div>
-      <div class="choice0 choice2 choice_not"><a class="air_menu" href="air_service.html">기타 서비스 신청</a></div>
-      <div class="choice0 choice2 choice2_duty"><a class="air_menu" href="duty_free.html">기내면세품</a></div>
-    </div>
-    <div id="search">
-    </div>
-  </div>
-
-  <div id="bg2">
-    <div>
-      <table border="0" cellspacing="0">
-        <tr>
-          <td class="title" style="border-top-left-radius: 10px">항공 예약번호</td>
-          <td class="title">비행기편명</td>
-          <td class="title" colspan="3">출발지/도착지</td>
-          <td class="title">비행일자</td>
-          <td class="title" colspan="3">출발/도착시간</td>
-          <td class="title">소요시간</td>
-          <td class="title">탑승자명</td>
-          <td class="title">금액</td>
-          <td class="title">결제일자</td>
-          <td class="title" style="border-top-right-radius: 10px">취소</td>
-        </tr>
-        <tr>
-          <td class="cont">2024011500000000000</td>
-          <td class="cont">KE725</td>
-          <td class="cont">서울</td>
-          <td class="cont cont1">-></td>
-          <td class="cont">오사카</td>
-          <td class="cont">02월07일(수)</td>
-          <td class="cont">09:00</td>
-          <td class="cont cont1">-></td>
-          <td class="cont">10:45</td>
-          <td class="cont">1시간45</td>
-          <td class="cont">홍길동</td>
-          <td class="cont">288,000</td>
-          <td class="cont">01월15일</td>
-          <td class="cont cont2"><input type="checkbox" name=“cancel” value="1"></td>
-        </tr>
-      </table><br><br>
-    </div>
-    <div>
-      <div class="caution1">
-        알아두세요!
+ 
+    <div id="bg">
+      <div class="duty_list">
+          <div class="list_menu0 list_menu1"><a href="duty_free_list.html" class="air_menu">화장품</a></div>
+          <div class="list_menu0 list_menu2">향수</div>
+          <div class="list_menu0 list_menu2">패션잡화</div>
+          <div class="list_menu0 list_menu2">건강식품</div>
+          <div class="list_menu0 list_menu2">주류</div>
+          <div class="list_info"><span>환율 : \1,325원</span>
+              <span style="margin-left: 15px;">
+              <!-- iconhunt 사이트에서 아이콘 가져옴 
+              <button style="background-color: #ffffff; border: none; cursor: pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><g fill="none"><path stroke="#000000" stroke-linecap="round" stroke-width="2" d="M4 4h1.626c.567 0 .85 0 1.076.124a1 1 0 0 1 .25.195c.175.189.244.464.381 1.014l.182.727c.101.404.152.606.23.776a2 2 0 0 0 1.446 1.13C9.375 8 9.583 8 10 8v0"></path><path stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 17H7.55c-.145 0-.218 0-.274-.006a1 1 0 0 1-.867-1.203a3.07 3.07 0 0 1 .081-.262v0c.052-.154.077-.231.106-.3a2 2 0 0 1 1.698-1.224C8.368 14 8.45 14 8.611 14H14"></path><path stroke="#000000" stroke-linecap="round" stroke-width="2" d="M14.528 14h-3.554c-1.216 0-1.824 0-2.293-.275a1.999 1.999 0 0 1-.521-.442c-.35-.418-.45-1.018-.649-2.217c-.203-1.215-.304-1.823-.063-2.273a1.5 1.5 0 0 1 .408-.482C8.26 8 8.876 8 10.108 8h6.656c1.45 0 2.175 0 2.469.474c.293.475-.032 1.123-.68 2.42l-.447.895c-.538 1.076-.807 1.614-1.29 1.912c-.484.299-1.085.299-2.288.299Z"></path><circle cx="17" cy="20" r="1" fill="#000000"></circle><circle cx="9" cy="20" r="1" fill="#000000"></circle></g></svg></button>
+              -->
+              <a href="duty_free_list.html"><img src="img/basket.png" height="27px" style="border: solid 1px red;">장바구니</a></span>
+            </div>
+         
       </div>
-      <div class="caution2">
-        <ul>
-          <li>각 운임에 따라 기본 위탁 수하물 허용량이 제공되며, 수하물 추가 구매 시에는 별도 요금이 부과됩니다.</li>
-          <li>"항공운임 등 총액"은 유류할증료와 세금을 포함한 총 운임으로 구매 시점과 환율에 따라 변동될 수 있습니다.</li>
-          <li>출발/도착 시간은 현지 시간 기준이며, 항공기 스케줄은 정부인가 조건으로 예고 없이 변경될 수 있습니다.</li>
-          <li>공동운항편의 탑승 및 기내서비스는 운항사의 규정을 따릅니다.</li>
-          <li>할인 운임을 구매하고 싶으신 경우 예약 취소 후 재구매하여 주시기 바랍니다.</li>
-        </ul>
+
+      <div class="bg1">
+        <div id="guest">
+          <div id="guest_info">승객 정보입력
+          </div>
+
+          <div id="guest_info" style="margin-top: 10px">승객 기타정보입력(연락처..)
+          </div>
+        </div>
       </div>
+
+      <div id="fixed_pay">결제정보</div>
+
     </div>
-  </div>
   </form>
 </body>
 

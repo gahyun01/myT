@@ -1,87 +1,38 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 
 <head>
   <meta charset="utf-8">
-  <title>기내면세품</title>
+  <title>myT</title>
+  <link rel="stylesheet" href="css/banner.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <!-- 기본 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  
+  <!-- 날씨 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="javascript/banner.js"></script>
+  <script src="javascript/login.js"></script>
+
   <style>
- 
-    #best {
-      width: 1300px;
-      height: 200px;
-      margin-top: 30px;
-      border: solid 1px gray;
-    }
-
-    #duty_menu {
-      width: 1300px;
-      height: 105px;
-      margin: 0 auto;
-
-    }
-
-    .duty_menu0 {
-      float: left;
-      width: 150px;
-      height: 27px;
-      margin-top: 295px;
-      padding-top: 8px;
+    .login {
       text-align: center;
-      font-weight: bold;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
 
     }
-
-    /* 가장 첫번째 탭*/
-    .duty_menu1 {
-      background-color: #263e50;
-      color: white;
-    }
-
-    /* 가장 첫번째 이외의 탭*/
-    .duty_menu2 {
-      margin-left: 1px;
-      background-color: #263e50;
-      color: white;
-
-    }
-
   </style>
-
 </head>
 
-<!-- 구s글폰트 다운 받아서 적용함 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Nanum+Gothic&display=swap" rel="stylesheet">
--->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="javascript/air_resv.js"></script>
-<link href="css/banner.css" rel="stylesheet" >
-<link href="css/footer.css" rel="stylesheet" >
-<link href="css/default.css" rel="stylesheet" type="text/css">
-<link href="css/air_resv.css" rel="stylesheet" type="text/css">
-
-<!-- 달력추가 -->
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
-<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
-
-<!-- 배너 기본 폰트 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-
-<!-- 배너 날씨 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
-
-<!-- 배너 스크립트 -->
-<script src="javascript/banner.js"></script>
-
 <body>
-  <form>
+  <form action="logcookie.jsp" onsubmit="return AllCheck()" method="get">
     <!-- 상단 -->
     <div class="top">
       <header>
@@ -207,26 +158,66 @@
     </div>
     <div class="bnav">/</div>
 
-  <!-- 기본 바탕 하늘 이미지 -->
-  <div id="bgtop_duty">
-        <div id="duty_menu">
-          <div class="duty_menu0 duty_menu1"><a href="duty_free_list.html" class="air_menu">화장품</a></div>
-          <div class="duty_menu0 duty_menu2">향수</div>
-          <div class="duty_menu0 duty_menu2">패션잡화</div>
-          <div class="duty_menu0 duty_menu2">건강식품</div>
-          <div class="duty_menu0 duty_menu2">주류</div>
+    <div class="lpage">
+      <!-- 로그인, 회원가입 버튼 -->
+      <div class="title">
+        <a href="login.html" class="login">
+          <p>
+            로그인
+          </p>
+        </a>
+        <a href="sign_up2.html" class="sign">
+          <p>
+            회원가입
+          </p>
+        </a>
+      </div>
+      <div class="main">
+        <div class="position">
+          <!-- 아이디, 비밀번호 -->
+          <div class="id">
+            <img src="img/lperson.png" width="30px" height="30px" />
+            <input type="text" name="user_id" placeholder="아이디" />
+          </div>
+          <div class="pwd">
+            <img src="img/loglock.png" width="30px" height="30px" />
+            <input type="password" name="pwd" placeholder="비밀번호" />
+          </div>
+          <!-- 아이디 저장하기, 로그인 상태 유지 -->
+          <div class="check">
+            <div class="idcheck" name="idcheck">
+              <img src="img/logcheck.png" width="18px" height="18px"/>
+              <p>아이디 저장하기</p>
+            </div><div class="logcheck">
+              <img src="img/logcheck.png" width="18px" height="18px"/>
+              <p>로그인 상태 유지</p>
+            </div>
+          </div>
+          <p class="error">아이디 또는 비밀번호를 잘못 입력했습니다.</p>
+          <input type="submit" value="로그인" class="loginbtn"/>
         </div>
-  </div>
+      </div>
+      <!-- 아이디/비밀번호 찾기 -->
+      <p class="find">아이디/비밀번호 찾기</p>
+    </div>
+  </form>
 
-  <div id="bg2">
-    <div id="best">베스트상품
+  <footer>
+    <div class="footer">
+    <div class="footer_box1">
+      <p>주식회사 마이티 | 대표 정가현</p>
+      <p>사업자등록번호 649-88-37824</p>
+      <p>서울특별시 강남구 강남대로 428 10F</p>
     </div>
-    <div>
-        <div id="tour">고객님을 위한 추천상품
-        </div>
+    <div class="footer_box1">
+      <p>대표번호 | 1588 - 1111</p>
+      <p>contact@myt.co.kr</p>
+      <p class="support"> 이용약관 | 개인정보처리방침 | 고객지원 | 1:1문의</p></div>
+    <div class="footer_box2">
+    <div><ul><li><img src="img/banner-appstore.png"  width="100px"></li><li><img src="img/banner-googleplay.png" width="100px"></li></ul></div>
+    <div><img src="img/banner2.png"  height="30px"></div>
     </div>
-  </div>
-</form>
+    </div>
+  </footer>
 </body>
-
 </html>

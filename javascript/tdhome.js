@@ -31,6 +31,38 @@ $(document).ready(function(){
 		images.eq(currentImageIndex).show(); // 이전 이미지 표시
 	}
 
+	//클릭시 하트, 북마크 색채우기
+	var heartbl = "false";
+	$('#heart').click(function(){
+		if(heartbl == "true"){
+			$('#heart').attr('src','img/heart.png');
+			heartbl = "false";
+		} else{
+			$('#heart').attr('src','img/heartc.png');
+			heartbl = "true";
+		}
+	});
+
+	var bmarkbl = "false";
+	$('#bmark').click(function(){
+		if(bmarkbl == "true"){
+			$('#bmark').attr('src','img/bookmark.png');
+			bmarkbl = "false";
+		} else{
+			$('#bmark').attr('src','img/bookmarkc.png');
+			bmarkbl = "true";
+		}
+	});
+
+	//공유
+	$('#share').click(function(){
+		$('.share').show();
+	});
+
+	$('#sclose').click(function(){
+		$('.share').hide();
+	});
+
 	//댓글 추가기능
 	$('.btn').click(function(){
 		
@@ -62,29 +94,6 @@ $(document).ready(function(){
 		} else {
 			$(this).attr('src','img/heart.png');
 			$(this).data('clicked', 'false');
-		}
-	});
-
-		//클릭시 하트, 북마크 색채우기
-	var heartbl = "false";
-	$('#heart').click(function(){
-		if(heartbl == "true"){
-			$('#heart').attr('src','img/heart.png');
-			heartbl = "false";
-		} else{
-			$('#heart').attr('src','img/heartc.png');
-			heartbl = "true";
-		}
-	});
-
-	var bmarkbl = "false";
-	$('#bmark').click(function(){
-		if(bmarkbl == "true"){
-			$('#bmark').attr('src','img/bookmark.png');
-			bmarkbl = "false";
-		} else{
-			$('#bmark').attr('src','img/bookmarkc.png');
-			bmarkbl = "true";
 		}
 	});
 
