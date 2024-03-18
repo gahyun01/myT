@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>차량 예약</title>
+  <style>
+  
+   .title_car {
+      height: 35px;
+      color: white;
+      text-align: center;
+      padding-left: 18px;
+      padding-right: 18px;
+      background-color: #dc8b35;
+      font-weight: bold;
+    }
+
+    .cont {
+      height: 35px;
+      text-align: center;
+      padding-left: 21px;
+      padding-right: 21px;
+      background-color: #FFECCC;
+    }
+
+    .cont1 {
+      padding-left: 1px;
+      padding-right: 0px;
+    }
+
+
+   #car {
+      width: 1300px;
+      height: 200px;
+      margin-top: 30px;
+      border: solid 1px gray;
+    }
+ 
+  </style>
+
+</head>
+
+<!-- 구s글폰트 다운 받아서 적용함 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Nanum+Gothic&display=swap" rel="stylesheet">
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="javascript/air_resv.js"></script>
+<link href="css/banner.css" rel="stylesheet" >
+<link href="css/footer.css" rel="stylesheet" >
+<link href="css/default.css" rel="stylesheet" type="text/css">
+<link href="css/air_resv.css" rel="stylesheet" type="text/css">
+
+<!-- 달력추가 -->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+
+<!-- 배너 기본 폰트 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+<!-- 배너 날씨 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+
+<!-- 배너 스크립트 -->
+<script src="javascript/banner.js"></script>
+
+<body>
+  <form>
+    <!-- 상단 -->
+    <div class="top">
+      <header>
+        <!-- 로고 -->
+        <a class="logo" href="index.html">
+          <img src="img/logo.png" alt="myT" height="35px">
+        </a>
+        <!-- 검색창 -->
+        <div class="search-container">
+          <button class="search-button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+              viewBox="0 0 1664 1664">
+              <path fill="#000000"
+                d="M1152 704q0-185-131.5-316.5T704 256T387.5 387.5T256 704t131.5 316.5T704 1152t316.5-131.5T1152 704m512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124q-143 0-273.5-55.5t-225-150t-150-225T0 704t55.5-273.5t150-225t225-150T704 0t273.5 55.5t225 150t150 225T1408 704q0 220-124 399l343 343q37 37 37 90">
+              </path>
+            </svg>
+          </button>
+          <input type="text" class="search-box">
+        </div>
+        <!-- banner -->
+        <ul class="banner">
+          <!-- T플래너 -->
+          <li class="btop">
+            <a href="t_planner.html">T플래너</a>
+            <ul class="sub">
+              <a href="t_planner.html">
+                <li>
+                  <img src="img/diary.png" width="20px" height="20px">
+                  <p >myT플래너</p>
+                </li>
+              </a>
+              <a href="t_planner.html">
+                <li>
+                  <img src="img/list.png" width="20px" height="20px">
+                  <p>T플래너</p>
+                </li>
+              </a>
+              
+            </ul>
+          </li>
+        <!-- T다이어리 -->
+          <li class="btop">
+            <a href="t_diary.html">T다이어리</a>
+            <ul class="sub">
+              <a href="t_diary.html">
+                <li>
+                  <img src="img/diary.png" width="20px" height="20px">
+                  <p>myT다이어리</p>
+                </li>
+              </a>
+              <a  href="t_d_home.html">
+                <li>
+                  <img src="img/list.png" width="20px" height="20px">
+                  <p>T다이어리</p>
+                </li>
+              </a>
+            </ul>
+          </li> 
+        <!-- 여행정보 -->
+          <li class="btop">
+            <a href="t_info.html">여행정보</a>
+            <ul class="sub">
+              <a href="t_info.html">
+                <li>
+                  <img src="img/mountain.png" width="20px" height="20px">
+                  <p>관광지</p>
+                </li>
+              </a>
+              <a  href="festv.html">
+                <li>
+                  <img src="img/festival.png" width="20px" height="20px">
+                  <p>축제</p>
+                </li>
+              </a>
+              <a href="rest.html">
+                <li>
+                  <img src="img/restaurant.png" width="20px" height="20px">
+                  <p>레스토랑</p>
+                </li>
+              </a>
+              <a  href="hotel.html">
+                <li>
+                  <img src="img/hotel.png" width="20px" height="20px">
+                  <p>호텔</p>
+                </li>
+              </a>
+            </ul>
+          </li>
+        <!-- 예약 -->
+          <li class="btop">
+            <a href="air_resv.html">예약</a>
+            <ul class="sub">
+              <a href="hotel_resv.html">
+                <li>
+                  <img src="img/hotel.png" width="20px" height="20px">
+                  <p>호텔</p>
+                </li>
+              </a>
+              <a href="air_resv.html">
+                <li>
+                  <img src="img/airplane.png" width="20px" height="20px">
+                  <p>항공권</p>
+                </li>
+              </a>
+              <a  href="car_resv.html">
+                <li>
+                  <img src="img/car.png" width="20px" height="20px">
+                  <p>차량</p>
+                </li>
+              </a>
+            </ul>
+          </li>
+        </ul> 
+        <!-- 날씨 -->
+        <div class="weather">
+          <img src="img/weather_sunny.svg" width="30px" height="30px">
+          <p>24℃</p>
+        </div>
+        <!-- 로그인 -->
+        <a href="login.html">
+          <p class="login">로그인</p>
+        </a>
+      </header>
+    </div>
+    <div class="bnav">/</div>
+
+  <!-- 기본 바탕 하늘 이미지 -->
+  <div id="bgtop_car">
+    <div id="choice">
+      <div class="choice0">차량 예약</div>
+
+    </div>
+    <div id="search">
+    </div>
+  </div>
+
+  <div id="bg2">
+    <div>
+      <table border="0" cellspacing="0">
+          <tr>
+            <td class="title_car" style="border-top-left-radius: 10px">차량 예약번호</td>
+            <td class="title_car">차량종류</td>
+            <td class="title_car">운행도시</td>
+            <td class="title_car">상세주소</td>
+            <td class="title_car">예약일자</td>
+            <td class="title_car">출발시간</td>
+            <td class="title_car">종료시간</td>
+            <td class="title_car">사용시간</td>
+            <td class="title_car">예약자명</td>
+            <td class="title_car">금액</td>
+            <td class="title_car">결제일자</td>
+            <td class="title_car" style="border-top-right-radius: 10px">취소</td>
+          </tr>
+          <tr>
+            <td class="cont">2024011500000000000</td>
+            <td class="cont">4인승</td>
+            <td class="cont">서울</td>
+            <td class="cont">남산 힐튼호텔</td>
+            <td class="cont">02월07일(수)</td>
+            <td class="cont">09:00</td>
+            <td class="cont">12:00</td>
+            <td class="cont">3시간</td>
+            <td class="cont">홍길동</td>
+            <td class="cont">8,000</td>
+            <td class="cont">01월15일</td>
+            <td class="cont"><input type="checkbox" name=“cancel” value="1"></td>
+          </tr>
+      </table><br><br>
+    </div>
+    <div id="car">차량 예약(선택)부분
+    </div>
+    <div>
+        <div id="tour">추천관광지 리스트
+        </div>
+    </div>
+  </div>
+</form>
+</body>
+
+</html>
