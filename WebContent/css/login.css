@@ -1,0 +1,161 @@
+button{
+    padding-block: 0px;
+    padding-inline: 0px;
+}
+
+.lpage{
+    text-align: center;
+    width: 100%;
+}
+
+/* 濡쒓렇�씤 �쉶�썝媛��엯 踰꾪듉 */
+.lpage .title{
+    z-index: 1; 
+    display: flex;
+    justify-content: start;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+.lpage .title a{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 100px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 0 10px;
+    padding-bottom: 30px;
+}
+
+.lpage .title .login,
+.lpage .title .signs{
+    color: #263e50;
+    box-shadow: 0px 0px 5px rgba(90, 90, 90, 0.7);
+    margin-right: 5px;
+    margin-left: 1.5px;
+}
+
+.lpage .title .sign,
+.lpage .title .logins{
+    color: white;
+    z-index: 1;
+    background-color: #263e50;
+}
+
+.lpage .title a p{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+/* 濡쒓렇�씤 �뤌 */
+.lpage .main{
+    z-index: 2;
+    position: relative;
+    display: inline-block;
+    text-align: start;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(90, 90, 90, 0.7);
+    border-radius: 10px;
+    width: 500px;
+    height: 330px;
+    margin: 0 auto;
+    margin-top: -35px;
+}
+
+.lpage .main .position{
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+}
+
+.lpage .main img{
+    opacity: 0.7;
+}
+
+.lpage .main input{
+    width: 300px;
+    height: 30px;
+    border: none;
+    font-size: 18px;
+    margin-left: 30px;
+}
+
+input:focus {outline:none;}
+
+.lpage .main .id{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1.5px solid #263e50;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.lpage .main .pwd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1.5px solid #263e50;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: -1.5px;
+}
+
+.lpage .main .check{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 450px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.lpage .main .check p{
+    margin: 0 0;
+}
+
+.lpage .main .check div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.lpage .main .position .loginbtn{
+    color: white;
+    background-color: #263e50;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 423px;
+    height: 51px;
+    margin-bottom: 20px;
+}
+
+.lpage .find{
+    margin-left: 300px;
+    margin-top: 5px;
+    margin-bottom: 165px;
+}
+
+
+.msg{
+    width: 300px;
+    height: 15px;
+    font-size: 15px;
+    color: red;
+    margin-top: 0px;
+    margin-left: 150px;
+}
