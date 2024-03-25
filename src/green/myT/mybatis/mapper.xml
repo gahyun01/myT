@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="55">
+<select id="select1" resultType="dto.User">
+	SELECT * FROM USER;
+</select>
+
+<insert id="insert1" parameterType="dto.User"> 
+    INSERT INTO USER VALUES (#{uid}, #{uname}, #{unum}) 
+</insert>
+
+<delete id="delete1" parameterType="String"> 
+    DELETE FROM USER WHERE UID = ${uid} 
+</delete> 
+
+<update id="update1" parameterType="dto.User"> 
+    UPDATE USER SET UNAME = #{uname}, UNUM = #{unum} WHERE UID = #{uid} 
+</update>    
+   
+</mapper>
