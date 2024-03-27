@@ -80,55 +80,6 @@ section article h4{
     font-size: 14px;
 }
 
-body .changeimg{
-    position: fixed;
-    z-index: 1;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: wheat;
-    border: 2px solid blue;
-    width: 440px;
-    height: 600px;
-    padding: 10px;
-}
-
-body .changeimg .title{
-    display: flex;
-    justify-content: space-between;
-}
-
-body .changeimg .title img{
-    width: 20px;
-    height: 20px;
-}
-
-body .changeimg .mdfimg{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-body .changeimg .mdfimg #circleimg{
-    position: absolute;
-}
-
-body .changeimg input{
-    margin-bottom: 10px;
-}
-
-body .changeimg .mdfimg img{
-    width: 200px;
-    height: 200px;
-}
-
-body .changeimg .carryimg img{
-
-    width: 100px;
-    height: 100px;
-    overflow-y: auto;
-}
 
 /*
 

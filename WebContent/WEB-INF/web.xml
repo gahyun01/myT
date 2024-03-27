@@ -1,10 +1,20 @@
-<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+<?xml version="1.0"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
 	<!-- <servlet>
-		<servlet-name>Adder</servlet-name>
-		<servlet-class>AdderServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Adder</servlet-name>
-		<url-pattern>/Adder</url-pattern>
-	</servlet-mapping> -->
+			<servlet-name>Adder</servlet-name>
+			<servlet-class>AdderServlet</servlet-class>
+		</servlet>
+		<servlet-mapping>
+			<servlet-name>Adder</servlet-name>
+			<url-pattern>/Adder</url-pattern>
+		</servlet-mapping> -->
+	<servlet>
+    	<servlet-name>aa</servlet-name>
+    	<servlet-class>green.myT.dao.Controller</servlet-class>
+    </servlet>
+
+   <servlet-mapping>
+      <servlet-name>aa</servlet-name>
+      <url-pattern>*.myT</url-pattern>
+   </servlet-mapping>
 </web-app>

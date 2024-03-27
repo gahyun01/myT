@@ -19,7 +19,7 @@ body form .top{
   display: flex;
   justify-content: center;
   align-items: center;
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   height: 61px;
@@ -149,7 +149,7 @@ body form .bnav{
   z-index: 1;
   top: 61px;
   width: 100%;
-  height: 190px;
+  height: 180px;
   background-color: #263e50;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -200,7 +200,7 @@ body form .top header .profp {
   margin-left: 30px;
 }
 
-.profp .prof{
+.profp .prof {
   border-radius: 50%;
 }
 

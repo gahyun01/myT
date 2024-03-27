@@ -1,0 +1,72 @@
+
+ /* 메인 */
+ section{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+ }
+ 
+ section .cardpage{
+    display: block;
+    width: 1000px;
+    margin-bottom: 30px;
+ }
+ 
+ /* 게시물 카드 */
+ section .cardpage .card{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+    width: 800px;
+    height: 800px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+ 
+section .cardpage .card table{
+	border-collapse : collapse;
+}
+
+section .cardpage .card table .td{
+	border-bottom : 1px solid black;
+	padding: 3px;
+}
+
+section .cardpage .card table .rvNo{
+	width : 50px;
+	text-align: center;
+}
+
+section .cardpage .card table .title{
+	width : 300px;
+}
+
+section .cardpage .card table .userId{
+	width : 100px;
+}
+
+section .cardpage .card table .festTime{
+	width : 120px;
+	text-align: center;
+}
+
+section .cardpage .card table .festCnt{
+	width : 80px;
+}
+
+section .cardpage .card table .festRstars{
+	width : 80px;
+}
+
+section .cardpage .write{
+	position: relative;
+}
+
+section .cardpage .write a{
+	position: absolute;
+	right: 0;
+	}

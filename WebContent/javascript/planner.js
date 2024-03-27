@@ -311,7 +311,7 @@ startAutoSlide();
 
 
   // 메인 페이지
-  // 플래너 페이지네이션 ( 페이징 )
+  // 플래너 페이지네이션 ( 페이지네이션 )
   const itemsPerPage = 9;
   const items = $('.pplanner .splanner');
   const totalItems = items.length;

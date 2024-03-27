@@ -10,7 +10,7 @@ footer .footer {
   width: 1300px;
 }
 
-footer .footer p {
+footer .footer p, footer .footer a {
   font-size: 12px;
   color: #000;
 }
