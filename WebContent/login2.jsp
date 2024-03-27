@@ -16,6 +16,7 @@
 //	}
 
 	//	DB 접숙해서 아이디 비번이 맞는지 확인
+	// DB 접속을 위한 변수 선언
 	Connection conn = null;
 	Statement stmt = null;
 	
@@ -32,9 +33,9 @@
 		ResultSet rs = stmt.executeQuery("SELECT PWD, K_LASTNM, K_FIRSTNM FROM MEMBER WHERE USER_ID = '" + id + "';");
 		
 		//	해당 id에 대한 정보가 있는 경우(회원)
-		if(rs.next()){
+		if(rs.next()){	// rs.next()는 해당 id에 대한 정보가 있으면 true, 없으면 false를 반환
 			String db_pwd = rs.getString("pwd");
-			String db_name = rs.getString("k_lastnm") + rs.getString("k_firstnm");;
+			String db_name = rs.getString("k_lastnm") + rs.getString("k_firstnm");
 			
 			//	비번이 같을 경우
 			if(db_pwd.equals(pwd)){

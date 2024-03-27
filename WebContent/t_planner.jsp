@@ -6,16 +6,17 @@
   <title>myT</title>
   <link rel="stylesheet" href="css/mytbtop.css" />
   <link rel="stylesheet" href="css/planner.css" />
-  <link rel="stylesheet" href="css/footer.css" />
-
+ 
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.4.min.js"></script>
   <script src="javascript/planner.js"></script>
 </head>
 
 <body>
-    <!-- 상단 -->
-    <jsp:include page="banner.jsp" />
-   <form>
+ <!--  상단배너 -->
+ <jsp:include page="banner.jsp" />
+
+  <form>
+
     <!-- 베스트 탑 10 플래너 게시물 -->
     <div class="pbclick">
       <!-- 제주도 -->
@@ -685,9 +686,9 @@
   </form>
 
 
-  <footer>
-   <jsp:include page="footer.jsp" />
-  </footer>
+<footer>
+  <jsp:include page="footer.jsp" />
+</footer>
 </body>
 
 </html>

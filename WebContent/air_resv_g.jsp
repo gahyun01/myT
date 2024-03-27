@@ -21,7 +21,7 @@
 
 <body>
  <!--  상단배너 -->
- <jsp:include page="banner.jsp" />
+ <jsp:include page="banner_g.jsp" />
   <form>
     <section>
     <!--  기본 바탕 하늘 이미지 안 항공권 검색창
@@ -34,7 +34,6 @@
         <div class="choice0 choice2 choice_not"><a class="air_menu" href="air_meal.jsp">기내식 신청</a></div>
         <div class="choice0 choice2 choice_not"><a class="air_menu" href="air_service.jsp">기타 서비스 신청</a></div>
         <div class="choice0 choice2 choice2_duty"><a class="air_menu" href="duty_free.jsp">기내면세품</a></div>
-        <div class="choice0 choice2 choice2_pickup"><a class="air_menu" href="car_pickup.jsp">공항픽업 신청</a></div>
       </div>
 
       <!-- search : 탭 아래 검색창 search1 / search2 / sel_city -->

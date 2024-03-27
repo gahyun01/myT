@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/jsp;charset=utf-8" pageEncoding="utf-8" %>
+<%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
 <%
   String user_id = "";
   String btn_log = "로그인";
+  String user_name = "";
 
   String login = (String)session.getAttribute("LOGIN");
 
@@ -10,22 +11,13 @@
     //  로그인 상태인지 확인, x:로그인 실패, 1:로그인 성공
     if(login.equals("1")){
       //  배너에 아이디 셋팅 및 로그인 버튼을 로그아웃 버튼으로 변경
-%>
-      <script>
-        $("body form .top header .login").css('display', 'none');
-        $("body form .top header .profp").css('display', 'block');
-      </script>
-<%
-    } else {
-%>
-      <script>
-        $("body form .top header .login").css('display', 'flex');
-        $("body form .top header .profp").css('display', 'none');
-      </script>
-<%
+      user_id = (String)session.getAttribute("ID") + "님";
+      user_name = (String)session.getAttribute("NAME");
     }
   }
+
 %>
+
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/banner.css" />
@@ -48,10 +40,11 @@
   <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
 
 </head>
-  
+
   <form>
   <!-- 상단 -->
   <div class="top">
+    <input type='hidden' class='hidden' name='hidden_id' id='hidden_id' value='<%= user_id %>' >
     <header>
       <!-- 로고 -->
       <a class="logo" href="index.jsp">
@@ -109,9 +102,9 @@
         </li> 
       <!-- 여행정보 -->
         <li class="btop">
-          <a href="t_info.jsp">여행정보</a>
+          <a href="t_info.html">여행정보</a>
           <ul class="sub">
-            <a href="t_info.jsp">
+            <a href="t_info.html">
               <li>
                 <img src="img/mountain.png" width="20px" height="20px">
                 <p>관광지</p>
@@ -119,17 +112,17 @@
             </a>
             <a  href="festv.jsp">
               <li>
-                <img src="img/festival.png" width="20px" height="20px">
+                <img src="img/festv.png" width="20px" height="20px">
                 <p>축제</p>
               </li>
             </a>
-            <a href="rest.jsp">
+            <a href="rest.html">
               <li>
                 <img src="img/restaurant.png" width="20px" height="20px">
                 <p>레스토랑</p>
               </li>
             </a>
-            <a  href="hotel.jsp">
+            <a  href="hotel.html">
               <li>
                 <img src="img/hotel.png" width="20px" height="20px">
                 <p>호텔</p>
@@ -141,7 +134,7 @@
         <li class="btop">
           <a href="air_resv.jsp">예약</a>
           <ul class="sub">
-            <a href="hotel_resv.jsp">
+            <a href="hotel_resv.html">
               <li>
                 <img src="img/hotel.png" width="20px" height="20px">
                 <p>호텔</p>
@@ -164,15 +157,19 @@
       </ul> 
       <!-- 날씨 -->
       <div class="weather">
-        <img src="img/weather_sunny.svg" width="30px" height="30px">
+        <img src="img/sun.png" width="30px" height="30px">
         <p>24℃</p>
+        <!-- <p style="font-size: 15px"><%= user_id %></p> -->
       </div>
       <!-- 로그인 -->
+      <!-- <a href="login.jsp">
+        <p class="login"><%= btn_log %></p>
+      </a> -->
       <div class="profp">
         <img class="prof" src="img/Doong.jpg" width="50px" height="50px">
         <div class="userp">
           <img class="prof" src="img/Doong.jpg" width="100px" height="100px">
-          <p class="pname">정가현</p>
+          <p class="pname"><%= user_name %></p>
           <div class="fol">
             <p class="follow">팔로워 110</p>
             <p class="follow">팔로잉 74</p>   
@@ -187,5 +184,5 @@
       </a>
     </header>
   </div>
-  <div class="bnav"></div>
-</form>
+  <div class="bnav">/</div>
+  </form>

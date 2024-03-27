@@ -30,10 +30,10 @@
       </div>
     </div>
     
-  <img src="img/main2.png" width="1300px" />
+  <!-- img src="img/main2.png" width="1300px" />
   <img src="img/main3.png" width="1300px" />
   <img src="img/main4.png" width="1300px" />
-  <img src="img/main5.png" width="1300px" />
+  <img src="img/main5.png" width="1300px" /-->
   </div>
   </section>
 
