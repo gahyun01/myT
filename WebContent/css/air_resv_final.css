@@ -1,0 +1,39 @@
+
+.bg_air {
+  width: 1300px;
+  margin: 30px auto;
+
+}
+
+.title_air {
+  height: 41px;
+  color: white;
+  text-align: center;
+  background-color: #263e50;
+  font-weight: bold;
+}
+
+.cont_resv1 {
+  width: 25px;
+  height: 50px;
+  text-align: center;
+  background-color: #f4f6f9;
+}
+
+
+.cont_resv {
+  width: 70px;
+  height: 50px;
+  text-align: center;
+  background-color: #f4f6f9;
+}
+
+
+.money{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+table tr{
+	cursor: none;
+}

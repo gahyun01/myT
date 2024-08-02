@@ -1,0 +1,193 @@
+* {
+  font-size: 15px;
+}
+
+body {
+  min-width : 1610px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin: 0 0;
+}
+
+body a{
+  text-decoration: none;
+  color: black;
+}
+
+body form .top{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 61px;
+  background-color: white;
+  box-shadow: 0px 10px 10px 0px rgba(159, 159, 159, 0.2);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  z-index: 1000;
+}
+
+body form .top header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1300px;
+  gap: 24px;
+}
+
+/* 로고 */
+body form .top header .logo {
+  margin-top: 5px;
+}
+
+/* 검색창 */
+body form .top header .search-container {
+  float: right;
+  display: flex;
+  box-shadow: 0px 0px 5px rgba(113, 113, 113, 0.7);
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: white;
+  width: 314px;
+  height: 36px;
+  padding: 2px;
+}
+
+body form .top header .search-container .search-button {
+  background-color: #ffffff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  width: 25%;
+  margin-top: 3px;
+}
+
+body form .top header .search-container .search-box {
+  border: none;
+  font-size: 20px;
+  width: 100%;
+}
+
+body form .top header .search-container .search-box:focus {
+  outline: none;
+}
+
+/* banner */
+body form .top header .banner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+body form .top header .banner .btop{
+  list-style: none;
+  padding: 0;
+  position: relative;
+  margin: 0 20px;
+}
+
+body form .top header .banner .btop a{
+  font-size: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+  cursor: pointer;
+  padding: 10px;
+}
+
+body form .top header .banner .btop a:hover{
+  color: #dc8b35;
+}
+
+body form .top header .banner .btop .sub {
+  display: none;
+  position: absolute;
+  top: 100%;  /* 부모(li) 아래로 위치 */
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  margin-left: -20px;
+  margin-top: 25px;
+}
+
+body form .top header .banner .btop .sub a{
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+body form .top header .banner .btop .sub li{
+  display: flex;
+  list-style: none;
+  opacity: 0.5;
+  padding: 10px;
+}
+
+body form .top header .banner .btop .sub li p{
+  color: white;
+  font-size: 16px;
+  padding: 0 10px;
+  margin: 0;
+  margin-top: -3px;
+}
+
+body form .top header .banner .btop .sub li:hover{
+  opacity: 1;
+}
+
+body form .bnav{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  top: 61px;
+  width: 100%;
+  height: 180px;
+  background-color: #263e50;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 언어 */
+body form .top header .weather{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+body form .top header .weather .or{
+  display: inline-block;
+  background-color: #8eaac0;
+  width: 1px;
+  height: 21px;
+  margin: 0 8px;
+}
+body form .top header .weather p{
+  font-size: 20px;
+  font-family: "Anta", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-left: 10px;
+}
+
+/* 로그인 */
+body form .top header .login{
+  background-color: #1a2b38;
+  color: white;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+body form .top header .login:hover{
+  background-color: #263e50;
+}

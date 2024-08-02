@@ -1,0 +1,51 @@
+/* footer 관련 style*/
+footer {
+  background-color: #FFECCC;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: center;
+}
+
+footer .footer {
+  width: 1300px;
+}
+
+footer .footer p, footer .footer a {
+  font-size: 12px;
+  color: #000;
+}
+
+.footer_box1{
+  float: left;
+  width: 400px;
+}
+
+.footer_box2{
+  float: right;
+  width: 400px;
+  cursor: pointer;
+}
+
+.footer_box2 div{
+  height: 33px;
+  text-align: right;
+}
+
+.footer_box2 > div > img{
+  margin-right: 6px;
+}
+
+.footer_box2 ul{
+  margin-top: 2px;
+  list-style: none;
+}
+
+.footer_box2 ul li{
+  float: right;
+}
+
+
+.support{
+  font-weight: bold;
+  cursor: pointer;
+}

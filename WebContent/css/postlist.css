@@ -1,0 +1,130 @@
+
+ /* 메인 */
+ section{
+    margin-top: 30px;
+    background-image: url("img/festvlistbg.png");
+ }
+ 
+section .imgmom img{
+ 	width: 1000px;
+ 	height: 200px;
+ 	margin-top: -30px;
+}
+
+section .cardpage{
+    width: 800px;
+    margin-bottom: 30px;
+    margin: 0 auto;
+}
+
+section .imgmom{
+	display: flex;
+	justify-content: center;	
+}
+
+section .cardpage .titlemom{
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+}
+
+section .cardpage .cardtitle{
+	margin-top: 20px;
+}
+ 
+section .cardpage .cardtitle div:first-child{
+	font-weight: bold;
+	font-size: 20px;
+}
+ 
+section .cardpage .cardtitle div:last-child{
+	font-size: 15px;
+	color: gray; 
+	margin-top: 10px;
+}
+
+section .cardpage .titlemom{
+	width: 800px;
+	margin-top: 20px;
+	margin: 0 auto;
+}
+
+section .cardpage .titlemom .searchbox{
+	margin-top: 60px; 	
+	height: 25px;
+}
+
+section .cardpage .titlemom .searchbox .search {
+	width: 200px;
+	height: 25px;
+	border: 1px solid grey;
+	border-radius: 2px;
+}
+
+section .cardpage .titlemom .searchbox .submit {
+	height: 25px;	
+}
+
+ /* 게시물 카드 */
+ section .cardpage .card{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+    width: 800px;
+    height: 400px;
+    margin: 0 auto;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+ 
+section .cardpage .card table{
+	border-collapse : collapse;
+	margin-top: 20px;
+}
+
+section .cardpage .card table .td{
+	border-bottom : 1px solid black;
+	padding: 3px;
+}
+
+section .cardpage .card table .rvNo{
+	width : 60px;
+	text-align: center;
+}
+
+section .cardpage .card table .htitle{
+	width : 400px;
+	text-align: center;
+}
+
+section .cardpage .card table .huserId{
+	width : 100px;
+	text-align: center;
+}
+
+section .cardpage .card table .userId{
+	width : 100px;
+	text-align: center;
+}
+
+section .cardpage .card table .hfestrTime {
+	width : 150px;
+	text-align: center;
+}
+
+section .cardpage .card table .festTime{
+	width : 150px;
+	text-align: center;
+}
+
+section .cardpage .writemom .write{
+	width: 60px;
+	height: 25px;
+	text-align: center;
+	border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 740px;
+}

@@ -1,0 +1,329 @@
+#bgtop_car {
+  height: 290px;
+  background-image: url("../img/bgcar2.jpg");
+  background-size: 1903px 290px;
+}
+
+
+#search_review {
+  width: 1300px;
+  height: 115px;
+  margin: 0 auto;
+  background-color: white;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+
+.search {
+  width: 1200px;
+  height: 30px;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.search2_title{
+  float: left;
+  width: 100px;
+  height: 20px;
+  color: grey;
+  font-weight: bold;
+  font-size: 14px;
+  margin-left: 200px;
+  margin-top: 15px;
+}
+
+.search3 {
+  width: 1200px;
+  height: 45px;
+  margin: 5px auto;
+}
+
+ul li {
+  float: left;
+  list-style: none;
+ }
+
+.search_input{
+  width: 140px;
+  height: 28px;
+  margin-top: 15px;
+  margin-left: 40px;
+}
+
+.btn_search {
+  float: right;
+  width: 150px;
+  height: 30px;
+  margin-top: 13px;
+  margin-right: 150px;
+}
+
+.btn_insert {
+  float: right;
+  width: 100px;
+  height: 30px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #dc8b35;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  diplay:none;
+}
+
+.btn_del{
+	width: 70px;
+	height: 30px;
+	border: none;
+	cursor: pointer;
+}
+
+
+.air_0 {
+  float:left;
+  height: 30px;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;  
+  cursor: pointer;
+  background-color: #f5f5f5;
+}
+
+.air_city {
+  width: 170px;
+  padding-left: 10px;
+  margin-top: 13px;
+  margin-left: 150px;
+  margin-right: 40px;
+}
+
+
+.air_city2 {
+  width: 170px;
+  padding-left: 10px;
+}
+
+.car_gbn{
+  width: 141px;
+  height: 28px;
+  cursor: pointer;
+}
+
+select {
+	text-align-last: center;
+	text-align: center;
+	-ms-text-align-last: center;
+	-moz-text-align-last: center;
+}
+
+.hidden{
+  width: 70px;
+}
+
+#bg_car {
+  width: 1300px;
+  margin: 15px auto;
+
+}
+
+#car {
+   width: 1300px;
+ }
+
+
+.title_air {
+  width: 140px;
+  height: 41px;
+  color: white;
+  text-align: center;
+  background-color: #5891BE;
+  font-weight: bold;
+}
+
+.cont_resv {
+  width: 140px;
+  height: 40px;
+  text-align: center;
+  border-bottom: 1px solid lightgrey;
+}
+
+
+.review_list tr:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.review{
+  height: 190px;
+  display: none;
+}
+
+.review_cont{
+  width: 1265px;
+  height: 100px;
+  margin: 10px 10px;
+  padding: 5px;
+  border: 1px solid lightgrey;
+}
+
+.review_btn{
+  width: 1265px;
+  height: 30px;
+  margin: 5px 10px;
+}
+
+.img_size{
+  height: 18px;
+}
+
+
+.bg3{
+  width: 1300px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+/*  글쓰기 화면 car_review_ins.jsp에서 사용 */
+
+#car_insert{
+	margin-top: 70px;
+	box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+	border: 1px solid lightgrey;
+	border-radius: 20px;
+}
+
+.div_1{
+	height: 30px;
+	margin-top: 10px;
+}
+
+#div_title{
+  width: 1300px;
+  height: 30px;
+  margin: 10px auto;
+}
+
+#input_title{
+  width: 800px;
+  height: 30px;
+}
+
+
+#div_textarea{
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+textarea {
+  width: 1000px;
+  height: 400px;
+  resize: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.btn_insert2 {
+  margin-right: 150px;
+  diplay:none;
+}
+
+.lbl_title{
+	float: left;
+	width: 100px;
+	font-weight: bold;
+	text-align: center;
+	margin-left: 170px;
+}
+
+/*  글쓰기 화면 car_review_ins.jsp에서 사용 */
+
+.sel_city{
+  position: relative;
+  width: 816px;
+  height: 380px;
+  margin-top: 30px;
+  margin-left: 0px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  display: none;
+  z-index: 99;
+}
+
+.city_head{
+  height: 55px;
+
+}
+
+.city_title{
+  float: left;
+  width: 700px;
+  height: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+  padding-left: 5px;
+  font-weight: bold;
+
+}
+
+.close_box{
+  float: right;
+  width: 25px;
+  height: 25px;
+  margin-top: 15px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.city_cont{
+  height: 320px;
+}
+
+.city_cont2{
+  width: 790px;
+  height: 305px;
+  margin-left: 15px;
+}
+
+dl{
+  margin-top: 0px;
+  display: table-cell;
+}
+
+dt{
+  width: 115px;
+  font-weight: bold;
+  text-align: center;
+  margin-inline-start: 1px;
+  margin-inline-end: 1px;
+  padding: 7px;
+  background-color: #FFECCC;
+}
+
+dd{
+  margin-inline-start: 1px;
+  margin-inline-end: 1px;
+  padding-left: 20px;
+  padding-top: 7px;
+  padding-bottom: 6px;
+}
+
+dd:hover {
+  color: #fff;
+  font-weight: bold;
+  background-color: #263e50;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input::-webkit-inner-spin-button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}

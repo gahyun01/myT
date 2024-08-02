@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/sign_up2.css">
+
+<body>
+    <!--  상단배너 -->
+    <jsp:include page="banner.jsp" />
+    
+    <form action="login2.jsp" onsubmit="return checkAll()" method="post">    
+       <div class="lpage">
+         <div class="title">
+           <a href="login.jsp" class="login">
+             <p>
+               로그인
+             </p>
+           </a>
+           <a href="sign_up2.jsp" class="sign">
+             <p>
+               회원가입
+             </p>
+           </a>
+         </div>
+         <div class="main">
+           <div class="position">
+                <p class="ititle">아이디</p>
+                <div class="inputs">
+                    <input type="text" name="user_id" id="user_id" size="30" maxlength="15" placeholder="6~15자 영문, 숫자의 조합" class="hinput" onfocus="clearText(this)">
+                    <button type="button" name="btn_id" class="btn" id="btn_id" style="width: 113px; height: 40px; font-size: 14px;" >중복확인</button>
+                </div>
+                <p class="ititle2">비밀번호</p>
+                <input type="text" name="pwd" id="pwd" size="30" maxlength="15"  placeholder="8~15자 영문, 숫자의 조합" class="input" onfocus="clearPasswd(this)">
+
+                <p class="ititle2">비밀번호 확인</p>
+                <input type="password" name="pwd2" id="pwd2" size="30" maxlength="15" class="input" onfocus="returnText()"> 
+
+                <div class="group">
+                  <div class="name">
+                    <p class="ititle3">국문 성</p>
+                    <input type="text" name="k_lastnm" class="inputh" size="30" maxlength="30">
+                  </div>
+                  <div class="name">
+                    <p class="ititle3">국문 이름</p>
+                    <input type="text" name="k_firstnm" class="inputh2" size="30" maxlength="30">
+                  </div>
+                </div>
+
+                <div class="group">
+                  <div class="name">
+                    <p class="ititle3">영문 성</p>
+                    <input type="text" name="e_lastnm" size="30" maxlength="30" class="inputh">
+                  </div>
+                  <div class="name">
+                    <p class="ititle3">영문 이름</p>
+                    <input type="text" name="e_firstnm" size="30" maxlength="30"  class="inputh2">
+                  </div>
+                </div>
+
+                <p class="ititle">성별</p>
+                <div class="inputs2">
+                  <input type="button" name="men_btn" id="men_btn" class="gender1" value="남자" />
+                  <input type="button" name="wom_btn" id="wom_btn" value="여자" />
+                  <input type="button" name="gennot" id="gennot" class="gender2" value="선택안함" />
+                </div>
+
+                <p class="ititle">생년월일</p>
+                <div class="inputs">
+                  <input type="text" name="birth" class="input2" id="birth" size="8" maxlength="8" style="text-align: center;" />
+                  <p class="ex">ex) 19990101</p>
+                </div>
+                
+                <!-- 회원가입 버튼 -->
+                <input type="submit" value="회원가입" class="loginbtn"/>
+           </div>
+         </div>
+       </div>
+     </form>
+   
+     <footer>
+      <jsp:include page="footer.jsp" />
+     </footer>
+   </body>
+   </html>
