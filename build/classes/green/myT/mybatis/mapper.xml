@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="55">
+<select id="sel_pickup" parameterType="String" resultType="green.myT.dto.CarPickup">
+	SELECT RESV_NO, AIR_RESV_DETAIL_NO, GUEST_NUM, DATE_FORMAT(PICK_DATE, '%Y-%m-%d') PICK_DATE, PICK_TIME, SUBSTRING(ARRV_ADDR, 1, 15) ARRV_ADDR, CITY_KNM, CAPACITY FROM CAR_PICKUP A, CAR_INFO B WHERE A.USER_ID = '${id}' AND A.CAR_NO = B.CAR_NO ORDER BY RESV_NO
+</select>
+
+<insert id="ins_pickup" parameterType="green.myT.dto.CarPickup"> 
+    INSERT INTO CAR_PICKUP VALUES (NULL, #{user_id}, #{air_resv_detail_no}, #{car_no}, #{guest_num}, #{pick_date}, #{pick_time}, #{arrv_addr}, #{pay_no}, SYSDATE()) 
+</insert>
+
+<delete id="del_pickup" parameterType="int"> 
+    DELETE FROM CAR_PICKUP WHERE RESV_NO = ${resv_no} 
+</delete> 
+
+<select id="sel_airplane" parameterType="green.myT.dto.Parameter" resultType="green.myT.dto.Airplane">
+	SELECT *, #{date} DATE FROM AIRPLANE WHERE DEPT_CITY = #{dept_city} AND ARRV_CITY = #{arrv_city} AND START_DATE &lt;= #{date} AND END_DATE &gt;= #{date}
+</select>
+
+<insert id="ins_airresv" parameterType="java.util.List"> 
+	INSERT INTO AIR_RESV VALUES
+	<foreach collection="list" item="item" index="index" separator=",">
+		( NULL, #{item.user_id}, #{item.plane_seq}, #{item.flight_date}, #{item.guest_num} )
+	</foreach>
+</insert>
+
+<insert id="ins_airinfo" parameterType="java.util.List"> 
+	INSERT INTO AIR_RESV_INFO VALUES
+	<foreach collection="list" item="item" index="index" separator=",">
+		( NULL, #{item.resv_no}, UPPER(#{item.e_lastnm}), UPPER(#{item.e_firstnm}), #{item.gender}, #{item.birth}, #{item.child}, #{item.email}, #{item.email2}, #{item.phone}, SYSDATE() )
+	</foreach>
+</insert>
+
+<select id="sel_airlist" parameterType="green.myT.dto.Parameter" resultType="green.myT.dto.AirResvList">
+	SELECT A.RESV_NO, A.PLANE_SEQ, C.PLANE_NO, B.E_LASTNM, B.E_FIRSTNM, C.DEPT_CITY, C.ARRV_CITY, A.FLIGHT_DATE, C.DEPT_TIME, C.ARRV_TIME, C.HOUR, C.LEVEL, C.PRICE, B.CHILD, DATE_FORMAT(B.REG_DATE, '%Y-%m-%d') RESV_DATE
+    FROM AIR_RESV A, AIR_RESV_INFO B, AIRPLANE C
+    WHERE A.RESV_NO = B.RESV_NO AND A.PLANE_SEQ = C.PLANE_SEQ
+    	
+	<choose>
+		<!-- parameter class 안의  변수  date, test 안에 넣을 때는 샾이나 괄호 없이 바로 넣음 -->
+ 	 	<when test="date == 1">
+    		AND A.RESV_NO =  #{dept_city}    
+   	 	</when>
+ 	 	<when test="date == 2">
+    		AND A.RESV_NO IN ( #{dept_city}, #{arrv_city} )     
+  	 	</when>    
+  	</choose>    	
+	ORDER BY A.RESV_NO, B.RESV_INFO_NO
+</select>
+
+	<select id="wselect" resultType="green.myT.dto.Festival">
+	<!-- 이렇게 안 하고 int형 in_no로만 정렬하면 1 다음 2가 아니라 10이 온다... -->
+		select * from festival order by length(in_no), in_no;
+	</select>
+
+	<select id="dselect" resultType="green.myT.dto.Festival" parameterType="String">
+	<!--parameter type가 String이어도 명령문이기 때문에 sql은 잘 들어간다.-->
+    select festival.*, festival_photo.* from festival
+        inner join festival_photo on festival.in_no = festival_photo.in_no
+        where festival.in_no = ${no} 
+	</select>
+	
+	<select id="festvname" resultType="green.myT.dto.Festival" parameterType="String">
+	<!--parameter type가 String이어도 명령문이기 때문에 sql은 잘 들어간다.-->
+		select * from festival where festv_name like '%${searchcont}%' 
+		or festv_ename like '%${searchcont}%';
+	</select>
+
+	<select id="festvplace" resultType="green.myT.dto.Festival" parameterType="String">
+		select * from festival where festv_place like '%${searchcont}%';
+	</select>
+
+	<select id="festvstart" resultType="green.myT.dto.Festival" parameterType="String">
+		select * from festival where festv_start like '%${searchcont}%';
+	</select>
+
+	<select id="festvend" resultType="green.myT.dto.Festival" parameterType="String">
+		select * from festival where festv_end like '%${searchcont}%';
+	</select>
+
+</mapper>
