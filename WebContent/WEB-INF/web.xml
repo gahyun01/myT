@@ -1,0 +1,26 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5"> 
+    <servlet>
+        <servlet-name>aa</servlet-name>
+        <servlet-class>green.myT.dao.Controller</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>aa</servlet-name>
+        <url-pattern>*.myt</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>bb</servlet-name>
+        <servlet-class>green.myT.controller.AirController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>bb</servlet-name>
+        <url-pattern>*.air</url-pattern>
+    </servlet-mapping>
+     <servlet>
+        <servlet-name>cc</servlet-name>
+        <servlet-class>green.myT.controller.DiaryController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cc</servlet-name>
+        <url-pattern>*.diary</url-pattern>
+    </servlet-mapping>
+</web-app> 
