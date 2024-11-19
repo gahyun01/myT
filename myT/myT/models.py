@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import os
 
 
 # 여행 계획
@@ -34,10 +35,28 @@ class Post(models.Model):
         return f"Post for {self.plan.plan_name} by {self.user.username}"
 
 
+
+# 이미지 저장 경로 및 파일명 지정 함수
+def post_image_upload_to(instance, filename):
+    # 파일 확장자 추출
+    ext = os.path.splitext(filename)[1]
+
+    # 게시물 번호 (Post 모델의 ID)
+    post_id = instance.post.id if instance.post else 'unknown'
+    
+    # 해당 게시물의 현재 이미지 갯수
+    count = instance.post.images.count() + 1  # 기존 이미지 수 + 1
+    
+    # 새 파일 이름
+    new_filename = f"{post_id}_{count}{ext}"
+
+    # 저장 경로 (post_images 폴더 안에 저장)
+    return f"post_images/{new_filename}"
+
 # 게시물 사진 ( Post와 1:N 관계 )
 class PostImage(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to='post_images/')
+    image = models.ImageField(upload_to=post_image_upload_to)
 
     def __str__(self):
         return f"Image for {self.post}"
