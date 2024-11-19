@@ -1,0 +1,155 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/banner.css' %}" />
+<script src="{% static 'javascript/banner.js' %}"></script>
+
+<form>
+<!-- 상단 -->
+<div class="top">
+<header>
+    <!-- 로고 -->
+    <a class="logo" href="{% url 'index' %}">
+    <img src="{% static 'images/logo.png' %}" alt="myT" height="35px">
+    </a>
+    <!-- 검색창 -->
+    <div class="search-container">
+    <button class="search-button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+        viewBox="0 0 1664 1664">
+        <path fill="#000000"
+            d="M1152 704q0-185-131.5-316.5T704 256T387.5 387.5T256 704t131.5 316.5T704 1152t316.5-131.5T1152 704m512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124q-143 0-273.5-55.5t-225-150t-150-225T0 704t55.5-273.5t150-225t225-150T704 0t273.5 55.5t225 150t150 225T1408 704q0 220-124 399l343 343q37 37 37 90">
+        </path>
+        </svg>
+    </button>
+    <input type="text" class="search-box">
+    </div>
+    <!-- banner -->
+    <ul class="banner">
+    <!-- T플래너 -->
+    <li class="btop">
+        <a href="{% url 'planner' %}">T플래너</a>
+        <ul class="sub">
+        <a href="{% url 'planner' %}">
+            <li>
+            <img src="{% static 'images/diary.png' %}" width="20px" height="20px">
+            <p >myT플래너</p>
+            </li>
+        </a>
+        <a href="{% url 'planner' %}">
+            <li>
+            <img src="{% static 'images/list.png' %}" width="20px" height="20px">
+            <p>T플래너</p>
+            </li>
+        </a>
+        
+        </ul>
+    </li>
+    <!-- T다이어리 -->
+    <li class="btop">
+        <a href="t_diary.jsp">T다이어리</a>
+        <ul class="sub">
+        <a href="t_diary.jsp">
+            <li>
+            <img src="{% static 'images/diary.png' %}" width="20px" height="20px">
+            <p>myT다이어리</p>
+            </li>
+        </a>
+        <a  href="t_d_home.jsp">
+            <li>
+            <img src="{% static 'images/list.png' %}" width="20px" height="20px">
+            <p>T다이어리</p>
+            </li>
+        </a>
+        </ul>
+    </li> 
+    <!-- 여행정보 -->
+    <li class="btop">
+        <a href="t_info.html">여행정보</a>
+        <ul class="sub">
+        <a href="t_info.html">
+            <li>
+            <img src="{% static 'images/mountain.png' %}" width="20px" height="20px">
+            <p>관광지</p>
+            </li>
+        </a>
+        <a  href="festv.html">
+            <li>
+            <img src="{% static 'images/festival.png' %}" width="20px" height="20px">
+            <p>축제</p>
+            </li>
+        </a>
+        <a href="rest.html">
+            <li>
+            <img src="{% static 'images/restaurant.png' %}" width="20px" height="20px">
+            <p>레스토랑</p>
+            </li>
+        </a>
+        <a  href="hotel.html">
+            <li>
+            <img src="{% static 'images/hotel.png' %}" width="20px" height="20px">
+            <p>호텔</p>
+            </li>
+        </a>
+        </ul>
+    </li>
+    <!-- 예약 -->
+    <li class="btop">
+        <a href="air_resv.jsp">예약</a>
+        <ul class="sub">
+        <a href="hotel_resv.html">
+            <li>
+            <img src="{% static 'images/hotel.png' %}" width="20px" height="20px">
+            <p>호텔</p>
+            </li>
+        </a>
+        <a href="air_resv.jsp">
+            <li>
+            <img src="{% static 'images/airplane.png' %}" width="20px" height="20px">
+            <p>항공권</p>
+            </li>
+        </a>
+        <a  href="car_resv.html">
+            <li>
+            <img src="{% static 'images/car.png' %}" width="20px" height="20px">
+            <p>차량</p>
+            </li>
+        </a>
+        </ul>
+    </li>
+    </ul> 
+    <!-- 로그인 -->
+    {% if user.is_authenticated %}
+        <p class="names">{{ user.first_name }}{{ user.last_name}} 님</p>
+        <a href="#" onclick="logout(event)">
+        <p class="login">로그아웃</p></a>
+    {% else %}
+        <!-- 날씨 -->
+        <div class="weather">
+            <img src="{% static 'images/weather_sunny.svg' %}" width="30px" height="30px">
+            <p style="font-size: 15px"></p>
+        </div>
+        <a href="{% url 'login'%}?next={{ request.path }}">
+        <p class="login">로그인</p></a>
+    {% endif %}
+</header>
+</div>
+<div class="bnav">/</div>
+</form>
+
+<script>
+    function logout(event) {
+        event.preventDefault();  // 기본 링크 동작 방지
+        const logoutForm = document.createElement('form');  // 새로운 form 요소 생성
+        logoutForm.method = 'POST';
+        logoutForm.action = '{% url "logout" %}';  // 로그아웃 URL
+
+        // CSRF Token 추가
+        const csrfToken = document.createElement('input');
+        csrfToken.type = 'hidden';
+        csrfToken.name = 'csrfmiddlewaretoken';
+        csrfToken.value = '{{ csrf_token }}';
+        logoutForm.appendChild(csrfToken);
+
+        // 폼 제출
+        document.body.appendChild(logoutForm);
+        logoutForm.submit();
+    }
+</script>

@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  {% block title %}<title>myT</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<body>
+  <!-- 상단 배너 -->
+  {% include "banner.html" %}
+  {% block content %}
+  <section>
+  <div id="bg">
+    <div class="idx">
+      <div class="idx_top">
+        <div class="idx1">
+          <div id="idx1_1">내가 만들어가는<br>나만의 여행 플래너</div>
+          <div id="idx1_2">나만의 여행친구, 친구와의 여행을 기록하고 스케쥴링 해봐요.</div>
+          <div id="idx1_3"><input type="button" id="myt_btn" value="마이티 시작하기" onclick="location.href='t_planner.jsp'"/></div>
+        </div>
+          <img src="{% static 'images/chinac.jpg' %}" class="idx2" />
+      </div><!-- idx_top-->
+      <div class="idx_bttm"><div id="idx_info">
+        <div id="idx_info1">myT 여행자들이 만든 일정 수</div><div id="idx_info_cnt">5,324</div>
+        <div id="idx_info1">여행지 수</div><div id="idx_info_cnt">96</div></div>
+      </div>
+    </div>
+    
+  <img src="{% static 'images/main2.png' %}" width="1300px" />
+  <img src="{% static 'images/main3.png' %}" width="1300px" />
+  <img src="{% static 'images/main4.png' %}" width="1300px" />
+  <img src="{% static 'images/main5.png' %}" width="1300px" />
+  </div>
+  </section>
+  {% endblock %}
+<footer>
+  {% include "footer.html" %}
+</footer>
+</body>
+
+</html>

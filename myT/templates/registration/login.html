@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    {% block title %}<title>myT</title>{% endblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <script src="{% static 'javascript/login.js' %}"></script>
+    <style>
+        .login {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 상단 배너 -->
+    {% include "banner.html" %}
+    <form action="{% url 'login' %}" method="post">    
+        {% csrf_token %}
+        <div class="lpage">
+            <div class="title">
+                <a href="{% url 'login' %}" class="login">
+                    <p>로그인</p>
+                </a>
+                <a class="sign">
+                    <p>회원가입</p>
+                </a>
+            </div>
+            <div class="main">
+                <div class="position">
+                    <!-- 아이디, 비밀번호 -->
+                    <div class="id">
+                        <img src="{% static 'images/lperson.png' %}" width="30px" height="30px" />
+                        <input type="text" name="user_id" placeholder="아이디" required>
+                    </div>
+                    <div class="pwd">
+                        <img src="{% static 'images/loglock.png' %}" width="30px" height="30px" />
+                        <input type="password" name="pwd" placeholder="비밀번호" required>
+                    </div>
+                    <!-- 아이디 저장하기, 로그인 상태 유지 -->
+                    <div class="check">
+                        <div class="idcheck">
+                            <img src="{% static 'images/logcheck.png' %}" width="18px" height="18px" />
+                            <p>아이디 저장하기</p>
+                        </div>
+                        <div class="logcheck" value="0">
+                            <img src="{% static 'images/logcheck.png' %}" width="18px" height="18px" />
+                            <p>로그인 상태 유지</p>
+                        </div>
+                    </div>
+                    <input type="submit" value="로그인" class="loginbtn">
+                </div>
+            </div>
+            <p class="find">아이디/비밀번호 찾기</p>
+        </div>
+    </form>
+    <footer>
+        {% include "footer.html" %}
+    </footer>
+</body>
+</html>
