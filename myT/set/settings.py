@@ -15,6 +15,7 @@ import os
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+KAKAO_API_KEY = '6a6e9e655c7125fdfe984435085dd5c2'
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

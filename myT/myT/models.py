@@ -17,7 +17,9 @@ class PlanDetail(models.Model):
     plan = models.ForeignKey(Plan, on_delete=models.CASCADE, related_name='details')
     date = models.DateField()
     time = models.TimeField()
-    location = models.CharField(max_length=255, blank=True, null=True)  # 지도 위치 정보 (예: 주소, 좌표 등)
+    location = models.CharField(max_length=255, blank=True, null=True)  # 주소 정보
+    latitude = models.FloatField(blank=True, null=True)  # 위도
+    longitude = models.FloatField(blank=True, null=True)  # 경도
 
     def __str__(self):
         return f"{self.plan.plan_name} - {self.date} {self.time}"
