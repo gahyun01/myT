@@ -54,9 +54,13 @@ class Post(models.Model):
         return f"Post for {self.plan.plan_name} by {self.user.username}"
 
     def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)  # 우선 저장
-        self.extract_hashtags()  # 해시태그 추출
-        super().save(*args, **kwargs)  # 해시태그가 연결된 후에 다시 저장
+        if '#' in self.content:  # content에 해시태그가 있을 경우
+            super().save(*args, **kwargs)  # 우선 저장
+            self.extract_hashtags()  # 해시태그 추출
+            super().save(*args, **kwargs)  # 해시태그가 연결된 후에 다시 저장
+        else:  # content에 해시태그가 없을 경우
+            self.hashtags = self.hashtags  # 기존의 hashtags 값 유지
+            super().save(*args, **kwargs)  # content만 저장
 
     def extract_hashtags(self):
         # 콘텐츠에서 해시태그 추출
@@ -67,7 +71,7 @@ class Post(models.Model):
         if tags_in_content:
             first_hashtag_index = self.content.find(tags_in_content[0])
             self.content = self.content[:first_hashtag_index]  # #뒤의 내용은 잘라낸 후 저장
-
+            
 # 게시물 사진 ( Post와 1:N 관계 )
 class PostImage(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='images')

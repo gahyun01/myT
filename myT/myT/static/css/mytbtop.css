@@ -177,18 +177,18 @@ body form .pback .pbinner .cardback .sab2 {
 
 
 /* 카드 클릭시 게시물 */
-body form .pbclick{
-    position: absolute;
+body form .pback .pbinner .cardback .cardpage .card .pbclick{
     display: none;
+    position: absolute;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 90%;
+    height: 95%;
     z-index: 1000;
     background-color: rgba(0, 0, 0, 0.25);
 }
   
-body form .pbclick .diary {
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -204,7 +204,7 @@ body form .pbclick .diary {
     margin-top: -50px;
 }
 
-body form .pbclick .diary .close-btn {
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .close-btn {
     position: absolute;
     top: 0;
     right: 0;
@@ -217,11 +217,11 @@ body form .pbclick .diary .close-btn {
     opacity: 0.5;
 }
   
-body form .pbclick .diary .close-btn:hover {
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .close-btn:hover {
     opacity: 1;
 }
   
-body form .pbclick .diary .hdiary {
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -232,21 +232,21 @@ body form .pbclick .diary .hdiary {
 }
 
 /* 게시물 왼쪽 */
-body form .pbclick .diary .hdiary .nation{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .nation{
     font-size: 20px;
     color: #6f3a00;
     opacity: 0.8;
     margin: 0 0;
 }
   
-body form .pbclick .diary .hdiary .title{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .title{
     font-size: 25px;
     font-weight: bold;
     margin: 0 0 8px 0;
 }
 
 /* 게시물 왼쪽 사진 */
-body form .pbclick .diary .hdiary .picpage {
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -260,7 +260,7 @@ body form .pbclick .diary .hdiary .picpage {
     height: 350px;
 }
 
-body form .pbclick .diary .hdiary .picpage .picture{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture{
     display: flex;
     justify-content: center;
     position: relative;
@@ -269,27 +269,27 @@ body form .pbclick .diary .hdiary .picpage .picture{
     overflow: hidden;
 }
 
-body form .pbclick .diary .hdiary .picpage .picture .main{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .main{
     transition: opacity 0.3s;
     position: relative;
     width: 100%;
     height: 350px;
 }
 
-body form .pbclick .diary .hdiary .picpage .picture .main:hover{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .main:hover{
     opacity: 0.8;
 }
 
-body form .pbclick .diary .hdiary .picpage .sab1:hover ~ .picture .main{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1:hover ~ .picture .main{
     opacity: 0.8;
 }
 
-body form .pbclick .diary .hdiary .picpage .sab2:hover ~ .picture .main{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab2:hover ~ .picture .main{
     opacity: 0.8;
 }
 
 /* 게시물 왼쪽 사진 프로필 */
-body form .pbclick .diary .hdiary .picpage .picture .profile{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .profile{
     display: flex;
     justify-content: start;
     align-items: center;
@@ -301,29 +301,29 @@ body form .pbclick .diary .hdiary .picpage .picture .profile{
     margin-top: 10px;
 }
 
-body form .pbclick .diary .hdiary .picpage .picture .profile img{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .profile img{
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin: 10px;
 }
 
-body form .pbclick .diary .hdiary .picpage .picture .profile .id{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .profile .id{
     font-weight: bold;
     color: white;
     margin-left: 10px;
 }
 
-body form .pbclick .diary .hdiary .picpage .picture .main:hover ~ .profile{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .main:hover ~ .profile{
     opacity: 1;
 }
 
-body form .pbclick .diary .hdiary .picpage .sab1:hover ~ .picture .profile{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1:hover ~ .picture .profile{
     opacity: 1;
 }
 
 /* 게시물 왼쪽 사진 본문 */
-body form .pbclick .diary .hdiary .picpage .picture .text {
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .text {
     position: absolute;
     display: -webkit-box;
     -webkit-line-clamp: 4;
@@ -341,17 +341,17 @@ body form .pbclick .diary .hdiary .picpage .picture .text {
     box-sizing: border-box;
 }
 
-body form .pbclick .diary .hdiary .picpage .picture .main:hover ~ .text{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .main:hover ~ .text{
     opacity: 1;
 }
 
-body form .pbclick .diary .hdiary .picpage .sab1:hover ~ .picture .text{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1:hover ~ .picture .text{
     opacity: 1;
 }
 
 /* 게시물 왼쪽 사진 화살표 */
-body form .pbclick .diary .hdiary .picpage .sab1,
-body form .pbclick .diary .hdiary .picpage .sab2 {
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1,
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -364,21 +364,21 @@ body form .pbclick .diary .hdiary .picpage .sab2 {
   z-index: 1000;
 }
 
-body form .pbclick .diary .hdiary .picpage .sab1 {
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1 {
   left: 10px;
 }
 
-body form .pbclick .diary .hdiary .picpage .sab2 {
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab2 {
   right: 10px;
 }
 
-body form .pbclick .diary .hdiary .picpage .sab1:hover,
-body form .pbclick .diary .hdiary .picpage .sab2:hover {
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1:hover,
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab2:hover {
     opacity: 1;
 }
  
 /* 게시물 왼쪽 아이콘 */
-body form .pbclick .diary .hdiary .cicon{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .cicon{
     display: flex;
     justify-content: space-between;
     background-color: white;
@@ -386,32 +386,32 @@ body form .pbclick .diary .hdiary .cicon{
     margin-top: 20px;
 }
   
-body form .pbclick .diary .hdiary .cicon .ciconl{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .cicon .ciconl{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
   
-body form .pbclick .diary .hdiary .cicon .ci{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .cicon .ci{
     display: flex;
     align-items: center;
 }
   
-body form .pbclick .diary .hdiary .cicon img{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .cicon img{
     width: 30px;
     height: 30px;
     cursor: pointer;
     margin-right: 5px;
 }
   
-body form .pbclick .diary .hdiary .cicon .ci a{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .cicon .ci a{
     font-weight: bold;
     font-size: 13px;
 }
 
 /* 댓글 */
-body form .pbclick .diary .hdiary .comments{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments{
     display: none;
     flex-direction: column;
     overflow: hidden;
@@ -422,11 +422,11 @@ body form .pbclick .diary .hdiary .comments{
     border-bottom: 1px solid #6f3a00;
 }
 
-body form .pbclick .diary .hdiary .comments {
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments {
     overflow-y: auto;   
 }
 
-body form .pbclick .diary .hdiary .comments .pcom{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .pcom{
     display: flex;
     align-items: center;
     width: 100%;
@@ -434,23 +434,23 @@ body form .pbclick .diary .hdiary .comments .pcom{
     margin: 5px 0;
 }
 
-body form .pbclick .diary .hdiary .comments .middlecom{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .middlecom{
     display: block;
     width: 80%;
     height: 70px;
 }
 
-body form .pbclick .diary .hdiary .comments .pcom img{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .pcom img{
     border-radius: 50%;
 }
 
-body form .pbclick .diary .hdiary .comments .pcom .id{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .pcom .id{
     font-weight: bold;
     margin: 0 0;
     margin-left: 10px;
 }
 
-body form .pbclick .diary .hdiary .comments .pcom .text {
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .pcom .text {
     width: 350px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -463,7 +463,7 @@ body form .pbclick .diary .hdiary .comments .pcom .text {
     margin-bottom: 5px;
 }
 
-body form .pbclick .diary .hdiary .comments .pcom .heart{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .pcom .heart{
     display: flex;
     height: 80%;
     padding: 10px;
@@ -471,7 +471,7 @@ body form .pbclick .diary .hdiary .comments .pcom .heart{
 }
 
 /* 댓글 작성 */
-body form .pbclick .diary .hdiary .plus{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus{
     display: none;
     justify-content: space-between;
     align-items: center;
@@ -481,11 +481,11 @@ body form .pbclick .diary .hdiary .plus{
     margin-top: 10px;
 }
 
-body form .pbclick .diary .hdiary .plus img{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus img{
     border-radius: 50%;
 }
 
-body form .pbclick .diary .hdiary .plus .pluscom {
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus .pluscom {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -497,23 +497,23 @@ body form .pbclick .diary .hdiary .plus .pluscom {
     margin-right: 5px;
 }
 
-body form .pbclick .diary .hdiary .plus .pluscom  .combox{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus .pluscom  .combox{
     width: 80%;
     height: 90%;
     border: none;
 }
 
-body form .pbclick .diary .hdiary .plus .pluscom  .combox:focus{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus .pluscom  .combox:focus{
     outline: none;
 }
 
-body form .pbclick .diary .hdiary .plus .pluscom img{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus .pluscom img{
     cursor: pointer;
 }
 
 /* 게시물 오른쪽 */
-body form .pbclick .diary .tsab1,
-body form .pbclick .diary .tsab2 {
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .tsab1,
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .tsab2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -526,34 +526,34 @@ body form .pbclick .diary .tsab2 {
   z-index: 1000;
 }
 
-body form .pbclick .diary .tsab1 {
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .tsab1 {
     left: 10px;
 }
   
-body form .pbclick .diary .tsab2 {
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .tsab2 {
     right: 10px;
 }
 
-body form .pbclick .diary .hdiary .days .day{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .days .day{
     font-size: 25px;
     font-weight: bold;
     margin: 0;
     margin-bottom: 20px;
 }
 
-body form .pbclick .diary .hdiary .days .map{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .days .map{
     margin-bottom: 20px;
     width: 448px;
     height: 100px;
 }
 
-body form .pbclick .diary .hdiary .days .map img{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .days .map img{
     display: flex;
     width: 448px;
     height: 100px;
 }
 
-body form .pbclick .diary .hdiary .days .plan{
+body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .days .plan{
     margin: 0 30px;
     height: 297px;
 }

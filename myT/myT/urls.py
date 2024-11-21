@@ -16,5 +16,5 @@ urlpatterns += [
 
 # post
 urlpatterns += [
-    path('planner/', views.TopPosts, name='planner'),
+    path('planner/', views.Planner, name='planner'),
 ]

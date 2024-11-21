@@ -54,8 +54,8 @@ $(document).ready(function () {
     //});
 
     // 체크 버튼 클릭시
-    var logcheckImg = "{% static 'images/logcheck.png' %}";
-    var logcheckcImg = "{% static 'images/logcheckc.png' %}"; 
+    var logcheckImg = "{% static 'images/loglock.png' %}";
+    var logcheckcImg = "{% static 'images/loglockc.png' %}"; 
     var id = 'false';
     $("body form .lpage .main .check .idcheck").click(function () {
        if(id === 'false'){
