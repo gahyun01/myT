@@ -12,11 +12,14 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import environ
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-KAKAO_API_KEY = '6a6e9e655c7125fdfe984435085dd5c2'
-
+env = environ.Env()
+environ.Env.read_env()
+# WEATHER_API_KEY = env('WEATHER_API_KEY')
+# KAKAO_API_KEY = env('KAKAO_API_KEY')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

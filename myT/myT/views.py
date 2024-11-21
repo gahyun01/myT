@@ -4,6 +4,8 @@ from django.shortcuts import redirect
 from django.contrib.auth import login
 from django.contrib.auth import authenticate
 from django.conf import settings
+from django.shortcuts import render
+
 from django.db.models import Count
 from myT.models import *
 
@@ -26,6 +28,9 @@ def login_view(request):
 def logout_view(request):
     logout(request)  # 현재 사용자 세션 종료
     return redirect('/')
+
+
+# 날씨 정보 가져오기
 
 
 

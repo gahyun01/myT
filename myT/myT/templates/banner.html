@@ -3,6 +3,10 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{% static 'javascript/banner.js' %}"></script>
+<!-- 날씨 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
 
 <form>
 <!-- 상단 -->
@@ -126,7 +130,7 @@
         <!-- 날씨 -->
         <div class="weather">
             <img src="{% static 'images/weather_sunny.svg' %}" width="30px" height="30px">
-            <p style="font-size: 15px"></p>
+            <p style="font-size: 18px; font-weight: bold">9.8°</p>
         </div>
         <a href="{% url 'login'%}?next={{ request.path }}">
         <p class="login">로그인</p></a>

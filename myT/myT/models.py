@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.files.storage import default_storage
 import os
 import re
 
@@ -93,6 +94,14 @@ class PostImage(models.Model):
         else:
             self.number = last_number + 1
 
+        # 기존 이미지 삭제 (변경된 이미지가 있으면)
+        if self.pk:  # 기존 객체가 존재하는 경우 (이미 저장된 객체)
+            old_image = PostImage.objects.get(pk=self.pk).image
+            if old_image and old_image != self.image:
+                old_image_path = old_image.path
+                if default_storage.exists(old_image_path):
+                    default_storage.delete(old_image_path)
+
         # 파일 경로 및 이름 지정
         self.image.name = self.get_image_path()
 
@@ -102,6 +111,7 @@ class PostImage(models.Model):
         ext = os.path.splitext(self.image.name)[1]
         filename = f"{self.post.id}_{self.number}{ext}"
         return os.path.join('post', str(self.post.id), filename)
+
     
 
 # 하트 데이터

@@ -2,10 +2,11 @@ from django.contrib import admin
 from .models import *
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.core.files.storage import default_storage
 
 class ProfileInline(admin.StackedInline):
     model = Profile
-    can_delete = False
+    can_delete = True
     verbose_name_plural = "Profile"
     fields = ("profile_image",)
 
@@ -40,21 +41,29 @@ class PostImageInline(admin.TabularInline):
     extra = 1
     fields = ('image', 'number')
     readonly_fields = ('number',)
+    can_delete = True
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('plan', 'user', 'created_at', 'updated_at', 'display_hashtags')  # 해시태그는 표시만
-    search_fields = ('content', 'user__username', 'plan__plan_name')  # 검색에만 활용
+    list_display = ('plan', 'user', 'created_at', 'updated_at', 'display_hashtags')
+    search_fields = ('content', 'user__username', 'plan__plan_name')
     inlines = [PostImageInline]  # PostImage 관련 Inline 추가
-    
-    # save 시 해시태그 자동 추출
+
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)
         obj.extract_hashtags()
 
-    # 해시태그를 목록에만 보여주기 (읽기 전용)
+        # 이미지 변경 시 기존 이미지 파일 삭제
+        post_images = obj.images.all()  # 이미지 필드를 통해 관련된 모든 이미지 객체 가져오기
+        for post_image in post_images:
+            if post_image.image:
+                old_image = post_image.image.path
+                if change and old_image and old_image != post_image.image.path:
+                    # 기존 이미지 파일 삭제
+                    if default_storage.exists(old_image):
+                        default_storage.delete(old_image)
+
     def display_hashtags(self, obj):
-        # 공백으로 해시태그 분리
         hashtags = obj.hashtags.split() if obj.hashtags else []
         return ', '.join(hashtags)  # 콤마로 해시태그를 연결해서 표시
     display_hashtags.short_description = '해시태그'
