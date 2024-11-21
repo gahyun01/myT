@@ -18,10 +18,16 @@
     </style>
 </head>
 
+{% load static %}
+<script type="text/javascript">
+    var logcheckImg = "{% static 'images/loglock.png' %}";
+    var logcheckcImg = "{% static 'images/loglockc.png' %}";
+</script>
+
 <body>
     <!-- 상단 배너 -->
     {% include "banner.html" %}
-    <form action="{% url 'login' %}" method="post">    
+    <form action="{% url 'login' %}" method="post" onsubmit="return checkAll()"> 
         {% csrf_token %}
         <div class="lpage">
             <div class="title">
@@ -37,11 +43,11 @@
                     <!-- 아이디, 비밀번호 -->
                     <div class="id">
                         <img src="{% static 'images/lperson.png' %}" width="30px" height="30px" />
-                        <input type="text" name="user_id" placeholder="아이디" required>
+                        <input type="text" id="username" name="username" placeholder="아이디" required>
                     </div>
                     <div class="pwd">
                         <img src="{% static 'images/loglock.png' %}" width="30px" height="30px" />
-                        <input type="password" name="pwd" placeholder="비밀번호" required>
+                        <input type="password" id="password" name="password" placeholder="비밀번호" required>
                     </div>
                     <!-- 아이디 저장하기, 로그인 상태 유지 -->
                     <div class="check">
