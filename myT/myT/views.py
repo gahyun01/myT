@@ -41,9 +41,9 @@ def TopPosts(request):
     for index, post in enumerate(posts):
         image_filename_base = f"{post.id}_1"
         post_directory = os.path.join(settings.MEDIA_ROOT, 'post', str(post.id))
+        image_url = f"{settings.MEDIA_URL}default_image.png" # 기본 이미지로 설정
 
         # 디렉토리 내에서 파일을 찾고 확장자를 가져오기
-        image_url = 'default_image.jpg'
         if os.path.exists(post_directory):
             for filename in os.listdir(post_directory):
                 if filename.startswith(image_filename_base):

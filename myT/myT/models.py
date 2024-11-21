@@ -3,6 +3,19 @@ from django.contrib.auth.models import User
 import os
 import re
 
+# 유저 프로필 이미지
+def user_profile_image_path(instance, filename):
+    """유저의 ID를 파일명으로 하고 확장자를 유지"""
+    ext = os.path.splitext(filename)[1]  # 확장자 추출
+    return f"profile/{instance.user.id}{ext}"
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
+    profile_image = models.ImageField(upload_to=user_profile_image_path, blank=True, null=True)
+
+    def __str__(self):
+        return f"Profile of {self.user.username}"
+    
 
 # 여행 계획
 class Plan(models.Model):

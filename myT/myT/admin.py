@@ -1,5 +1,26 @@
 from django.contrib import admin
 from .models import *
+from django.contrib.auth.models import User
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+
+class ProfileInline(admin.StackedInline):
+    model = Profile
+    can_delete = False
+    verbose_name_plural = "Profile"
+    fields = ("profile_image",)
+
+class UserAdmin(BaseUserAdmin):
+    inlines = (ProfileInline,)
+
+    # 사용자 저장 시 프로필이 없으면 생성
+    def save_model(self, request, obj, form, change):
+        super().save_model(request, obj, form, change)
+        if not hasattr(obj, 'profile'):
+            Profile.objects.create(user=obj)
+
+# 기존 UserAdmin을 대체
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)
 
 class PlanDetailInline(admin.TabularInline):
     model = PlanDetail
@@ -8,7 +29,6 @@ class PlanDetailInline(admin.TabularInline):
     readonly_fields = ('latitude', 'longitude')  # 위도, 경도는 읽기 전용
     show_change_link = True  # 각 PlanDetail로 이동 가능한 링크 표시
 
-# Plan 관리자 설정
 @admin.register(Plan)
 class PlanAdmin(admin.ModelAdmin):
     list_display = ('plan_name', 'user')  # 목록에서 Plan 이름과 작성자 표시
@@ -38,7 +58,6 @@ class PostAdmin(admin.ModelAdmin):
         hashtags = obj.hashtags.split() if obj.hashtags else []
         return ', '.join(hashtags)  # 콤마로 해시태그를 연결해서 표시
     display_hashtags.short_description = '해시태그'
-
 
 admin.site.register(Heart)
 admin.site.register(Scrap)

@@ -18,6 +18,40 @@
   {% include "banner.html" %}
   {% block content %}
   <form>
+        <!-- 베스트 탑 10 플래너 게시물 -->
+        <div class="pbclick">
+          <!-- 제주도 -->
+          <div class="diary">
+            <img class="close-btn" src="{% static 'images/x.png' %}" />
+            <div class="hdiary">
+              <div class="default">
+                <p class="nation">JEJU</p>
+                <p class="title">홍길동의 제주도 맛집투어</p>
+                <!-- 사진 -->
+                <div class="picpage">
+                  <div class="sab1">
+                    <img src="{% static 'images/lt.png' %}" />
+                  </div>
+                  <div class="picture">
+                    <img class="main" src="img/jejuc.jpg" />
+                    <img class="main" src="img/jejuc1.jpg" />
+                    <img class="main" src="img/jejuc2.jpg" />
+                    <img class="main" src="img/jejuc3.jpg" />
+                    <div class="profile">
+                      <img src="images/Doong.jpg" />
+                      <p class="id">1879.03</p>
+                    </div>
+                    <p class="text">진짜 진심 또 오고 싶었다ㅠㅠ 나 궁궐, 성 이런 거 겁나 좋아하잖아. 가자마자 1박하고 일찌감치 오사카 성 보러 나갔는데... 아니 왜케 멋짐? 날씨가 찐이라 그런가? 생동감 대박이었음. 레알 에도시대 온 줄ㅎㅎㅎ 혹시 성벽 뒤에 사무라이 있나 살핀 1인ㅋㅋㅋ</p>
+                  </div>
+                  <div class="sab2">
+                    <img src="{% static 'images/gt.png' %}" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
     <!-- 베스트 탑 10 플래너 -->
     <div class="pback">
       <div class="pbinner">
