@@ -34,7 +34,9 @@ class PostAdmin(admin.ModelAdmin):
 
     # 해시태그를 목록에만 보여주기 (읽기 전용)
     def display_hashtags(self, obj):
-        return ', '.join([hashtag.name for hashtag in obj.hashtags.all()])
+        # 공백으로 해시태그 분리
+        hashtags = obj.hashtags.split() if obj.hashtags else []
+        return ', '.join(hashtags)  # 콤마로 해시태그를 연결해서 표시
     display_hashtags.short_description = '해시태그'
 
 

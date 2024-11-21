@@ -8,6 +8,7 @@ import re
 class Plan(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='plans')
     plan_name = models.CharField(max_length=30)
+    country = models.CharField(max_length=30, default='대한민국')
     
     def __str__(self):
         return self.plan_name
@@ -29,37 +30,30 @@ class PlanDetail(models.Model):
 
 # 여행에 대한 게시물
 class Post(models.Model):
-    plan = models.OneToOneField(Plan, on_delete=models.CASCADE, related_name='post')  # Plan과 1:1 관계
+    plan = models.OneToOneField(Plan, on_delete=models.CASCADE, related_name='post')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
-    content = models.TextField()  # 게시물 내용
-    created_at = models.DateTimeField(auto_now_add=True)  # 작성 시간
-    updated_at = models.DateTimeField(auto_now=True)  # 수정 시간
-    hashtags = models.ManyToManyField('Hashtag', related_name='posts', blank=True)  # 해시태그 추가
-
+    content = models.TextField()
+    hashtags = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
     def __str__(self):
         return f"Post for {self.plan.plan_name} by {self.user.username}"
 
     def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        self.extract_hashtags()
+        super().save(*args, **kwargs)  # 우선 저장
+        self.extract_hashtags()  # 해시태그 추출
+        super().save(*args, **kwargs)  # 해시태그가 연결된 후에 다시 저장
 
     def extract_hashtags(self):
         # 콘텐츠에서 해시태그 추출
         tags_in_content = re.findall(r'#\w+', self.content)
-        for tag_name in tags_in_content:
-            hashtag, created = Hashtag.objects.get_or_create(name=tag_name)
-            self.hashtags.add(hashtag)
-
-# 해시태그
-class Hashtag(models.Model):
-    name = models.CharField(max_length=100, unique=True)  # 해시태그 이름
-
-    def __str__(self):
-        return self.name
-
-def post_image_upload_to(instance, filename):
-    # 이전 마이그레이션을 위해 빈 함수로 남겨둠
-    pass
+        self.hashtags = ' '.join(tags_in_content)
+        
+        # content에서 # 이후 모든 글자를 잘라서 제거
+        if tags_in_content:
+            first_hashtag_index = self.content.find(tags_in_content[0])
+            self.content = self.content[:first_hashtag_index]  # #뒤의 내용은 잘라낸 후 저장
 
 # 게시물 사진 ( Post와 1:N 관계 )
 class PostImage(models.Model):
@@ -75,9 +69,11 @@ class PostImage(models.Model):
         if self.post.id is None:
             self.post.save()
 
-        # number가 지정되어 있지 않으면 자동 부여
-        if not self.number:
-            last_number = self.post.images.aggregate(models.Max('number'))['number__max'] or 0
+        last_number = self.post.images.aggregate(models.Max('number'))['number__max'] or 0
+
+        if not last_number:
+            self.number = 1
+        else:
             self.number = last_number + 1
 
         # 파일 경로 및 이름 지정
@@ -88,7 +84,7 @@ class PostImage(models.Model):
     def get_image_path(self):
         ext = os.path.splitext(self.image.name)[1]
         filename = f"{self.post.id}_{self.number}{ext}"
-        return os.path.join('post_images', str(self.post.id), filename)
+        return os.path.join('post', str(self.post.id), filename)
     
 
 # 하트 데이터
