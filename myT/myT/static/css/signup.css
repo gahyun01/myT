@@ -1,0 +1,229 @@
+body form .lpage{
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 800px;
+}
+
+body form .lpage .title{
+    z-index: 1; 
+    display: flex;
+    justify-content: start;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+body form .lpage .title a{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 100px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 0 10px;
+    padding-bottom: 30px;
+}
+body form .lpage .title .login{
+    color: #263e50;
+    box-shadow: 0px 0px 5px rgba(90, 90, 90, 0.7);
+    margin-right: 5px;
+    margin-left: 1.5px;
+}
+
+body form .lpage .title .sign{
+    color: white;
+    z-index: 1;
+    background-color: #263e50;
+}
+
+body form .lpage .title a p{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+/* 회원가입 폼 */
+body form .lpage .main{
+    z-index: 2;
+    position: relative;
+    display: inline-block;
+    text-align: start;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(90, 90, 90, 0.7);
+    border-radius: 10px;
+    width: 500px;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: -35px;
+}
+
+body form .lpage .main .position{
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+}
+
+body form .lpage .main img{
+    opacity: 0.7;
+}
+
+body form .lpage .main input{
+    width: 300px;
+    height: 30px;
+    border: none;
+    font-size: 18px;
+    margin-left: 30px;
+}
+
+/* 정보 입력 란 */
+body form .lpage .main .id{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1.5px solid #263e50;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+body form .lpage .main .name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    border: 1.5px solid #263e50;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: -1.5px;
+}
+
+body form .lpage .main .name img{
+    margin-left: -18px;
+}
+
+body form .lpage .main .name input{
+    width: 130px;
+    height: 30px;
+    border: none;
+    font-size: 18px;
+    margin-left: 30px;
+}
+
+body form .lpage .main .name #last_name{
+    width: 140px;
+    margin-left: 10px;
+}
+
+body form .lpage .main .pwd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    border: 1.5px solid #263e50;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: -1.5px;
+}
+
+body form .lpage .main .email{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1.5px solid #263e50;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: -1px;
+}
+
+
+/* 업로드 */
+body form .lpage .main .upload-box {
+    width: 100%;
+    box-sizing: border-box;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body form .lpage .main .upload-box .drag-file {
+    position: relative;
+    width: 75%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px dashed #dbdbdb;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+body form .lpage .main .upload-box .drag-file.highlight {
+    border: 3px dashed red;
+}
+
+body form .lpage .main .upload-box .drag-file .image {
+    width: 40px;
+}
+
+body form .lpage .main .upload-box .drag-file .message {
+    margin-bottom: 0;
+}
+
+body form .lpage .main .upload-box .drag-file.uploaded {
+    border: none;
+}
+
+body form .lpage .main .upload-box .drag-file .preview {
+    display: none; /* 업로드 전에는 숨김 */
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+body form .lpage .main .upload-box .file {
+    display: none;
+}
+  
+@media (max-width: 700px) {
+    .upload-box {
+      width: 100%;
+      box-sizing: border-box;
+      margin-right: 0;
+    }
+    .upload-box .drag-file {
+      height: 150px;
+    }
+    .files {
+      width: 100%;
+      box-sizing: border-box;
+      margin-right: 0;
+      overflow: initial;
+    }
+}
+
+
+/* 버튼 */
+body form .lpage .main .position .signup{
+    color: white;
+    background-color: #263e50;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 423px;
+    height: 51px;
+    margin-left: 35px;
+    margin-bottom: 20px;
+}

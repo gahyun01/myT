@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -8,126 +7,154 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <link rel="stylesheet" href="{% static 'css/mytbtop.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/planner.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/p.css' %}" />
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="{% static 'javascript/planner.js' %}"></script>
+  <script src="{% static 'javascript/p.js' %}"></script>
+  <!-- <script src="{% static 'javascript/planner.js' %}"></script> -->
 </head>
 
 <body>
   {% include "banner.html" %}
-  {% block content %}
-    <form>
-      <!-- 베스트 탑 10 플래너 -->
-      <div class="pback">
-        <div class="pbinner">
-          <div class="planner">
-            <p>Best 플래너 Top 10</p>
-            <img src="{% static 'images/fire.png' %}" width="40px" height="40px">
-          </div>
-          <div class="cardback">
-            <div class="sab1">
-              <img src="{% static 'images/lt.png' %}" height="100px" />
-            </div>
-            <div class="cardpage">
-              {% if top %}
-                {% for post in top %}
-                  <div class="card">
-                    <!-- 순위 및 국가 -->
-                    <div class="position">{{ post.position }}. {{ post.country }}</div>
-                    
-                    <!-- 이미지 -->
-                    <img src="{{ post.image_url }}" alt="{{ post.plan_name }}" />
-                    
-                    <!-- 계획 이름 -->
-                    <div class="name">{{ post.plan_name }}</div>
-                    
-                    <!-- 해시태그 -->
-                    <div class="planInfo">
-                        <div class="category">{{ post.hashtag1 }} {{ post.hashtag2 }}</div>
-                    </div>
-                    <!-- 베스트 탑 10 플래너 게시물 -->
-                    <!-- <div class="pbclick">
-                      <div class="diary">
-                        <img class="close-btn" src="{% static 'images/x.png' %}" />
-                        <p>{{ post.user_name }}</p>
-                        <p>{{ post.user_profile }}</p>
-                        <p>{{ post.images }}</p>
-                        <p>{{ post.content }}</p>
-                        <p>{{ post.hashtags}}</p>
-                      </div>
-                    </div> -->
-                  </div>
-                {% endfor %}
-              {% endif %}
-            </div>
-            <div class="sab2">
-              <img src="{% static 'images/gt.png' %}" height="100px" />
-            </div>
-          </div>
-        </div>
+  <!-- 베스트 탑 10 플래너 -->
+  <div class="pback">
+    <div class="pbinner">
+      <div class="planner">
+        <p>Best 플래너 Top 10</p>
+        <img src="{% static 'images/fire.png' %}" width="40px" height="40px">
       </div>
-
-      <div class="mainp">
-        <!-- 메인 검색창 -->
-        <div class="psearch">
-          <!-- 나라 선택 combobox -->
-          <select id="combo">
-            <option value="option1">국가</option>
-            <option value="option2">대한민국</option>
-            <option value="option3">일본</option>
-            <option value="option3">미국</option>
-            <option value="option3">중국</option>
-          </select>
-          <!-- # 검색 -->
-          <div class="search-hash"><a>#</a>
-            <input type="text" class="search-box">
-            <button class="search-button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                viewBox="0 0 1664 1664">
-                <path fill="#dc8b35"
-                  d="M1152 704q0-185-131.5-316.5T704 256T387.5 387.5T256 704t131.5 316.5T704 1152t316.5-131.5T1152 704m512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124q-143 0-273.5-55.5t-225-150t-150-225T0 704t55.5-273.5t150-225t225-150T704 0t273.5 55.5t225 150t150 225T1408 704q0 220-124 399l343 343q37 37 37 90">
-                </path>
-              </svg></button>
-          </div>
+      <div class="cardback">
+        <div class="sab1">
+          <img src="{% static 'images/lt.png' %}" height="100px" />
         </div>
-  
-        <!-- 플래너 카드 -->
-        <div class="pplanner">
-          <div class="pcards">
-            {% if all %}
-              {% for post in all %}
-                <div class="splanner">
-                  <div class="pinfo">
-                    <img src="{{ post.image }}" />
-                    <div class="pfphotos"><img class="pfphoto" src="{{ post.profile }}"/></div>
-                    <div class="position">{{ post.user }}님의 일정 · {{ post.days }}</div>
-                    <div class="planname" style="font-size: 18px; font-weight: bold">{{ post.plan_name }}</div>
-                    
-                    <div class="text">
-                      {{ post.content }}
-                    </div>
-                    <div class="cicon">
-                      <div class="ci">
-                        <img src="{% static 'images/heartc.png' %}" />
-                        <a>{{ post.hart }}</a>
+        <div class="cardpage">
+          {% if top %}
+            {% for post in top %}
+              <div class="card">
+                <!-- 순위 및 국가 -->
+                <div class="position">{{ post.position }}. {{ post.country }}</div>
+                
+                <!-- 이미지 -->
+                <img src="{{ post.image_url }}" alt="{{ post.plan_name }}" />
+                
+                <!-- 계획 이름 -->
+                <div class="name">{{ post.plan_name }}</div>
+                
+                <!-- 해시태그 -->
+                <div class="planInfo">
+                    <div class="category">{{ post.hashtag1 }} {{ post.hashtag2 }}</div>
+                </div>
+              </div>
+              <!-- 베스트 탑 10 플래너 게시물 -->
+              <div class="pbclick">
+                <div class="diary">
+                  <img class="close-btn" src="{% static 'images/x.png' %}" />
+                  <div class="hdiary">
+                    <p class="nation">{{ post.country }}</p>
+                    <p class="name">{{ post.plan_name }}</p>
+                    <!-- 화살표 -->
+                    <div class="arrow">
+                      <div class="sab1">
+                        <img src="{% static 'images/lt.png' %}" />
                       </div>
-                      <div class="ci">
-                        <img src="{% static 'images/bookmarkc.png' %}" />
-                        <a>{{ post.script }}</a>
+                      <div class="sab2">
+                        <img src="{% static 'images/gt.png' %}" />
                       </div>
                     </div>
+                    <!-- 사진 -->
+                    <div class="picpage">
+                      {% for image in post.images %}
+                        <img class="picture" src="{{ image }}" />
+                      {% endfor %}
+                      <!-- <div class="profile">
+                        <img src="{{ post.user_profile }}" />
+                        <p class="id">1879.03</p>
+                      </div>
+                      <p class="text">{{ post.content}}</p> -->
+                    </div>
+                  </div>
+                  <div class="hdiary">
                   </div>
                 </div>
-              {% endfor %}
-            {% endif %}
-          </div>
-          <div class="paging">
-            <div class="pagination"></div>
-          </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+        <div class="sab2">
+          <img src="{% static 'images/gt.png' %}" height="100px" />
         </div>
       </div>
-    </form>
-  {% endblock %}
+    </div>
+  </div>
+
+  <div class="mainp">
+    <!-- 메인 검색창 -->
+    <div class="psearch">
+      <!-- 나라 선택 combobox -->
+      <select id="combo">
+        <option value="option1">국가</option>
+        <option value="option2">대한민국</option>
+        <option value="option3">일본</option>
+        <option value="option3">미국</option>
+        <option value="option3">중국</option>
+      </select>
+      <!-- # 검색 -->
+      <div class="search-hash"><a>#</a>
+        <input type="text" class="search-box">
+        <button class="search-button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+            viewBox="0 0 1664 1664">
+            <path fill="#dc8b35"
+              d="M1152 704q0-185-131.5-316.5T704 256T387.5 387.5T256 704t131.5 316.5T704 1152t316.5-131.5T1152 704m512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124q-143 0-273.5-55.5t-225-150t-150-225T0 704t55.5-273.5t150-225t225-150T704 0t273.5 55.5t225 150t150 225T1408 704q0 220-124 399l343 343q37 37 37 90">
+            </path>
+          </svg></button>
+      </div>
+    </div>
+
+    <!-- 플래너 카드 -->
+    <div class="pplanner">
+      <div class="pcards">
+        {% if all %}
+          {% for post in all %}
+            <div class="splanner">
+              <div class="pinfo">
+                <img src="{{ post.image }}" />
+                <div class="pfphotos"><img class="pfphoto" src="{{ post.profile }}"/></div>
+                <div class="position">{{ post.user }}님의 일정 · {{ post.days }}</div>
+                <div class="planname" style="font-size: 18px; font-weight: bold">{{ post.plan_name }}</div>
+                
+                <div class="text">
+                  {{ post.content }}
+                </div>
+                <div class="cicon">
+                  <div class="ci">
+                    <img src="{% static 'images/heartc.png' %}" />
+                    <a>{{ post.hart }}</a>
+                  </div>
+                  <div class="ci">
+                    <img src="{% static 'images/bookmarkc.png' %}" />
+                    <a>{{ post.script }}</a>
+                  </div>
+                </div>
+              </div>
+              <div class="pbclick">
+                <div class="diary">
+                  <img class="close-btn" src="{% static 'images/x.png' %}" />
+                  <p>{{ post.user }}</p>
+                  <p>{{ post.user_profile }}</p>
+                  <p>{{ post.images }}</p>
+                  <p>{{ post.content }}</p>
+                  <p>{{ post.hashtags }}</p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <div class="paging">
+        <div class="pagination"></div>
+      </div>
+    </div>
+  </div>
   <footer>
     {% include "footer.html" %}
   </footer>

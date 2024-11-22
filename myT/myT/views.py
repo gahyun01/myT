@@ -6,9 +6,13 @@ from django.contrib.auth import authenticate
 from django.conf import settings
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
 
 from django.db.models import Count
+from django.db.utils import IntegrityError
 from myT.models import *
+from myT.forms import SignupForm
 
 from datetime import datetime, timedelta
 import requests
@@ -33,6 +37,53 @@ def login_view(request):
 def logout_view(request):
     logout(request)  # 현재 사용자 세션 종료
     return redirect('/')
+
+
+# 회원가입
+def signup(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        profile_image = request.FILES.get('profile_image')
+
+        # 중복 검사
+        if User.objects.filter(username=username).exists():
+            return render(request, 'signup.html', {
+                'error': '이미 존재하는 사용자 이름입니다. 다른 이름을 선택하세요.'
+            })
+
+        try:
+            # 사용자 생성
+            user = User.objects.create_user(
+                username=username,
+                password=password,
+                email=email,
+                first_name=first_name,
+                last_name=last_name
+            )
+
+            # 프로필 생성 및 이미지 저장
+            profile = Profile(user=user)
+            if profile_image:
+                # user_profile_image_path 규칙에 따라 파일명 설정
+                profile.profile_image = profile_image
+            profile.save()
+
+            # 로그인
+            user = authenticate(username=username, password=password)
+            login(request, user)
+
+            return redirect('index')
+        
+        except IntegrityError:
+            return render(request, 'signup.html', {
+                'error': '회원가입 중 문제가 발생했습니다. 다시 시도하세요.'
+            })
+
+    return render(request, 'signup.html')
 
 
 # 시간설정
@@ -93,8 +144,11 @@ def get_weather(request):
         "sky_state": sky_description,
     })
 
+def p(request):
+    return render(request, 'myT/p.html')
 
-# 좋아요 수가 많은 10개의 개시물
+
+# 베스트 탑 10 게시물
 def Planner(request):
     # 좋아요 순으로 상위 10개의 Post 가져오기
     posts = Post.objects.annotate(like_count=Count('hearts')).order_by('-like_count')[:10]
@@ -158,11 +212,11 @@ def Planner(request):
             'plan_name': f"{post.plan.plan_name[:20]}..." if len(post.plan.plan_name) > 20 else post.plan.plan_name,
             'hashtag1': hashtag1 if hashtag1 else None,
             'hashtag2': hashtag2 if hashtag2 else None,
-            # 'user_name': post.user.first_name + post.user.last_name,
-            # 'user_profile': user_profile_url,
-            # 'images': image_urls,
-            # 'content': post.content,
-            # 'hashtags': post.hashtags,
+            'user_name': post.user.first_name + post.user.last_name,
+            'user_profile': user_profile_url,
+            'images': image_urls,
+            'content': post.content,
+            'hashtags': post.hashtags,
         })
 
     # 데이터가 비어있는지 확인

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    {% block title %}<title>myT</title>{% endblock %}
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/p.css' %}" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="{% static 'javascript/planner.js' %}"></script> -->
+</head>
+  
+  <!-- 베스트 탑 10 플래너 -->
+  <div class="pback">
+    <div class="pbinner">
+      <div class="planner">
+        <p>Best 플래너 Top 10</p>
+        <img src="{% static 'images/fire.png' %}" width="40px" height="40px">
+      </div>
+      <div class="cardback">
+        <div class="sab1">
+          <img src="{% static 'images/lt.png' %}" height="100px" />
+        </div>
+        <div class="sab2">
+          <img src="{% static 'images/gt.png' %}" height="100px" />
+        </div>
+      </div>
+    </div>
+  </div>

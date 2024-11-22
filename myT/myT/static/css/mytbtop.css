@@ -1,24 +1,21 @@
 /* 추천 플래너 */
-body form .pback{
+body .pback{
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* background-image: url("../img/sunset.jpg");
-    box-shadow: 0px 10px 10px 0px rgba(159, 159, 159, 0.2); */
-    background-size: cover;
     width: 100%;
     margin: 0;
 }
-  
-body form .pback .pbinner{
+
+body .pback .pbinner{
     text-align: center;
     width: 1600px;
     border-radius: 20px;
     padding: 20px 0;
 }
-  
-body form .pback .pbinner .planner {
+
+body .pback .pbinner .planner {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,15 +23,14 @@ body form .pback .pbinner .planner {
     margin: 0 auto;
     text-align: center;
 }
-  
-body form .pback .pbinner .planner p {
+
+body .pback .pbinner .planner p {
     font-size: 30px;
     font-weight: bolder;
     margin: 0 0;
 }
 
-  
-body form .pback .pbinner .cardback {
+body .pback .pbinner .cardback {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -43,7 +39,7 @@ body form .pback .pbinner .cardback {
     height: 300px;
 }
   
-body form .pback .pbinner .cardback .cardpage {
+body .pback .pbinner .cardback .cardpage {
     display: flex;
     justify-content: center;
     width: 1300px;
@@ -52,7 +48,7 @@ body form .pback .pbinner .cardback .cardpage {
 }
   
 /* 추천 플래너 카드 */
-body form .pback .pbinner .cardback .cardpage .card {
+body .pback .pbinner .cardback .cardpage .card {
     content: '';
     position: relative;
     display: flex;
@@ -66,8 +62,8 @@ body form .pback .pbinner .cardback .cardpage .card {
     overflow: hidden;
 }
 
-body form .pback .pbinner .cardback .cardpage .card::before,
-body form .pback .pbinner .cardback .cardpage .card::after {
+body .pback .pbinner .cardback .cardpage .card::before,
+body .pback .pbinner .cardback .cardpage .card::after {
     content: '';
     position: absolute;
     width: 0;
@@ -76,22 +72,22 @@ body form .pback .pbinner .cardback .cardpage .card::after {
     transition: width 0.4s cubic-bezier(.5, .24, 0, 1);
 }
 
-body form .pback .pbinner .cardback .cardpage .card::before {
+body .pback .pbinner .cardback .cardpage .card::before {
     top: 0;
     left: 0;
 }
 
-body form .pback .pbinner .cardback .cardpage .card::after {
+body .pback .pbinner .cardback .cardpage .card::after {
     bottom: 0;
     right: 0;
 }
 
-body form .pback .pbinner .cardback .cardpage .card:hover::before,
-body form .pback .pbinner .cardback .cardpage .card:hover::after {
+body .pback .pbinner .cardback .cardpage .card:hover::before,
+body .pback .pbinner .cardback .cardpage .card:hover::after {
     width: 100%;
 }
 
-body form .pback .pbinner .cardback .cardpage .card:hover {
+body .pback .pbinner .cardback .cardpage .card:hover {
     border-left: 1px solid rgba(111, 58, 0, 0.5);
     border-right: 1px solid rgba(111, 58, 0, 0.5);
     border-radius: 20px;
@@ -99,26 +95,26 @@ body form .pback .pbinner .cardback .cardpage .card:hover {
 }
 
   
-body form .pback .pbinner .cardback .cardpage .position {
+body .pback .pbinner .cardback .cardpage .position {
     font-size: 15px;
     font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
 }
   
-body form .pback .pbinner .cardback .cardpage .card img {
+body .pback .pbinner .cardback .cardpage .card img {
     width: 220px;
     height: 200px;
     border-radius: 20px;
     margin-left: -3px;
 }
   
-body form .pback .pbinner .cardback .cardpage .card .name {
+body .pback .pbinner .cardback .cardpage .card .name {
     font-size: 13px;
     margin-top: 20px;
 }
   
-body form .pback .pbinner .cardback .cardpage .card .planInfo {
+body .pback .pbinner .cardback .cardpage .card .planInfo {
     padding-top: 5px;
     width: 100%;
     display: inline-block;
@@ -127,12 +123,12 @@ body form .pback .pbinner .cardback .cardpage .card .planInfo {
     margin-top: 10px;
 }
   
-body form .pback .pbinner .cardback .cardpage .card .planInfo .category {
+body .pback .pbinner .cardback .cardpage .card .planInfo .category {
     float: right;
     font-size: 12px;
 }
   
-body form .pback .pbinner .cardback .sab1 {
+body .pback .pbinner .cardback .sab1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,7 +137,7 @@ body form .pback .pbinner .cardback .sab1 {
     height: 300px;
 }
   
-body form .pback .pbinner .cardback .sab2 {
+body .pback .pbinner .cardback .sab2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -177,7 +173,7 @@ body form .pback .pbinner .cardback .sab2 {
 
 
 /* 카드 클릭시 게시물 */
-body form .pback .pbinner .cardback .cardpage .card .pbclick{
+body .pback .pbinner .cardback .cardpage .card .pbclick{
     display: none;
     position: absolute;
     justify-content: center;
@@ -188,13 +184,13 @@ body form .pback .pbinner .cardback .cardpage .card .pbclick{
     background-color: rgba(0, 0, 0, 0.25);
 }
   
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary {
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary {
     display: flex;
     justify-content: center;
     align-items: center;
     top: 50%;
     left: 50%;
-    transform: translate(-40%, -50%);
+    tran: translate(-40%, -50%);
     position: relative;
     width: 1024px;
     height: 576px;
@@ -204,7 +200,7 @@ body form .pback .pbinner .cardback .cardpage .card .pbclick .diary {
     margin-top: -50px;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .close-btn {
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .close-btn {
     position: absolute;
     top: 0;
     right: 0;
@@ -217,11 +213,11 @@ body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .close-btn {
     opacity: 0.5;
 }
   
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .close-btn:hover {
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .close-btn:hover {
     opacity: 1;
 }
   
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary {
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -232,21 +228,21 @@ body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary {
 }
 
 /* 게시물 왼쪽 */
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .nation{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .nation{
     font-size: 20px;
     color: #6f3a00;
     opacity: 0.8;
     margin: 0 0;
 }
   
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .title{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .title{
     font-size: 25px;
     font-weight: bold;
     margin: 0 0 8px 0;
 }
 
 /* 게시물 왼쪽 사진 */
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage {
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -260,7 +256,7 @@ body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .pic
     height: 350px;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture{
     display: flex;
     justify-content: center;
     position: relative;
@@ -269,27 +265,27 @@ body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .pic
     overflow: hidden;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .main{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .main{
     transition: opacity 0.3s;
     position: relative;
     width: 100%;
     height: 350px;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .main:hover{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .main:hover{
     opacity: 0.8;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1:hover ~ .picture .main{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1:hover ~ .picture .main{
     opacity: 0.8;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab2:hover ~ .picture .main{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab2:hover ~ .picture .main{
     opacity: 0.8;
 }
 
 /* 게시물 왼쪽 사진 프로필 */
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .profile{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .profile{
     display: flex;
     justify-content: start;
     align-items: center;
@@ -301,29 +297,29 @@ body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .pic
     margin-top: 10px;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .profile img{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .profile img{
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin: 10px;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .profile .id{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .profile .id{
     font-weight: bold;
     color: white;
     margin-left: 10px;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .main:hover ~ .profile{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .main:hover ~ .profile{
     opacity: 1;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1:hover ~ .picture .profile{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1:hover ~ .picture .profile{
     opacity: 1;
 }
 
 /* 게시물 왼쪽 사진 본문 */
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .text {
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .text {
     position: absolute;
     display: -webkit-box;
     -webkit-line-clamp: 4;
@@ -341,17 +337,17 @@ body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .pic
     box-sizing: border-box;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .main:hover ~ .text{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .picture .main:hover ~ .text{
     opacity: 1;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1:hover ~ .picture .text{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1:hover ~ .picture .text{
     opacity: 1;
 }
 
 /* 게시물 왼쪽 사진 화살표 */
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1,
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab2 {
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1,
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -364,21 +360,21 @@ body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .pic
   z-index: 1000;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1 {
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1 {
   left: 10px;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab2 {
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab2 {
   right: 10px;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1:hover,
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab2:hover {
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab1:hover,
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .picpage .sab2:hover {
     opacity: 1;
 }
  
 /* 게시물 왼쪽 아이콘 */
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .cicon{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .cicon{
     display: flex;
     justify-content: space-between;
     background-color: white;
@@ -386,32 +382,32 @@ body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .cic
     margin-top: 20px;
 }
   
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .cicon .ciconl{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .cicon .ciconl{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
   
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .cicon .ci{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .cicon .ci{
     display: flex;
     align-items: center;
 }
   
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .cicon img{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .cicon img{
     width: 30px;
     height: 30px;
     cursor: pointer;
     margin-right: 5px;
 }
   
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .cicon .ci a{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .cicon .ci a{
     font-weight: bold;
     font-size: 13px;
 }
 
 /* 댓글 */
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments{
     display: none;
     flex-direction: column;
     overflow: hidden;
@@ -422,11 +418,11 @@ body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .com
     border-bottom: 1px solid #6f3a00;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments {
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments {
     overflow-y: auto;   
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .pcom{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .pcom{
     display: flex;
     align-items: center;
     width: 100%;
@@ -434,23 +430,23 @@ body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .com
     margin: 5px 0;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .middlecom{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .middlecom{
     display: block;
     width: 80%;
     height: 70px;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .pcom img{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .pcom img{
     border-radius: 50%;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .pcom .id{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .pcom .id{
     font-weight: bold;
     margin: 0 0;
     margin-left: 10px;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .pcom .text {
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .pcom .text {
     width: 350px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -463,7 +459,7 @@ body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .com
     margin-bottom: 5px;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .pcom .heart{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .comments .pcom .heart{
     display: flex;
     height: 80%;
     padding: 10px;
@@ -471,7 +467,7 @@ body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .com
 }
 
 /* 댓글 작성 */
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus{
     display: none;
     justify-content: space-between;
     align-items: center;
@@ -481,11 +477,11 @@ body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plu
     margin-top: 10px;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus img{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus img{
     border-radius: 50%;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus .pluscom {
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus .pluscom {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -497,23 +493,23 @@ body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plu
     margin-right: 5px;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus .pluscom  .combox{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus .pluscom  .combox{
     width: 80%;
     height: 90%;
     border: none;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus .pluscom  .combox:focus{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus .pluscom  .combox:focus{
     outline: none;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus .pluscom img{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .plus .pluscom img{
     cursor: pointer;
 }
 
 /* 게시물 오른쪽 */
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .tsab1,
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .tsab2 {
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .tsab1,
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .tsab2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -526,34 +522,34 @@ body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .tsab2 {
   z-index: 1000;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .tsab1 {
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .tsab1 {
     left: 10px;
 }
   
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .tsab2 {
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .tsab2 {
     right: 10px;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .days .day{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .days .day{
     font-size: 25px;
     font-weight: bold;
     margin: 0;
     margin-bottom: 20px;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .days .map{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .days .map{
     margin-bottom: 20px;
     width: 448px;
     height: 100px;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .days .map img{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .days .map img{
     display: flex;
     width: 448px;
     height: 100px;
 }
 
-body form .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .days .plan{
+body .pback .pbinner .cardback .cardpage .card .pbclick .diary .hdiary .days .plan{
     margin: 0 30px;
     height: 297px;
 }

@@ -7,10 +7,10 @@
     <meta charset="utf-8">
     {% block title %}<title>myT</title>{% endblock %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{% static 'javascript/login.js' %}"></script>
+    <script src="{% static 'javascript/signup.js' %}"></script>
     <style>
         .login {
             text-align: center;
@@ -18,16 +18,10 @@
     </style>
 </head>
 
-{% load static %}
-<script type="text/javascript">
-    var logcheckImg = "{% static 'images/loglock.png' %}";
-    var logcheckcImg = "{% static 'images/loglockc.png' %}";
-</script>
-
 <body>
     <!-- 상단 배너 -->
     {% include "banner.html" %}
-    <form action="{% url 'login' %}" method="post" onsubmit="return checkAll()"> 
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="lpage">
             <div class="title">
@@ -49,21 +43,28 @@
                         <img src="{% static 'images/loglock.png' %}" width="30px" height="30px" />
                         <input type="password" id="password" name="password" placeholder="비밀번호" required>
                     </div>
-                    <!-- 아이디 저장하기, 로그인 상태 유지 -->
-                    <div class="check">
-                        <div class="idcheck">
-                            <img src="{% static 'images/logcheck.png' %}" width="18px" height="18px" />
-                            <p>아이디 저장하기</p>
+                    <div class="name">
+                        <img src="{% static 'images/lperson.png' %}" width="30px" height="30px" />
+                        <input type="text" id="first_name" name="first_name" placeholder="성" required>
+                        <input type="text" id="last_name" name="last_name" placeholder="이름" required>
                         </div>
-                        <div class="logcheck" value="0">
-                            <img src="{% static 'images/logcheck.png' %}" width="18px" height="18px" />
-                            <p>로그인 상태 유지</p>
-                        </div>
+                    <div class="email">
+                        <img src="{% static 'images/email.png' %}" width="28px" height="28px" />
+                        <input type="text" id="email" name="email" placeholder="이메일" required>
                     </div>
-                    <input type="submit" value="로그인" class="loginbtn">
+
+                    <!-- 사진 업로드 -->
+                    <div class="upload-box">
+                        <div id="drop-file" class="drag-file">
+                          <img src="https://img.icons8.com/pastel-glyph/2x/image-file.png" alt="파일 아이콘" class="image">
+                          <p class="message">프로필 사진 업로드</p>
+                          <input class="file" id="chooseFile" name="profile_image" type="file" onchange="dropFile.handleFiles(this.files)" accept="image/png, image/jpeg, image/gif">
+                          <img src="" alt="미리보기 이미지" class="preview">
+                        </div>
+                    </div>                      
+                    <input type="submit" value="회원가입" class="signup">
                 </div>
             </div>
-            <p class="find">아이디/비밀번호 찾기</p>
         </div>
     </form>
     <footer>

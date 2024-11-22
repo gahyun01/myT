@@ -24,4 +24,13 @@ urlpatterns = [
 # post
 urlpatterns += [
     path('planner/', views.Planner, name='planner'),
+    path('p/', views.p, name='p'),
 ]
+
+# sign up
+urlpatterns += [
+    path('signup/', views.signup, name='signup'),
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
