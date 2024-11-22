@@ -3,7 +3,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{% static 'javascript/banner.js' %}"></script>
-<!-- 날씨 -->
+<!-- 날씨 ( 폰트 ) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
@@ -129,8 +129,9 @@
     {% else %}
         <!-- 날씨 -->
         <div class="weather">
-            <img src="{% static 'images/weather_sunny.svg' %}" width="30px" height="30px">
-            <p style="font-size: 18px; font-weight: bold">9.8°</p>
+            {% csrf_token %}
+            <img id="weather_image" width="40px" height="40px" alt="날씨 이미지">
+            <p style="font-size: 18px; font-weight: bold" id="temperature"></p>
         </div>
         <a href="{% url 'login'%}?next={{ request.path }}">
         <p class="login">로그인</p></a>
@@ -141,6 +142,37 @@
 </form>
 
 <script>
+    // 서버에서 날씨 데이터 가져오기
+    fetch("{% url 'get_weather' %}")  // 'get_weather'의 URL을 동적으로 생성
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return response.json();
+    })
+    .then(data => {
+        // 기온과 날씨 상태 텍스트 표시
+        document.getElementById("temperature").innerText = `${data.temperature}℃`;
+        // 날씨 상태에 맞는 이미지 설정
+        let weatherImage = "";
+
+        // 날씨 상태에 따라 이미지 경로 설정
+        // 템플릿 내에서 조건에 따라 이미지를 변경
+        const weatherState = data.sky_state;  // Django에서 템플릿 변수로 전달된 날씨 상태
+        if (weatherState === "맑음") {
+            weatherImage = "{% static 'images/weather_sunny.png' %}";
+        } else if (weatherState === "구름 많음") {
+            weatherImage = "{% static 'images/weather_little_cloudy.png' %}";
+        } else if (weatherState === "흐림") {
+            weatherImage = "{% static 'images/weather_cloudy.png' %}";
+        }
+
+        // JavaScript에서 이미지 경로를 업데이트
+        document.getElementById("weather_image").src = weatherImage;
+    })
+    // .catch(error => console.error("Error fetching weather data:", error));
+
+
     function logout(event) {
         event.preventDefault();  // 기본 링크 동작 방지
         const logoutForm = document.createElement('form');  // 새로운 form 요소 생성

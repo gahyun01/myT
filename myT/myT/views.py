@@ -5,9 +5,14 @@ from django.contrib.auth import login
 from django.contrib.auth import authenticate
 from django.conf import settings
 from django.shortcuts import render
+from django.http import JsonResponse
 
 from django.db.models import Count
 from myT.models import *
+
+from datetime import datetime, timedelta
+import requests
+import os
 
 def index(request):
     return render(request, 'index.html')
@@ -30,8 +35,63 @@ def logout_view(request):
     return redirect('/')
 
 
-# 날씨 정보 가져오기
+# 시간설정
+def calculate_base_time(now):
+    # 기상청에서 데이터가 제공되는 기준 시간
+    valid_times = [2, 5, 8, 11, 14, 17, 20, 23]  # 시간 기준
+    hour = now.hour
+    
+    for valid_time in reversed(valid_times):  # 최신 시간부터 검색
+        if hour >= valid_time:
+            return now.strftime("%Y%m%d"), f"{valid_time:02d}00"
+    
+    # 현재 시간이 유효한 기준 시간보다 이른 경우 전날 23시로 설정
+    previous_day = now - timedelta(days=1)
+    return previous_day.strftime("%Y%m%d"), "2300"
 
+# 날씨 정보 가져오기
+def get_weather(request):
+    now = datetime.now()
+    base_date, base_time = calculate_base_time(now)
+
+    params = {
+        "serviceKey": settings.WEATHER_API_KEY,
+        "dataType": "JSON",
+        "numOfRows": 10,
+        "pageNo": 1,
+        "base_date": base_date,
+        "base_time": base_time,
+        "nx": 60,
+        "ny": 127,
+    }
+
+    endpoint = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst"
+    response = requests.get(endpoint, params=params)
+    data = response.json()
+    
+    data = response.json()
+
+    items = data.get("response", {}).get("body", {}).get("items", {}).get("item", [])
+    temperature = None
+    sky_state = None
+
+    for item in items:
+        if item["category"] == "TMP":
+            temperature = item["fcstValue"]
+        elif item["category"] == "SKY":
+            sky_state = item["fcstValue"]
+
+    sky_mapping = {
+        "1": "맑음",
+        "3": "구름 많음",
+        "4": "흐림"
+    }
+    sky_description = sky_mapping.get(sky_state, "알 수 없음")
+
+    return JsonResponse({
+        "temperature": temperature,
+        "sky_state": sky_description,
+    })
 
 
 # 좋아요 수가 많은 10개의 개시물

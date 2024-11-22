@@ -16,9 +16,10 @@ import environ
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
 env = environ.Env()
 environ.Env.read_env()
-# WEATHER_API_KEY = env('WEATHER_API_KEY')
+WEATHER_API_KEY = env('WEATHER_API_KEY', default=None)
 # KAKAO_API_KEY = env('KAKAO_API_KEY')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

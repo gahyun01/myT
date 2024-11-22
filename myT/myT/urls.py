@@ -15,6 +15,12 @@ urlpatterns += [
     path('accounts/logout/', logout_view, name='logout'),
 ]
 
+# banner
+urlpatterns = [
+    path("/banner/", views.get_weather, name="get_weather"),
+    path("", views.index, name="index"),
+]
+
 # post
 urlpatterns += [
     path('planner/', views.Planner, name='planner'),
