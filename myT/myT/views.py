@@ -66,11 +66,12 @@ def signup(request):
             )
 
             # 프로필 생성 및 이미지 저장
-            profile = Profile(user=user)
             if profile_image:
                 # user_profile_image_path 규칙에 따라 파일명 설정
-                profile.profile_image = profile_image
-            profile.save()
+                Profile(user=user, profile_image=profile_image)
+            else:
+                Profile(user=user)
+                
 
             # 로그인
             user = authenticate(username=username, password=password)
