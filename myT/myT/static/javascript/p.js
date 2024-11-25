@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
     const cards = document.querySelectorAll('.card');
-    const images = document.querySelectorAll('.picpage .picture');
     const prevButton = document.querySelector('.sab1'); // 왼쪽 화살표 버튼
     const nextButton = document.querySelector('.sab2'); // 오른쪽 화살표 버튼
     const closeBtns = document.querySelectorAll('.close-btn');
@@ -11,26 +10,88 @@ document.addEventListener('DOMContentLoaded', function () {
     const plus = document.querySelector('.pbclick .diary .hdiary .plus');
     const hdiaryElements = document.querySelectorAll('.pbclick .diary .hdiary .default');
 
-    let currentIndex = 0; // 현재 이미지 인덱스
-    let isCommentOpen = false; // 댓글 열림 상태
+    // 다이어리 열기/닫기 함수
+    function toggleDiary(pbclick, open = true) {
+        if (!pbclick) return;
+        pbclick.style.display = open ? 'flex' : 'none';
+
+        if (open) {
+            // 다이어리 열 때 첫 번째 이미지만 보이게 설정
+            const images = imagesArray[currentCardIndex];
+            if (images) {
+                const imageElements = document.querySelectorAll(`#pbclick-${currentCardIndex} .picpage .picture`);
+
+                imageElements.forEach((img, i) => {
+                    // 첫 번째 이미지는 보이게 하고, 나머지는 hidden 클래스 추가
+                    if (i === 0) {
+                        img.classList.remove('hidden');  // 첫 번째 이미지는 보이도록
+                    } else {
+                        img.classList.add('hidden');  // 나머지 이미지는 숨기도록
+                    }
+                });
+            }
+        } else {
+            // 다이어리 닫을 때 모든 이미지에 hidden 클래스 추가
+            const imageElements = document.querySelectorAll(`#pbclick-${currentCardIndex} .picpage .picture`);
+            imageElements.forEach((img) => {
+                img.classList.add('hidden');  // 모든 이미지를 숨기도록
+            });
+        }
+    }
+
+    
+    
+
+    // 현재 카드번호와 이미지 인덱스를 다루는 변수
+    let currentCardIndex = 0; // 카드 인덱스
+    let currentImageIndex = 0; // 현재 이미지 인덱스
+    let imagesArray = []; // 각 카드별 이미지 배열을 저장할 변수
+
+    // 각 카드에 데이터 속성으로 post.id 전달
+    cards.forEach(card => {
+        const postId = card.getAttribute('data-post-id');
+        const scriptElement = document.getElementById(`images-${postId}`);
+        
+        if (scriptElement) {
+            try {
+                const images = JSON.parse(scriptElement.innerHTML.trim());  // innerHTML로 데이터를 가져옴
+                console.log(images);  // 파싱된 JSON 배열
+            } catch (e) {
+                console.error('JSON parsing error:', e);
+            }
+        }
+    });
+
 
     // 다이어리 열기/닫기 함수
     function toggleDiary(pbclick, open = true) {
         if (!pbclick) return;
         pbclick.style.display = open ? 'flex' : 'none';
+
         if (open) {
-            currentIndex = 0;  // 첫 번째 이미지부터 시작
-            showImage(currentIndex);
+            currentImageIndex = 0;  // 첫 번째 이미지부터 시작
+            showImage(currentCardIndex, currentImageIndex);
             resetComments();
         }
     }
 
     // 이미지 표시 함수
-    function showImage(index) {
-        images.forEach((img, i) => {
-            img.style.display = (i === index) ? 'block' : 'none'; // 현재 이미지만 보이게
+    function showImage(cardIndex, imageIndex) {
+        const images = imagesArray[cardIndex];
+        
+        if (!images) {
+            console.error('No images found for cardIndex:', cardIndex);
+            return;
+        }
+    
+        const imageElements = document.querySelectorAll(`#pbclick-${cardIndex} .picpage .picture`);
+        
+        imageElements.forEach((img, i) => {
+            img.style.display = (i === imageIndex) ? 'block' : 'none';
         });
     }
+    
+    
 
     // 댓글 상태 초기화 함수
     function resetComments() {
@@ -38,28 +99,28 @@ document.addEventListener('DOMContentLoaded', function () {
         if (comments) comments.style.display = 'none';
         if (plus) plus.style.display = 'none';
         hdiaryElements.forEach(el => el.style.display = 'block');
-        isCommentOpen = false;
     }
 
     // 댓글 토글 함수
     function toggleComments() {
         if (!commentBtn || !commentImg) return;
-        isCommentOpen = !isCommentOpen;
+        const isCommentOpen = commentImg.src.includes('commentc.png');
         commentImg.src = isCommentOpen 
-            ? '/static/images/commentc.png' 
-            : '/static/images/comment.png';
-        if (comments) comments.style.display = isCommentOpen ? 'flex' : 'none';
-        if (plus) plus.style.display = isCommentOpen ? 'flex' : 'none';
+            ? '/static/images/comment.png' 
+            : '/static/images/commentc.png';
+        if (comments) comments.style.display = isCommentOpen ? 'none' : 'flex';
+        if (plus) plus.style.display = isCommentOpen ? 'none' : 'flex';
         hdiaryElements.forEach(el => {
-            el.style.display = isCommentOpen ? 'none' : 'block';
+            el.style.display = isCommentOpen ? 'block' : 'none';
         });
     }
 
     // 다이어리 카드 클릭 이벤트
-    cards.forEach(card => {
+    cards.forEach((card, index) => {
         card.addEventListener('click', function () {
             const pbclick = card.nextElementSibling;
             if (pbclick && pbclick.classList.contains('pbclick')) {
+                currentCardIndex = index; // 클릭한 카드의 인덱스 저장
                 toggleDiary(pbclick, true);
             }
         });
@@ -85,10 +146,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (prevButton) {
         prevButton.addEventListener('click', function (e) {
             e.stopPropagation();
-            if (currentIndex > 0) {
-                currentIndex -= 1; // 이전 이미지로 이동
-                showImage(currentIndex);
+            const currentImages = imagesArray[currentCardIndex];
+            if (currentImageIndex === 0) {
+                // 첫 번째 이미지에서 이전 버튼 누르면 마지막 이미지로 이동
+                currentImageIndex = currentImages.length - 1;
+            } else {
+                currentImageIndex -= 1;
             }
+            showImage(currentCardIndex, currentImageIndex);
         });
     }
 
@@ -96,28 +161,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (nextButton) {
         nextButton.addEventListener('click', function (e) {
             e.stopPropagation();
-            
-            // 현재 이미지가 마지막 이미지라면 더 이상 넘어가지 않도록
-            const currentImagePrefix = images[currentIndex].getAttribute('data-prefix'); // 현재 이미지의 "앞에 숫자"
-
-            // 해당 "prefix"에 해당하는 모든 이미지 중에서 마지막 이미지를 찾음
-            const samePrefixImages = Array.from(images).filter(img => {
-                return img.getAttribute('data-prefix') === currentImagePrefix;
-            });
-
-            // 마지막 이미지를 찾았다면, 그 이미지를 고정
-            const lastImage = samePrefixImages[samePrefixImages.length - 1];
-
-            if (images[currentIndex] === lastImage) {
-                // 마지막 이미지일 경우 더 이상 오른쪽으로 넘어가지 않음
-                return;
+            const currentImages = imagesArray[currentCardIndex];
+            if (currentImageIndex === currentImages.length - 1) {
+                // 마지막 이미지에서 다음 버튼 누르면 첫 번째 이미지로 이동
+                currentImageIndex = 0;
+            } else {
+                currentImageIndex += 1;
             }
-
-            // 현재 사진이 마지막 사진이 아니라면, 다음 이미지로 이동
-            if (currentIndex < images.length - 1) {
-                currentIndex += 1;
-                showImage(currentIndex);
-            }
+            showImage(currentCardIndex, currentImageIndex);
         });
     }
 
@@ -127,15 +178,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 초기화 로직
-    if (images.length === 1) {
-        images[0].style.display = 'block'; // 이미지가 하나만 있으면 항상 표시
-        if (prevButton) prevButton.style.display = 'none'; // 왼쪽 버튼 숨기기
-        if (nextButton) nextButton.style.display = 'none'; // 오른쪽 버튼 숨기기
-    } else {
-        showImage(currentIndex); // 첫 번째 이미지 표시
-        if (prevButton) prevButton.style.display = 'block'; // 왼쪽 버튼 보이기
-        if (nextButton) nextButton.style.display = 'block'; // 오른쪽 버튼 보이기
-    }
+    cards.forEach((card, index) => {
+        const currentImages = imagesArray[index];
+        const currentCardImages = card.querySelectorAll('.picpage .picture');
+
+        if (currentImages.length === 1) {
+            // 이미지가 하나라면 화살표 숨기기
+            const prevButton = card.querySelector('.sab1');
+            const nextButton = card.querySelector('.sab2');
+            if (prevButton) prevButton.style.display = 'none';
+            if (nextButton) nextButton.style.display = 'none';
+        } else {
+            // 여러 이미지가 있을 경우 첫 번째 이미지만 보이게 설정
+            showImage(index, 0);
+        }
+    });
+
+    
 
     // 메인 페이지
     // 플래너 페이지네이션 ( 페이징 )

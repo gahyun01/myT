@@ -218,6 +218,7 @@ def Planner(request):
             'country': post.plan.country,
             'image_url': image_url,
             'plan_name': f"{post.plan.plan_name[:20]}..." if len(post.plan.plan_name) > 20 else post.plan.plan_name,
+            'post_id': post.id,
             'hashtag1': hashtag1 if hashtag1 else None,
             'hashtag2': hashtag2 if hashtag2 else None,
             'user_name': post.user.username,

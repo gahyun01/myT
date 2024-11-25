@@ -13,10 +13,6 @@
   <script src="{% static 'javascript/p.js' %}"></script>
 </head>
 
-<script type="application/json" id="post-images">
-  {{ post.images|default:"[]"|safe }}
-</script>
-
 <body>
   {% include "banner.html" %}
   <!-- 베스트 탑 10 플래너 -->
@@ -33,7 +29,7 @@
         <div class="cardpage">
           {% if top %}
             {% for post in top %}
-              <div class="card">
+              <div class="card" data-post-id="{{ post.id }}">
                 <!-- 순위 및 국가 -->
                 <div class="position">{{ post.position }}. {{ post.country }}</div>
                 
@@ -47,6 +43,9 @@
                 <div class="planInfo">
                     <div class="category">{{ post.hashtag1 }} {{ post.hashtag2 }}</div>
                 </div>
+                <script id="images-{{ post.id }}" type="application/json">
+                  {{ post.images|json_script }}
+                </script>
               </div>
               <!-- 베스트 탑 10 플래너 게시물 -->
               <div class="pbclick">
@@ -97,7 +96,7 @@
                       </div>
                     </div>
                       <!-- 댓글 -->
-                    <div class="comments">
+                    <!-- <div class="comments">
                       <div class="pcom">
                         <img src="img/Doong.jpg" width="50px" height="50px"/>
                         <div class="middlecom">
@@ -179,15 +178,15 @@
                         <div class="heart"><img src="img/heart.png" width="20px" height="20px"/></div>
                       </div>
 
-                    </div>  
+                    </div>   -->
                     <!-- 댓글 입력창 -->
-                    <div class="plus">
+                    <!-- <div class="plus">
                       <img class="pro" src="img/Doong.jpg" width="50px" height="50px"/>
                       <div class="pluscom">
                         <input type="text" class="combox" placeholder="댓글 달기..." />
                         <img src="img/gif.png" width="30px" height="30px"/>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="hdiary">
                   </div>
