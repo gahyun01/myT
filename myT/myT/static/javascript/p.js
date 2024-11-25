@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (nextButton) {
         nextButton.addEventListener('click', function (e) {
             e.stopPropagation();
-
+            
             // 현재 이미지가 마지막 이미지라면 더 이상 넘어가지 않도록
             const currentImagePrefix = images[currentIndex].getAttribute('data-prefix'); // 현재 이미지의 "앞에 숫자"
 
@@ -136,4 +136,121 @@ document.addEventListener('DOMContentLoaded', function () {
         if (prevButton) prevButton.style.display = 'block'; // 왼쪽 버튼 보이기
         if (nextButton) nextButton.style.display = 'block'; // 오른쪽 버튼 보이기
     }
+
+    // 메인 페이지
+    // 플래너 페이지네이션 ( 페이징 )
+    const itemsPerPage = 9;
+    const items = $('.pplanner .splanner');
+    const totalItems = items.length;
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    let currentPage = 1;
+
+    function showItems() {
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+
+        items.hide().slice(startIndex, endIndex).show();
+    }
+
+    function generatePagination() {
+        let paginationHtml = '';
+
+        // << 버튼
+        if (totalPages > 10 && currentPage > 1) {
+            paginationHtml += `<a href="#" data-page="1" class="double-left">&lt;&lt;</a>`;
+        }
+
+        // < 버튼
+        if (currentPage > 1) {
+            paginationHtml += `<a href="#" data-page="${currentPage - 1}" class="left">&lt;</a>`;
+        } else {
+            // 첫 번째 페이지일 때 < 누르면 마지막 페이지로 이동
+            paginationHtml += `<a href="#" data-page="${totalPages}" class="left">&lt;</a>`;
+        }
+
+        // 숫자 버튼
+        for (let i = 1; i <= totalPages; i++) {
+            paginationHtml += `<a href="#" data-page="${i}" class="${i === currentPage ? 'active page-number' : 'page-number'}">${i}</a>`;
+        }
+
+        // > 버튼
+        if (currentPage < totalPages) {
+            paginationHtml += `<a href="#" data-page="${currentPage + 1}" class="right">&gt;</a>`;
+        } else {
+            // 마지막 페이지일 때 > 누르면 첫 번째 페이지로 이동
+            paginationHtml += `<a href="#" data-page="1" class="right">&gt;</a>`;
+        }
+
+        // >> 버튼
+        if (totalPages > 10 && currentPage < totalPages) {
+            paginationHtml += `<a href="#" data-page="${totalPages}" class="double-right">&gt;&gt;</a>`;
+        }
+
+        $('.pplanner .pagination').html(paginationHtml);
+    }
+
+    function updatePagination() {
+        $('.pplanner .pagination a').removeClass('active');
+        $('.pplanner .pagination a[data-page="' + currentPage + '"]').addClass('active');
+    }
+
+    // 페이지 숫자를 나타내는 버튼 클릭 시
+    $('.pplanner .pagination').on('click', 'a.page-number', function (e) {
+        e.preventDefault();
+        currentPage = parseInt($(this).data('page'));
+        showItems();
+        updatePagination();
+        scrollToTop(); // 페이지 이동 후 상단으로 스크롤
+    });
+
+    // << 버튼 클릭 시
+    $('.pplanner .pagination').on('click', 'a.double-left', function (e) {
+        e.preventDefault();
+        currentPage = 1;
+        showItems();
+        updatePagination();
+        scrollToTop();
+    });
+
+    // < 버튼 클릭 시
+    $('.pplanner .pagination').on('click', 'a.left', function (e) {
+        e.preventDefault();
+        if (currentPage > 1) {
+            currentPage--;
+        } else {
+            currentPage = totalPages;
+        }
+        showItems();
+        updatePagination();
+        scrollToTop();
+    });
+
+    // > 버튼 클릭 시
+    $('.pplanner .pagination').on('click', 'a.right', function (e) {
+        e.preventDefault();
+        if (currentPage < totalPages) {
+            currentPage++;
+        } else {
+            currentPage = 1;
+        }
+        showItems();
+        updatePagination();
+        scrollToTop();
+    });
+
+    // >> 버튼 클릭 시
+    $('.pplanner .pagination').on('click', 'a.double-right', function (e) {
+        e.preventDefault();
+        currentPage = totalPages;
+        showItems();
+        updatePagination();
+        scrollToTop();
+    });
+
+    function scrollToTop() {
+        $('html, body').animate({ scrollTop: $('.mainp').offset().top }, 'slow');
+    }
+
+    showItems();
+    generatePagination();
 });
