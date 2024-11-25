@@ -71,7 +71,6 @@ def signup(request):
                 Profile(user=user, profile_image=profile_image)
             else:
                 Profile(user=user)
-                
 
             # 로그인
             user = authenticate(username=username, password=password)
@@ -180,31 +179,39 @@ def Planner(request):
 
         """ 게시물 """
         # 게시물 이미지 전체 가져오기
-        image_urls = []
+        images = []
         # 디렉토리가 존재하면 이미지 파일을 모두 가져오기
         if os.path.exists(post_directory):
             for filename in os.listdir(post_directory):
-                file_extension = os.path.splitext(filename)[1]  # 확장자 추출
-                image_url = os.path.join(settings.MEDIA_URL, 'post', str(post.id), image_filename_base + file_extension)
-                image_url = image_url.replace("\\", "/")  # 역슬래시를 슬래시로 변경
-                image_urls.append(image_url)
+                # 확장자 추출
+                file_name, file_extension = os.path.splitext(filename)
+                
+                # 확장자에 따라 파일 처리
+                if file_extension.lower() in ['.jpg', '.png', '.jpeg']:  # 이미지 파일만 필터링
+                    image = os.path.join(settings.MEDIA_URL, 'post', str(post.id), filename)
+                    image = image.replace("\\", "/")  # 역슬래시를 슬래시로 변경
+                    images.append(image)
 
         # 이미지가 하나도 없을 경우 디폴트 이미지 추가
-        if not image_urls:
-            image_urls.append(f"{settings.MEDIA_URL}default_image.png")
+        if not images:
+            images.append(f"{settings.MEDIA_URL}default_image.png")
 
-        # 유저 프로필 이미지 가져오기
+        # 유저 프로필 가져오기
         user_profile_base = f"{post.user.id}"
-        user_profile_directory = os.path.join(settings.MEDIA_ROOT, 'profile', str(post.user.id))
-        user_profile_url = f"{settings.MEDIA_URL}default_profile.png"
+        user_profile_directory = os.path.join(settings.MEDIA_ROOT, 'profile')
+        profile = f"{settings.MEDIA_URL}default_profile.jpeg"
 
-        if os.path.exists(user_profile_directory):
-            for filename in os.listdir(user_profile_directory):
-                if filename.startswith(user_profile_base):
-                    file_extension = os.path.splitext(filename)[1]  # 확장자 추출
-                    user_profile_url = os.path.join(settings.MEDIA_URL, 'profile', str(post.user.id), user_profile_base + file_extension)
-                    user_profile_url = user_profile_url.replace("\\", "/")  # 역슬래시를 슬래시로 변경
-                    break
+        for filename in os.listdir(user_profile_directory):
+            if filename.startswith(user_profile_base):
+                file_extension = os.path.splitext(filename)[1]  # 확장자 추출
+                profile = os.path.join(settings.MEDIA_URL, 'profile', user_profile_base + file_extension)
+                profile = profile.replace("\\", "/")  # 역슬래시를 슬래시로 변경
+                break
+        
+        # 하트, 스크립트 개수 가져오기
+        hart = Heart.objects.filter(post=post).count()
+        script = Scrap.objects.filter(post=post).count()
+        comment = Comment.objects.filter(post=post).count()
 
         top.append({
             'position': index + 1,
@@ -213,11 +220,14 @@ def Planner(request):
             'plan_name': f"{post.plan.plan_name[:20]}..." if len(post.plan.plan_name) > 20 else post.plan.plan_name,
             'hashtag1': hashtag1 if hashtag1 else None,
             'hashtag2': hashtag2 if hashtag2 else None,
-            'user_name': post.user.first_name + post.user.last_name,
-            'user_profile': user_profile_url,
-            'images': image_urls,
+            'user_name': post.user.username,
+            'profile': profile,
+            'images': images,
             'content': post.content,
             'hashtags': post.hashtags,
+            'hart': hart,
+            'script': script,
+            'comment': comment,
         })
 
     # 데이터가 비어있는지 확인

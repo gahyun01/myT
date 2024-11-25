@@ -47,6 +47,8 @@ body .pback .pbinner .cardback .cardpage {
     overflow:hidden;
 }
 
+
+
 /* 베스트 탑 10 카드 */
 body .pback .pbinner .cardback .cardpage .card {
     content: '';
@@ -148,9 +150,13 @@ body .pback .pbinner .cardback .sab2 {
     height: 300px;
 }
 
+
+
 /* 베스트 탑 10 플레너 카드 게시물 */
 body .pback .pbinner .cardback .cardpage .pbclick {
     display: none;
+    justify-content: center;
+    align-items: center;
     position: fixed; /* 화면에 고정 */
     top: 0; /* 화면 상단에 고정 */
     left: 0;
@@ -159,8 +165,6 @@ body .pback .pbinner .cardback .cardpage .pbclick {
     z-index: 1000; /* 다른 요소 위에 배치 */
     background-color: rgba(0, 0, 0, 0.25); /* 배경을 어두운 색으로 설정 */
     overflow: auto; /* 내부 콘텐츠가 넘칠 경우 스크롤이 생기도록 설정 */
-    justify-content: center;
-    align-items: center;
 }
 
 body .pback .pbinner .cardback .cardpage .pbclick .diary {
@@ -195,14 +199,14 @@ body .pback .pbinner .cardback .cardpage .pbclick .diary .close-btn {
 body .pback .pbinner .cardback .cardpage .pbclick .diary .close-btn:hover {
     opacity: 1;
 }
-  
+
+/* 게시물 반 크기 */
 body .pback .pbinner .cardback .cardpage .pbclick .diary .hdiary {
     display: flex;
     flex-direction: column;
     position: relative;
     width: 448px;
     height: 474px;
-    border: #6f3a00 1px solid;
     padding: 24px;
     margin: 30px 0;
 }
@@ -239,12 +243,65 @@ body .pbclick .diary .hdiary .picpage {
     overflow: hidden;
 }
 
+/* 사진이 겹치지 않도록, 하나씩만 표시 */
+body .pbclick .diary .hdiary .picpage img {
+    position: absolute; /* 사진을 하나씩 겹쳐서 띄울 수 있도록 절대 위치 지정 */
+}
+
 body .pbclick .diary .hdiary .picpage .picture {
     transition: opacity 0.3s;
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 350px;
 }
+
+/* 기본적으로 프로필과 텍스트 숨기기 */
+body .pbclick .diary .hdiary .picpage .profile,
+body .pbclick .diary .hdiary .picpage .text {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    z-index: 10; /* 요소가 상단에 나타나도록 설정 */
+}
+
+/* 프로필 스타일 */
+body .pbclick .diary .hdiary .picpage .profile {
+    display: flex;
+    align-items: center;
+    top: 10px;
+    left: 10px;
+    width: 95%;
+}
+
+body .pbclick .diary .hdiary .picpage .profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+body .pbclick .diary .hdiary .picpage .profile .id {
+    font-weight: bold;
+    color: white;
+    margin-left: 60px;
+}
+
+/* 텍스트 스타일 */
+body .pbclick .diary .hdiary .picpage .text {
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 14px;
+    line-height: 20px;
+    width: 90%;
+}
+
+/* 마우스 호버 시 프로필과 텍스트 표시 */
+body .pbclick .diary .hdiary .picpage:hover .profile,
+body .pbclick .diary .hdiary .picpage:hover .text {
+    opacity: 1; /* 완전 보이게 */
+}
+
 
 /* 화살표 위치 설정 */
 body .pbclick .diary .hdiary .arrow {
@@ -260,8 +317,8 @@ body .pbclick .diary .hdiary .arrow {
 }
 
 /* 화살표 */
-body form .pbclick .diary .hdiary .arrow .sab1,
-body form .pbclick .diary .hdiary .arrow .sab2 {
+body .pbclick .diary .hdiary .arrow .sab1,
+body .pbclick .diary .hdiary .arrow .sab2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -272,6 +329,7 @@ body form .pbclick .diary .hdiary .arrow .sab2 {
     transition: opacity 0.3s ease;
     z-index: 100;
     pointer-events: auto; /* 클릭 가능 */
+    margin: 0 10px;
 }
 
 /* .picture에 마우스를 올리면 main 이미지의 opacity를 변경 */
@@ -281,9 +339,154 @@ body .pbclick .diary .hdiary .arrow:hover ~ .picpage .picture {
 }
 
 /* sab1과 sab2에 마우스를 올리면 opacity를 1로 변경 */
-body form .pbclick .diary .hdiary .arrow .sab1:hover,
-body form .pbclick .diary .hdiary .arrow .sab2:hover {
+body .pbclick .diary .hdiary .arrow .sab1:hover,
+body .pbclick .diary .hdiary .arrow .sab2:hover {
     opacity: 1;
     pointer-events: auto; /* 호버 시 클릭 가능하도록 */
 }
 
+/* 게시물 아이콘 */
+body .pbclick .diary .hdiary .cicon{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    transition: opacity 0.3s;
+    margin-top: 20px;
+}
+  
+body .pbclick .diary .hdiary .cicon .ciconl{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+  
+body .pbclick .diary .hdiary .cicon .ci{
+    display: flex;
+    align-items: center;
+}
+  
+body .pbclick .diary .hdiary .cicon img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+  
+body .pbclick .diary .hdiary .cicon .ci a{
+    font-weight: bold;
+    font-size: 13px;
+}
+
+
+
+/* 댓글 */
+body .pbclick .diary .hdiary .comments{
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    margin-top: 20px;
+    width: 100%;
+    height: 392px;
+    border-top: 1px solid #6f3a00;
+    border-bottom: 1px solid #6f3a00;
+}
+
+body .pbclick .diary .hdiary .comments {
+    overflow-y: auto;   
+}
+
+body .pbclick .diary .hdiary .comments .pcom{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 90px;
+    margin: 5px 0;
+}
+
+body .pbclick .diary .hdiary .comments .middlecom{
+    display: block;
+    width: 80%;
+    height: 70px;
+}
+
+body .pbclick .diary .hdiary .comments .pcom img{
+    border-radius: 50%;
+}
+
+body .pbclick .diary .hdiary .comments .pcom .id{
+    font-weight: bold;
+    margin: 0 0;
+    margin-left: 10px;
+}
+
+body .pbclick .diary .hdiary .comments .pcom .text {
+    width: 350px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: left;
+    line-height: 20px;
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+body .pbclick .diary .hdiary .comments .pcom .heart{
+    display: flex;
+    height: 80%;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* 댓글 작성 */
+body .pbclick .diary .hdiary .plus{
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 448px;
+    height: 80px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+body .pbclick .diary .hdiary .plus img{
+    border-radius: 50%;
+}
+
+body .pbclick .diary .hdiary .plus .pluscom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 345px;
+    height: 50px;
+    box-shadow: 0px 0px 5px rgba(113, 113, 113, 0.7);
+    border-radius: 50px;
+    padding: 0 20px;
+    margin-right: 5px;
+}
+
+body .pbclick .diary .hdiary .plus .pluscom  .combox{
+    width: 80%;
+    height: 90%;
+    border: none;
+}
+
+body .pbclick .diary .hdiary .plus .pluscom  .combox:focus{
+    outline: none;
+}
+
+body .pbclick .diary .hdiary .plus .pluscom img{
+    cursor: pointer;
+}
+
+.comments.open {
+    display: flex;
+}
+.plus.open {
+    display: flex;
+}
+.default.hidden {
+    display: none;
+}
