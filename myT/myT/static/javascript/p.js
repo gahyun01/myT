@@ -1,132 +1,74 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Elements selection
     const cards = document.querySelectorAll('.card');
-    const prevButton = document.querySelector('.sab1'); // 왼쪽 화살표 버튼
-    const nextButton = document.querySelector('.sab2'); // 오른쪽 화살표 버튼
     const closeBtns = document.querySelectorAll('.close-btn');
     const pbclicks = document.querySelectorAll('.pbclick');
-    const commentBtn = document.querySelector('#comment');
-    const commentImg = commentBtn ? commentBtn.querySelector('img') : null;
-    const comments = document.querySelector('.pbclick .diary .hdiary .comments');
-    const plus = document.querySelector('.pbclick .diary .hdiary .plus');
-    const hdiaryElements = document.querySelectorAll('.pbclick .diary .hdiary .default');
+    const totalCards = $('.card').length; // 총 카드 개수
+    let currentStartIndex = 0; // 현재 표시되는 첫 번째 카드 인덱스
 
-    // 다이어리 열기/닫기 함수
-    function toggleDiary(pbclick, open = true) {
-        if (!pbclick) return;
-        pbclick.style.display = open ? 'flex' : 'none';
-
-        if (open) {
-            // 다이어리 열 때 첫 번째 이미지만 보이게 설정
-            const images = imagesArray[currentCardIndex];
-            if (images) {
-                const imageElements = document.querySelectorAll(`#pbclick-${currentCardIndex} .picpage .picture`);
-
-                imageElements.forEach((img, i) => {
-                    // 첫 번째 이미지는 보이게 하고, 나머지는 hidden 클래스 추가
-                    if (i === 0) {
-                        img.classList.remove('hidden');  // 첫 번째 이미지는 보이도록
-                    } else {
-                        img.classList.add('hidden');  // 나머지 이미지는 숨기도록
-                    }
-                });
-            }
-        } else {
-            // 다이어리 닫을 때 모든 이미지에 hidden 클래스 추가
-            const imageElements = document.querySelectorAll(`#pbclick-${currentCardIndex} .picpage .picture`);
-            imageElements.forEach((img) => {
-                img.classList.add('hidden');  // 모든 이미지를 숨기도록
-            });
-        }
+    // 카드 슬라이드 관련
+    function updateCardVisibility() {
+        $('.card').each(function (index) {
+            $(this).toggle(index >= currentStartIndex && index < currentStartIndex + 5);
+        });
     }
 
-    
-    
+    // 처음 페이지 로드시 카드 업데이트
+    updateCardVisibility();
 
-    // 현재 카드번호와 이미지 인덱스를 다루는 변수
-    let currentCardIndex = 0; // 카드 인덱스
-    let currentImageIndex = 0; // 현재 이미지 인덱스
-    let imagesArray = []; // 각 카드별 이미지 배열을 저장할 변수
+    // 'sab2' 버튼 클릭시 1칸 앞으로 이동
+    $('.cardback .sab2').hover(
+        () => $(this).css({ 'opacity': '1' }),
+        () => $(this).css({ 'opacity': '0.5' })
+    );
 
-    // 각 카드에 데이터 속성으로 post.id 전달
-    cards.forEach(card => {
-        const postId = card.getAttribute('data-post-id');
-        const scriptElement = document.getElementById(`images-${postId}`);
-        
-        if (scriptElement) {
-            try {
-                const images = JSON.parse(scriptElement.innerHTML.trim());  // innerHTML로 데이터를 가져옴
-                console.log(images);  // 파싱된 JSON 배열
-            } catch (e) {
-                console.error('JSON parsing error:', e);
-            }
-        }
+    $('.cardback .sab2').click(function () {
+        currentStartIndex = (currentStartIndex + 1) % totalCards;
+        updateCardVisibility();
     });
 
+    // 'sab1' 버튼 클릭시 1칸 뒤로 이동
+    $('.cardback .sab1').hover(
+        () => $(this).css({ 'opacity': '1' }),
+        () => $(this).css({ 'opacity': '0.5' })
+    );
 
-    // 다이어리 열기/닫기 함수
+    $('.cardback .sab1').click(function () {
+        currentStartIndex = (currentStartIndex - 1 + totalCards) % totalCards;
+        updateCardVisibility();
+    });
+
+    // 자동 슬라이드 (3초마다 sab2 클릭)
+    setInterval(function () {
+        currentStartIndex = (currentStartIndex + 1) % totalCards;
+        updateCardVisibility();
+    }, 3000);
+
+    // 카드 게시물 열기/닫기
     function toggleDiary(pbclick, open = true) {
         if (!pbclick) return;
         pbclick.style.display = open ? 'flex' : 'none';
-
         if (open) {
-            currentImageIndex = 0;  // 첫 번째 이미지부터 시작
+            currentImageIndex = 0;
             showImage(currentCardIndex, currentImageIndex);
             resetComments();
+        } else {
+            hideAllImages();
         }
     }
 
-    // 이미지 표시 함수
-    function showImage(cardIndex, imageIndex) {
-        const images = imagesArray[cardIndex];
-        
-        if (!images) {
-            console.error('No images found for cardIndex:', cardIndex);
-            return;
-        }
-    
-        const imageElements = document.querySelectorAll(`#pbclick-${cardIndex} .picpage .picture`);
-        
-        imageElements.forEach((img, i) => {
-            img.style.display = (i === imageIndex) ? 'block' : 'none';
-        });
-    }
-    
-    
-
-    // 댓글 상태 초기화 함수
-    function resetComments() {
-        if (commentImg) commentImg.src = '/static/images/comment.png'; // 기본 아이콘
-        if (comments) comments.style.display = 'none';
-        if (plus) plus.style.display = 'none';
-        hdiaryElements.forEach(el => el.style.display = 'block');
-    }
-
-    // 댓글 토글 함수
-    function toggleComments() {
-        if (!commentBtn || !commentImg) return;
-        const isCommentOpen = commentImg.src.includes('commentc.png');
-        commentImg.src = isCommentOpen 
-            ? '/static/images/comment.png' 
-            : '/static/images/commentc.png';
-        if (comments) comments.style.display = isCommentOpen ? 'none' : 'flex';
-        if (plus) plus.style.display = isCommentOpen ? 'none' : 'flex';
-        hdiaryElements.forEach(el => {
-            el.style.display = isCommentOpen ? 'block' : 'none';
-        });
-    }
-
-    // 다이어리 카드 클릭 이벤트
+    // 카드 클릭 시 게시물 열기
     cards.forEach((card, index) => {
         card.addEventListener('click', function () {
             const pbclick = card.nextElementSibling;
-            if (pbclick && pbclick.classList.contains('pbclick')) {
-                currentCardIndex = index; // 클릭한 카드의 인덱스 저장
+            if (pbclick?.classList.contains('pbclick')) {
+                currentCardIndex = index;
                 toggleDiary(pbclick, true);
             }
         });
     });
 
-    // 다이어리 닫기 버튼 클릭 이벤트
+    // 닫기 버튼 클릭 시 게시물 닫기
     closeBtns.forEach(btn => {
         btn.addEventListener('click', function (e) {
             e.stopPropagation();
@@ -135,96 +77,63 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 다이어리 외부 클릭 시 닫히지 않게 처리
+    // 외부 클릭 시 닫히지 않게 처리
     pbclicks.forEach(pbclick => {
-        pbclick.addEventListener('click', function (e) {
-            e.stopPropagation();
-        });
+        pbclick.addEventListener('click', (e) => e.stopPropagation());
     });
 
-    // 이전 이미지 버튼 클릭 이벤트
-    if (prevButton) {
-        prevButton.addEventListener('click', function (e) {
-            e.stopPropagation();
-            const currentImages = imagesArray[currentCardIndex];
-            if (currentImageIndex === 0) {
-                // 첫 번째 이미지에서 이전 버튼 누르면 마지막 이미지로 이동
-                currentImageIndex = currentImages.length - 1;
-            } else {
-                currentImageIndex -= 1;
-            }
-            showImage(currentCardIndex, currentImageIndex);
-        });
+    // 이미지 슬라이드
+    const images = document.getElementById('carousel-inner').getAttribute('data-images').split(', ');
+    let currentIndex = 0;
+    const carouselInner = document.getElementById('carousel-inner');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    // 슬라이드 이동
+    function updateCarousel() {
+        const imageWidth = 448;
+        carouselInner.style.transition = 'transform 0.5s ease-in-out';
+        carouselInner.style.transform = `translateX(${-imageWidth * currentIndex}px)`;
     }
 
-    // 다음 이미지 버튼 클릭 이벤트
-    if (nextButton) {
-        nextButton.addEventListener('click', function (e) {
-            e.stopPropagation();
-            const currentImages = imagesArray[currentCardIndex];
-            if (currentImageIndex === currentImages.length - 1) {
-                // 마지막 이미지에서 다음 버튼 누르면 첫 번째 이미지로 이동
-                currentImageIndex = 0;
-            } else {
-                currentImageIndex += 1;
-            }
-            showImage(currentCardIndex, currentImageIndex);
-        });
-    }
-
-    // 댓글 버튼 클릭 이벤트
-    if (commentBtn) {
-        commentBtn.addEventListener('click', toggleComments);
-    }
-
-    // 초기화 로직
-    cards.forEach((card, index) => {
-        const currentImages = imagesArray[index];
-        const currentCardImages = card.querySelectorAll('.picpage .picture');
-
-        if (currentImages.length === 1) {
-            // 이미지가 하나라면 화살표 숨기기
-            const prevButton = card.querySelector('.sab1');
-            const nextButton = card.querySelector('.sab2');
-            if (prevButton) prevButton.style.display = 'none';
-            if (nextButton) nextButton.style.display = 'none';
-        } else {
-            // 여러 이미지가 있을 경우 첫 번째 이미지만 보이게 설정
-            showImage(index, 0);
-        }
+    // 이전/다음 버튼 클릭 이벤트
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateCarousel();
+    });
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateCarousel();
     });
 
-    
-
-    // 메인 페이지
-    // 플래너 페이지네이션 ( 페이징 )
+    // 페이지네이션 (플래너)
     const itemsPerPage = 9;
     const items = $('.pplanner .splanner');
     const totalItems = items.length;
     const totalPages = Math.ceil(totalItems / itemsPerPage);
     let currentPage = 1;
 
+    // 표시할 아이템 업데이트
     function showItems() {
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
-
         items.hide().slice(startIndex, endIndex).show();
     }
 
+    // 페이지네이션 버튼 생성
     function generatePagination() {
         let paginationHtml = '';
 
-        // << 버튼
+        // << 버튼 (첫 페이지가 아닐 때만)
         if (totalPages > 10 && currentPage > 1) {
             paginationHtml += `<a href="#" data-page="1" class="double-left">&lt;&lt;</a>`;
         }
 
-        // < 버튼
+        // < 버튼 (첫 페이지가 아닐 때만) - 첫 페이지일 때는 링크 비활성화
         if (currentPage > 1) {
             paginationHtml += `<a href="#" data-page="${currentPage - 1}" class="left">&lt;</a>`;
         } else {
-            // 첫 번째 페이지일 때 < 누르면 마지막 페이지로 이동
-            paginationHtml += `<a href="#" data-page="${totalPages}" class="left">&lt;</a>`;
+            paginationHtml += `<a href="#" class="left disabled">&lt;</a>`; // 첫 페이지에서 비활성화 처리
         }
 
         // 숫자 버튼
@@ -232,15 +141,14 @@ document.addEventListener('DOMContentLoaded', function () {
             paginationHtml += `<a href="#" data-page="${i}" class="${i === currentPage ? 'active page-number' : 'page-number'}">${i}</a>`;
         }
 
-        // > 버튼
+        // > 버튼 (마지막 페이지가 아닐 때만)
         if (currentPage < totalPages) {
             paginationHtml += `<a href="#" data-page="${currentPage + 1}" class="right">&gt;</a>`;
         } else {
-            // 마지막 페이지일 때 > 누르면 첫 번째 페이지로 이동
-            paginationHtml += `<a href="#" data-page="1" class="right">&gt;</a>`;
+            paginationHtml += `<a href="#" class="right disabled">&gt;</a>`; // 마지막 페이지에서 비활성화 처리
         }
 
-        // >> 버튼
+        // >> 버튼 (마지막 페이지가 아닐 때만)
         if (totalPages > 10 && currentPage < totalPages) {
             paginationHtml += `<a href="#" data-page="${totalPages}" class="double-right">&gt;&gt;</a>`;
         }
@@ -248,68 +156,37 @@ document.addEventListener('DOMContentLoaded', function () {
         $('.pplanner .pagination').html(paginationHtml);
     }
 
+    // 페이지네이션 업데이트
     function updatePagination() {
         $('.pplanner .pagination a').removeClass('active');
         $('.pplanner .pagination a[data-page="' + currentPage + '"]').addClass('active');
     }
 
-    // 페이지 숫자를 나타내는 버튼 클릭 시
+    // 페이지네이션 버튼 클릭 이벤트
     $('.pplanner .pagination').on('click', 'a.page-number', function (e) {
         e.preventDefault();
         currentPage = parseInt($(this).data('page'));
         showItems();
         updatePagination();
-        scrollToTop(); // 페이지 이동 후 상단으로 스크롤
+        scrollToTop();
     });
 
-    // << 버튼 클릭 시
-    $('.pplanner .pagination').on('click', 'a.double-left', function (e) {
+    // 네비게이션 버튼 클릭 이벤트 (<<, <, >, >>)
+    $('.pplanner .pagination').on('click', 'a.double-left, a.left, a.right, a.double-right', function (e) {
         e.preventDefault();
-        currentPage = 1;
+        const direction = $(this).hasClass('left') ? -1 : $(this).hasClass('right') ? 1 : 0;
+        currentPage = (currentPage + direction + totalPages - 1) % totalPages + 1;
         showItems();
         updatePagination();
         scrollToTop();
     });
 
-    // < 버튼 클릭 시
-    $('.pplanner .pagination').on('click', 'a.left', function (e) {
-        e.preventDefault();
-        if (currentPage > 1) {
-            currentPage--;
-        } else {
-            currentPage = totalPages;
-        }
-        showItems();
-        updatePagination();
-        scrollToTop();
-    });
-
-    // > 버튼 클릭 시
-    $('.pplanner .pagination').on('click', 'a.right', function (e) {
-        e.preventDefault();
-        if (currentPage < totalPages) {
-            currentPage++;
-        } else {
-            currentPage = 1;
-        }
-        showItems();
-        updatePagination();
-        scrollToTop();
-    });
-
-    // >> 버튼 클릭 시
-    $('.pplanner .pagination').on('click', 'a.double-right', function (e) {
-        e.preventDefault();
-        currentPage = totalPages;
-        showItems();
-        updatePagination();
-        scrollToTop();
-    });
-
+    // 페이지 변경 시 스크롤을 최상단으로
     function scrollToTop() {
         $('html, body').animate({ scrollTop: $('.mainp').offset().top }, 'slow');
     }
 
+    // 초기화
     showItems();
     generatePagination();
 });
