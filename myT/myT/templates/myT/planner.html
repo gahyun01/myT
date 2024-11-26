@@ -54,23 +54,18 @@
                   <div class="hdiary">
                     <p class="nation">{{ post.country }}</p>
                     <p class="name">{{ post.plan_name }}</p>
-                    <!-- 화살표 -->
-                    <div class="arrow">
-                      <div class="sab1">
-                        <img src="{% static 'images/lt.png' %}" />
-                      </div>
-                      <div class="sab2">
-                        <img src="{% static 'images/gt.png' %}" />
-                      </div>                                         
-                    </div>
                     <!-- 사진 -->
-                    <div class="picpage">
-                      {% for image in post.images %}
-                        <img class="picture" src="{{ image }}" />
-                      {% endfor %}
+                    <div class="image-container" id="carousel-container">
+                      <div id="carousel-inner" data-images="{% for image in post.images %}{{ image }}{% if not forloop.last %}, {% endif %}{% endfor %}">
+                          {% for image in post.images %}
+                          <img class="picture" src="{{ image }}" />
+                          {% endfor %}
+                      </div>
+                      <button id="prev-btn" class="carousel-button">❮</button>
+                      <button id="next-btn" class="carousel-button">❯</button>
                       <div class="profile">
-                        <img src="{{ post.profile }}" />
-                        <p class="id">{{ post.user_name }}</p>
+                          <img src="{{ post.profile }}" />
+                          <p class="id">{{ post.user_name }}</p>
                       </div>
                       <p class="text">{{ post.content }}</p>
                     </div>
