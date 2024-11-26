@@ -213,136 +213,119 @@ body .pback .pbinner .cardback .cardpage .pbclick .diary .hdiary {
 
 /* 게시물 왼쪽 */
 body .pbclick .diary .hdiary .nation{
-    /* 상단 */
-    text-align: left;
-    font-size: 18px;
-    color: #6f3a00;
-    opacity: 0.8;
-    margin: 0 0;
+  /* 상단 */
+  text-align: left;
+  font-size: 18px;
+  color: #6f3a00;
+  opacity: 0.8;
+  margin: 0 0;
 }
 
 body .pbclick .diary .hdiary .name{
-    /* 게시물 명 */
-    text-align: left;
-    font-size: 25px;
-    font-weight: bold;
-    margin: 0 0 8px 0;
+  /* 게시물 명 */
+  text-align: left;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0 0 8px 0;
 }
 
 /* 사진 */
-body .pbclick .diary .hdiary .picpage {
-    display: flex;
-    justify-content: center; /* 사진을 중앙에 배치 */
-    align-items: center;
-    background-color: black;
-    border: none;
-    position: relative;
-    transition: all 0.5s ease-in-out;
-    width: 100%;
-    height: 350px; /* 고정 높이 설정 */
-    overflow: hidden;
+body .pbclick .diary .hdiary .image-container {
+  display: flex;
+  justify-content: center; /* 사진을 중앙에 배치 */
+  align-items: center;
+  background-color: black;
+  border: none;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+  height: 350px; /* 고정 높이 설정 */
+  overflow: hidden;
 }
 
-/* 사진이 겹치지 않도록, 하나씩만 표시 */
-body .pbclick .diary .hdiary .picpage img {
-    position: absolute; /* 사진을 하나씩 겹쳐서 띄울 수 있도록 절대 위치 지정 */
+body .pbclick .diary .hdiary .image-container #carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
-body .pbclick .diary .hdiary .picpage .picture {
-    transition: opacity 0.3s;
-    position: absolute;
-    width: 100%;
-    height: 350px;
+body .pbclick .diary .hdiary .image-container  #carousel-inner img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+/* 화살표 버튼 스타일 */
+body .pbclick .diary .hdiary .image-container .carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 50%;
+}
+
+#prev-btn {
+  left: 10px;
+}
+
+#next-btn {
+  right: 10px;
 }
 
 /* 기본적으로 프로필과 텍스트 숨기기 */
-body .pbclick .diary .hdiary .picpage .profile,
-body .pbclick .diary .hdiary .picpage .text {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    position: absolute;
-    z-index: 10; /* 요소가 상단에 나타나도록 설정 */
+body .pbclick .diary .hdiary .image-container .profile,
+body .pbclick .diary .hdiary .image-container .text {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  z-index: 10; /* 요소가 상단에 나타나도록 설정 */
 }
 
 /* 프로필 스타일 */
-body .pbclick .diary .hdiary .picpage .profile {
-    display: flex;
-    align-items: center;
-    top: 10px;
-    left: 10px;
-    width: 95%;
+body .pbclick .diary .hdiary .image-container .profile {
+  display: flex;
+  align-items: center;
+  top: 10px;
+  left: 10px;
+  width: 95%;
 }
 
-body .pbclick .diary .hdiary .picpage .profile img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
+body .pbclick .diary .hdiary .image-container .profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
-body .pbclick .diary .hdiary .picpage .profile .id {
-    font-weight: bold;
-    color: white;
-    margin-left: 60px;
+body .pbclick .diary .hdiary .image-container .profile .id {
+  font-weight: bold;
+  color: white;
 }
 
 /* 텍스트 스타일 */
-body .pbclick .diary .hdiary .picpage .text {
-    bottom: 10px;
-    left: 10px;
-    color: white;
-    font-size: 14px;
-    line-height: 20px;
-    width: 90%;
+body .pbclick .diary .hdiary .image-container .text {
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-size: 14px;
+  line-height: 20px;
+  width: 90%;
 }
 
-/* 마우스 호버 시 프로필과 텍스트 표시 */
-body .pbclick .diary .hdiary .picpage:hover .profile,
-body .pbclick .diary .hdiary .picpage:hover .text {
-    opacity: 1; /* 완전 보이게 */
+/* 이미지에 Hover */
+body .pbclick .diary .hdiary .image-container:hover .profile,
+body .pbclick .diary .hdiary .image-container:hover .text,
+body .pbclick .diary .hdiary .image-container:hover .carousel-button {
+  opacity: 1;
 }
-
-
-/* 화살표 위치 설정 */
-body .pbclick .diary .hdiary .arrow {
-    display: flex;
-    position: absolute;
-    width: 90%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    justify-content: space-between;
-    z-index: 10;
-    margin-top: 10px;
-}
-
-/* 화살표 */
-body .pbclick .diary .hdiary .arrow .sab1,
-body .pbclick .diary .hdiary .arrow .sab2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    opacity: 0.1; /* opacity를 0.1로 설정하여 미세하게 보이도록 */
-    width: 30px;
-    height: 100%;
-    transition: opacity 0.3s ease;
-    z-index: 100;
-    pointer-events: auto; /* 클릭 가능 */
-    margin: 0 10px;
-}
-
-/* .picture에 마우스를 올리면 main 이미지의 opacity를 변경 */
-body .pbclick .diary .hdiary .picpage:hover .picture,
-body .pbclick .diary .hdiary .arrow:hover ~ .picpage .picture {
-    opacity: 0.8;
-}
-
-/* sab1과 sab2에 마우스를 올리면 opacity를 1로 변경 */
-body .pbclick .diary .hdiary .arrow .sab1:hover,
-body .pbclick .diary .hdiary .arrow .sab2:hover {
-    opacity: 1;
-    pointer-events: auto; /* 호버 시 클릭 가능하도록 */
+body .pbclick .diary .hdiary .image-container:hover img {
+  opacity: 0.8;
 }
 
 /* 게시물 아이콘 */
