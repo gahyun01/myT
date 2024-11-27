@@ -58,7 +58,7 @@
                     <div class="image-container" id="carousel-container">
                       <div id="carousel-inner" data-images="{% for image in post.images %}{{ image }}{% if not forloop.last %}, {% endif %}{% endfor %}">
                           {% for image in post.images %}
-                          <img class="picture" src="{{ image }}" />
+                          <img class="picture" src="{{ image }}" id="pimg"/>
                           {% endfor %}
                       </div>
                       <button id="prev-btn" class="carousel-button">❮</button>
@@ -90,100 +90,41 @@
                         <a>{{ post.script }}</a>
                       </div>
                     </div>
-                      <!-- 댓글 -->
-                    <!-- <div class="comments">
-                      <div class="pcom">
-                        <img src="img/Doong.jpg" width="50px" height="50px"/>
-                        <div class="middlecom">
-                          <p class="id">1879.03</p>
-                          <p class="text">진짜 진심 또 오고 싶었다ㅠㅠ 나 궁궐, 성 이런 거 겁나 좋아하잖아. 가자마자 1박하고 일찌감치 오사카 성 보러 나갔는데... 아니 왜케 멋짐? 날씨가 찐이라 그런가? 생동감 대박이었음. 레알 에도시대 온 줄ㅎㅎㅎ 혹시 성벽 뒤에 사무라이 있나 살핀 1인ㅋㅋㅋ</p>
-                        </div>
-                        <div class="heart"><img src="img/heart.png" width="20px" height="20px"/></div>
-                      </div>
-                      <div class="pcom">
-                        <img src="img/Doong.jpg" width="50px" height="50px"/>
-                        <div class="middlecom">
-                          <p class="id">1879.03</p>
-                          <p class="text">진짜 진심 또 오고 싶었다ㅠㅠ 나 궁궐, 성 이런 거 겁나 좋아하잖아. 가자마자 1박하고 일찌감치 오사카 성 보러 나갔는데... 아니 왜케 멋짐? 날씨가 찐이라 그런가? 생동감 대박이었음. 레알 에도시대 온 줄ㅎㅎㅎ 혹시 성벽 뒤에 사무라이 있나 살핀 1인ㅋㅋㅋ</p>
-                        </div>
-                        <div class="heart"><img src="img/heart.png" width="20px" height="20px"/></div>
-                      </div>
-                      <div class="pcom">
-                        <img src="img/Doong.jpg" width="50px" height="50px"/>
-                        <div class="middlecom">
-                          <p class="id">1879.03</p>
-                          <p class="text">진짜 진심 또 오고 싶었다ㅠㅠ 나 궁궐, 성 이런 거 겁나 좋아하잖아. 가자마자 1박하고 일찌감치 오사카 성 보러 나갔는데... 아니 왜케 멋짐? 날씨가 찐이라 그런가? 생동감 대박이었음. 레알 에도시대 온 줄ㅎㅎㅎ 혹시 성벽 뒤에 사무라이 있나 살핀 1인ㅋㅋㅋ</p>
-                        </div>
-                        <div class="heart"><img src="img/heart.png" width="20px" height="20px"/></div>
-                      </div>
-                      <div class="pcom">
-                        <img src="img/Doong.jpg" width="50px" height="50px"/>
-                        <div class="middlecom">
-                          <p class="id">1879.03</p>
-                          <p class="text">진짜 진심 또 오고 싶었다ㅠㅠ 나 궁궐, 성 이런 거 겁나 좋아하잖아. 가자마자 1박하고 일찌감치 오사카 성 보러 나갔는데... 아니 왜케 멋짐? 날씨가 찐이라 그런가? 생동감 대박이었음. 레알 에도시대 온 줄ㅎㅎㅎ 혹시 성벽 뒤에 사무라이 있나 살핀 1인ㅋㅋㅋ</p>
-                        </div>
-                        <div class="heart"><img src="img/heart.png" width="20px" height="20px"/></div>
-                      </div>
-                      <div class="pcom">
-                        <img src="img/Doong.jpg" width="50px" height="50px"/>
-                        <div class="middlecom">
-                          <p class="id">1879.03</p>
-                          <p class="text">진짜 진심 또 오고 싶었다ㅠㅠ 나 궁궐, 성 이런 거 겁나 좋아하잖아. 가자마자 1박하고 일찌감치 오사카 성 보러 나갔는데... 아니 왜케 멋짐? 날씨가 찐이라 그런가? 생동감 대박이었음. 레알 에도시대 온 줄ㅎㅎㅎ 혹시 성벽 뒤에 사무라이 있나 살핀 1인ㅋㅋㅋ</p>
-                        </div>
-                        <div class="heart"><img src="img/heart.png" width="20px" height="20px"/></div>
-                      </div>
-                      <div class="pcom">
-                        <img src="img/Doong.jpg" width="50px" height="50px"/>
-                        <div class="middlecom">
-                          <p class="id">1879.03</p>
-                          <p class="text">진짜 진심 또 오고 싶었다ㅠㅠ 나 궁궐, 성 이런 거 겁나 좋아하잖아. 가자마자 1박하고 일찌감치 오사카 성 보러 나갔는데... 아니 왜케 멋짐? 날씨가 찐이라 그런가? 생동감 대박이었음. 레알 에도시대 온 줄ㅎㅎㅎ 혹시 성벽 뒤에 사무라이 있나 살핀 1인ㅋㅋㅋ</p>
-                        </div>
-                        <div class="heart"><img src="img/heart.png" width="20px" height="20px"/></div>
-                      </div>
-                      <div class="pcom">
-                        <img src="img/Doong.jpg" width="50px" height="50px"/>
-                        <div class="middlecom">
-                          <p class="id">1879.03</p>
-                          <p class="text">진짜 진심 또 오고 싶었다ㅠㅠ 나 궁궐, 성 이런 거 겁나 좋아하잖아. 가자마자 1박하고 일찌감치 오사카 성 보러 나갔는데... 아니 왜케 멋짐? 날씨가 찐이라 그런가? 생동감 대박이었음. 레알 에도시대 온 줄ㅎㅎㅎ 혹시 성벽 뒤에 사무라이 있나 살핀 1인ㅋㅋㅋ</p>
-                        </div>
-                        <div class="heart"><img src="img/heart.png" width="20px" height="20px"/></div>
-                      </div>
-                      <div class="pcom">
-                        <img src="img/Doong.jpg" width="50px" height="50px"/>
-                        <div class="middlecom">
-                          <p class="id">1879.03</p>
-                          <p class="text">진짜 진심 또 오고 싶었다ㅠㅠ 나 궁궐, 성 이런 거 겁나 좋아하잖아. 가자마자 1박하고 일찌감치 오사카 성 보러 나갔는데... 아니 왜케 멋짐? 날씨가 찐이라 그런가? 생동감 대박이었음. 레알 에도시대 온 줄ㅎㅎㅎ 혹시 성벽 뒤에 사무라이 있나 살핀 1인ㅋㅋㅋ</p>
-                        </div>
-                        <div class="heart"><img src="img/heart.png" width="20px" height="20px"/></div>
-                      </div>
-                      <div class="pcom">
-                        <img src="img/Doong.jpg" width="50px" height="50px"/>
-                        <div class="middlecom">
-                          <p class="id">1879.03</p>
-                          <p class="text">진짜 진심 또 오고 싶었다ㅠㅠ 나 궁궐, 성 이런 거 겁나 좋아하잖아. 가자마자 1박하고 일찌감치 오사카 성 보러 나갔는데... 아니 왜케 멋짐? 날씨가 찐이라 그런가? 생동감 대박이었음. 레알 에도시대 온 줄ㅎㅎㅎ 혹시 성벽 뒤에 사무라이 있나 살핀 1인ㅋㅋㅋ</p>
-                        </div>
-                        <div class="heart"><img src="img/heart.png" width="20px" height="20px"/></div>
-                      </div>
-                      <div class="pcom">
-                        <img src="img/Doong.jpg" width="50px" height="50px"/>
-                        <div class="middlecom">
-                          <p class="id">1879.03</p>
-                          <p class="text">진짜 진심 또 오고 싶었다ㅠㅠ 나 궁궐, 성 이런 거 겁나 좋아하잖아. 가자마자 1박하고 일찌감치 오사카 성 보러 나갔는데... 아니 왜케 멋짐? 날씨가 찐이라 그런가? 생동감 대박이었음. 레알 에도시대 온 줄ㅎㅎㅎ 혹시 성벽 뒤에 사무라이 있나 살핀 1인ㅋㅋㅋ</p>
-                        </div>
-                        <div class="heart"><img src="img/heart.png" width="20px" height="20px"/></div>
-                      </div>
-
-                    </div>   -->
-                    <!-- 댓글 입력창 -->
-                    <!-- <div class="plus">
-                      <img class="pro" src="img/Doong.jpg" width="50px" height="50px"/>
-                      <div class="pluscom">
-                        <input type="text" class="combox" placeholder="댓글 달기..." />
-                        <img src="img/gif.png" width="30px" height="30px"/>
-                      </div>
-                    </div> -->
                   </div>
                   <div class="hdiary">
+                    <!-- 댓글 -->
+                        <div class="comments">
+                          {% for comment in post.comments %}
+                            <div class="pcom">
+                              <img src="{{ comment.profile }}" width="50px" height="50px"/>
+                              <div class="middlecom">
+                                <p class="id">{{ comment.user }}</p>
+                                <p class="text">{{ comment.content }}</p>
+                              </div>
+                              <div class="heart"><img src="{% static 'images/heart.png' %}" width="20px" height="20px"/></div>
+                            </div>
+                            {% for reply in post.reply %}
+                              {% if comment.id == reply.comments %}
+                                <div class="rcom">
+                                  <img src="{{ reply.profile }}" width="50px" height="50px"/>
+                                  <div class="middlecom">
+                                    <p class="id">{{ reply.user }}</p>
+                                    <p class="text">{{ reply.content }}</p>
+                                  </div>
+                                  <div class="heart"><img src="{% static 'images/heart.png' %}" width="20px" height="20px"/></div>
+                                </div>
+                              {% endif %}
+                            {% endfor %}
+                          {% endfor %}
+                        </div>
+                    <!-- 댓글 입력창 -->
+                    <div class="plus">
+                      <img class="pro" src="{% static 'images/Doong.jpg' %}" width="50px" height="50px"/>
+                      <div class="pluscom">
+                        <input type="text" class="combox" placeholder="댓글 달기..." />
+                        <img src="{% static 'images/upload.png' %}" width="30px" height="30px"/>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -227,12 +168,12 @@
           {% for post in all %}
             <div class="splanner">
               <div class="pinfo">
-                <img src="{{ post.image }}" />
+                <img src="{{ post.image }}" id="mainimg"/>
                 <div class="pfphotos"><img class="pfphoto" src="{{ post.profile }}"/></div>
                 <div class="position">{{ post.user }}님의 일정 · {{ post.days }}</div>
                 <div class="planname" style="font-size: 18px; font-weight: bold">{{ post.plan_name }}</div>
                 
-                <div class="text">
+                <div class="con">
                   {{ post.content }}
                 </div>
                 <div class="cicon">
@@ -246,16 +187,87 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="pbclick">
+              <!-- 플래너 카드 게시물 -->
+              <div class="pbclick">
                 <div class="diary">
                   <img class="close-btn" src="{% static 'images/x.png' %}" />
-                  <p>{{ post.user }}</p>
-                  <p>{{ post.user_profile }}</p>
-                  <p>{{ post.images }}</p>
-                  <p>{{ post.content }}</p>
-                  <p>{{ post.hashtags }}</p>
+                  <div class="hdiary">
+                    <p class="nation">{{ post.country }}</p>
+                    <p class="name">{{ post.plan_name }}</p>
+                    <!-- 사진 -->
+                    <div class="image-container" id="carousel-container">
+                      <div id="carousel-inner" data-images="{% for image in post.images %}{{ image }}{% if not forloop.last %}, {% endif %}{% endfor %}">
+                          {% for image in post.images %}
+                          <img class="picture" src="{{ image }}" id="pimg"/>
+                          {% endfor %}
+                      </div>
+                      <button id="prev-btn" class="carousel-button">❮</button>
+                      <button id="next-btn" class="carousel-button">❯</button>
+                      <div class="profile">
+                          <img src="{{ post.profile }}" />
+                          <p class="id">{{ post.user_name }}</p>
+                      </div>
+                      <p class="text">{{ post.content }}</p>
+                    </div>
+                    <!-- 아이콘 -->
+                    <div class="cicon">
+                      <div class="ciconl">
+                        <div class="ci" id="heart">
+                          <img src="{% static 'images/heart.png' %}" />
+                          <a>{{ post.hart }}</a>
+                        </div>
+                        <div class="ci" id="comment" data-comment-src="{% static 'images/comment.png' %}" 
+                        data-comment-active-src="{% static 'images/commentc.png' %}">
+                          <img src="{% static 'images/comment.png' %}" />
+                          <a>{{ post.comment }}</a>
+                        </div>
+                        <div class="ci" id="share">
+                          <img src="{% static 'images/share.png' %}" />
+                        </div>
+                      </div>
+                      <div class="ci" id="bookmark">
+                        <img src="{% static 'images/bookmark.png' %}" />
+                        <a>{{ post.script }}</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hdiary">
+                    <!-- 댓글 -->
+                        <div class="comments">
+                          {% for comment in post.comments %}
+                            <div class="pcom">
+                              <img src="{{ comment.profile }}" width="50px" height="50px"/>
+                              <div class="middlecom">
+                                <p class="id">{{ comment.user }}</p>
+                                <p class="text">{{ comment.content }}</p>
+                              </div>
+                              <div class="heart"><img src="{% static 'images/heart.png' %}" width="20px" height="20px"/></div>
+                            </div>
+                            {% for reply in post.reply %}
+                              {% if comment.id == reply.comments %}
+                                <div class="rcom">
+                                  <img src="{{ reply.profile }}" width="50px" height="50px"/>
+                                  <div class="middlecom">
+                                    <p class="id">{{ reply.user }}</p>
+                                    <p class="text">{{ reply.content }}</p>
+                                  </div>
+                                  <div class="heart"><img src="{% static 'images/heart.png' %}" width="20px" height="20px"/></div>
+                                </div>
+                              {% endif %}
+                            {% endfor %}
+                          {% endfor %}
+                        </div>
+                    <!-- 댓글 입력창 -->
+                    <div class="plus">
+                      <img class="pro" src="{% static 'images/Doong.jpg' %}" width="50px" height="50px"/>
+                      <div class="pluscom">
+                        <input type="text" class="combox" placeholder="댓글 달기..." />
+                        <img src="{% static 'images/upload.png' %}" width="30px" height="30px"/>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div> -->
+              </div>
             </div>
           {% endfor %}
         {% endif %}

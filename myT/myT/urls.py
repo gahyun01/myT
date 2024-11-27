@@ -24,7 +24,11 @@ urlpatterns = [
 # post
 urlpatterns += [
     path('planner/', views.Planner, name='planner'),
-    path('p/', views.p, name='p'),
+]
+
+# test
+urlpatterns += [
+    path('test/', views.test, name='test'),
 ]
 
 # sign up

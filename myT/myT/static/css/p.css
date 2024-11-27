@@ -1,218 +1,218 @@
 /* 베스트 탑 10 플래너 */
 body .pback{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin: 0;
 }
 
 body .pback .pbinner{
-    text-align: center;
-    width: 1600px;
-    border-radius: 20px;
-    padding: 20px 0;
+  text-align: center;
+  width: 1600px;
+  border-radius: 20px;
+  padding: 20px 0;
 }
 
 body .pback .pbinner .planner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1300px;
-    margin: 0 auto;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1300px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 body .pback .pbinner .planner p {
-    font-size: 30px;
-    font-weight: bolder;
-    margin: 0 0;
+  font-size: 30px;
+  font-weight: bolder;
+  margin: 0 0;
 }
 
 body .pback .pbinner .cardback {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 30px;
-    justify-content: center;
-    height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px;
+  justify-content: center;
+  height: 300px;
 }
   
 body .pback .pbinner .cardback .cardpage {
-    display: flex;
-    justify-content: center;
-    width: 1300px;
-    gap: 30px;
-    overflow:hidden;
+  display: flex;
+  justify-content: center;
+  width: 1300px;
+  gap: 30px;
+  overflow:hidden;
 }
 
 
 
 /* 베스트 탑 10 카드 */
 body .pback .pbinner .cardback .cardpage .card {
-    content: '';
-    position: relative;
-    display: flex;
-    width: 230px;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    cursor: pointer;
-    padding: 10px;
-    margin: 10px 0;
-    overflow: hidden;
+  content: '';
+  position: relative;
+  display: flex;
+  width: 230px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  cursor: pointer;
+  padding: 10px;
+  margin: 10px 0;
+  overflow: hidden;
 }
 
 body .pback .pbinner .cardback .cardpage .card::before,
 body .pback .pbinner .cardback .cardpage .card::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    background: rgba(111, 58, 0, 0.5);
-    transition: width 0.4s cubic-bezier(.5, .24, 0, 1);
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  background: rgba(111, 58, 0, 0.5);
+  transition: width 0.4s cubic-bezier(.5, .24, 0, 1);
 }
 
 body .pback .pbinner .cardback .cardpage .card::before {
-    top: 0;
-    left: 0;
+  top: 0;
+  left: 0;
 }
 
 body .pback .pbinner .cardback .cardpage .card::after {
-    bottom: 0;
-    right: 0;
+  bottom: 0;
+  right: 0;
 }
 
 body .pback .pbinner .cardback .cardpage .card:hover::before,
 body .pback .pbinner .cardback .cardpage .card:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 body .pback .pbinner .cardback .cardpage .card:hover {
-    border-left: 1px solid rgba(111, 58, 0, 0.5);
-    border-right: 1px solid rgba(111, 58, 0, 0.5);
-    border-radius: 20px;
-    background-color: rgba(255, 236, 204, 0.2);
+  border-left: 1px solid rgba(111, 58, 0, 0.5);
+  border-right: 1px solid rgba(111, 58, 0, 0.5);
+  border-radius: 20px;
+  background-color: rgba(255, 236, 204, 0.2);
 }
 
 body .pback .pbinner .cardback .cardpage .position {
-    font-size: 15px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
 }
   
 body .pback .pbinner .cardback .cardpage .card img {
-    width: 220px;
-    height: 200px;
-    border-radius: 20px;
-    margin-left: -3px;
+  width: 220px;
+  height: 200px;
+  border-radius: 20px;
+  margin-left: -3px;
 }
   
 body .pback .pbinner .cardback .cardpage .card .name {
-    font-size: 13px;
-    margin-top: 20px;
+  font-size: 13px;
+  margin-top: 20px;
 }
   
 body .pback .pbinner .cardback .cardpage .card .planInfo {
-    padding-top: 5px;
-    width: 100%;
-    display: inline-block;
-    color: #6f3a00;
-    font-weight: bold;
-    margin-top: 10px;
+  padding-top: 5px;
+  width: 100%;
+  display: inline-block;
+  color: #6f3a00;
+  font-weight: bold;
+  margin-top: 10px;
 }
   
 body .pback .pbinner .cardback .cardpage .card .planInfo .category {
-    float: right;
-    font-size: 12px;
+  float: right;
+  font-size: 12px;
 }
 
 /* 베스트 탑 10 플레너 화살표 */
 body .pback .pbinner .cardback .sab1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    opacity : 0.5;
-    width: 100px;
-    height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity : 0.5;
+  width: 100px;
+  height: 300px;
 }
   
 body .pback .pbinner .cardback .sab2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    opacity : 0.5;
-    width: 100px;
-    height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity : 0.5;
+  width: 100px;
+  height: 300px;
 }
 
 
 
-/* 베스트 탑 10 플레너 카드 게시물 */
-body .pback .pbinner .cardback .cardpage .pbclick {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position: fixed; /* 화면에 고정 */
-    top: 0; /* 화면 상단에 고정 */
-    left: 0;
-    width: 100%;
-    height: 100%; /* 화면 전체 크기 */
-    z-index: 1000; /* 다른 요소 위에 배치 */
-    background-color: rgba(0, 0, 0, 0.25); /* 배경을 어두운 색으로 설정 */
-    overflow: auto; /* 내부 콘텐츠가 넘칠 경우 스크롤이 생기도록 설정 */
+/* 플레너 카드 게시물 */
+body .pbclick {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed; /* 화면에 고정 */
+  top: 0; /* 화면 상단에 고정 */
+  left: 0;
+  width: 100%;
+  height: 100%; /* 화면 전체 크기 */
+  z-index: 1000; /* 다른 요소 위에 배치 */
+  background-color: rgba(0, 0, 0, 0.25); /* 배경을 어두운 색으로 설정 */
+  overflow: auto; /* 내부 콘텐츠가 넘칠 경우 스크롤이 생기도록 설정 */
 }
 
-body .pback .pbinner .cardback .cardpage .pbclick .diary {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute; /* 부모의 상대적 위치에 맞게 배치 */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* 정확한 중앙 배치 */
-    width: 1024px;
-    height: 576px;
-    min-width: 768px;
-    background-color: white;
-    border-radius: 10px;
-    margin-top: 0; /* margin-top을 0으로 설정하여 불필요한 이동을 방지 */
+body .diary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /* 부모의 상대적 위치에 맞게 배치 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 정확한 중앙 배치 */
+  width: 1024px;
+  height: 576px;
+  min-width: 768px;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 0; /* margin-top을 0으로 설정하여 불필요한 이동을 방지 */
 }
 
-body .pback .pbinner .cardback .cardpage .pbclick .diary .close-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    transition: opacity 0.3s;
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-    margin: 5px 5px;
-    opacity: 0.5;
+body .diary .close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  transition: opacity 0.3s;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  margin: 5px 5px;
+  opacity: 0.5;
 }
   
-body .pback .pbinner .cardback .cardpage .pbclick .diary .close-btn:hover {
-    opacity: 1;
+body .diary .close-btn:hover {
+  opacity: 1;
 }
 
 /* 게시물 반 크기 */
-body .pback .pbinner .cardback .cardpage .pbclick .diary .hdiary {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 448px;
-    height: 474px;
-    padding: 24px;
-    margin: 30px 0;
+body .diary .hdiary {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 448px;
+  height: 474px;
+  padding: 24px;
+  margin: 30px 0;
 }
 
 /* 게시물 왼쪽 */
-body .pbclick .diary .hdiary .nation{
+body .diary .hdiary .nation{
   /* 상단 */
   text-align: left;
   font-size: 18px;
@@ -221,7 +221,7 @@ body .pbclick .diary .hdiary .nation{
   margin: 0 0;
 }
 
-body .pbclick .diary .hdiary .name{
+body .diary .hdiary .name{
   /* 게시물 명 */
   text-align: left;
   font-size: 25px;
@@ -230,7 +230,7 @@ body .pbclick .diary .hdiary .name{
 }
 
 /* 사진 */
-body .pbclick .diary .hdiary .image-container {
+body .diary .hdiary .image-container {
   display: flex;
   justify-content: center; /* 사진을 중앙에 배치 */
   align-items: center;
@@ -243,19 +243,19 @@ body .pbclick .diary .hdiary .image-container {
   overflow: hidden;
 }
 
-body .pbclick .diary .hdiary .image-container #carousel-inner {
+body .diary .hdiary .image-container #carousel-inner {
   display: flex;
   transition: transform 0.5s ease-in-out;
 }
 
-body .pbclick .diary .hdiary .image-container  #carousel-inner img {
+body .diary .hdiary .image-container  #carousel-inner img {
   width: 100%;
   height: 350px;
   object-fit: cover;
 }
 
 /* 화살표 버튼 스타일 */
-body .pbclick .diary .hdiary .image-container .carousel-button {
+body .diary .hdiary .image-container .carousel-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -279,8 +279,8 @@ body .pbclick .diary .hdiary .image-container .carousel-button {
 }
 
 /* 기본적으로 프로필과 텍스트 숨기기 */
-body .pbclick .diary .hdiary .image-container .profile,
-body .pbclick .diary .hdiary .image-container .text {
+body .diary .hdiary .image-container .profile,
+body .diary .hdiary .image-container .text {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   position: absolute;
@@ -288,7 +288,7 @@ body .pbclick .diary .hdiary .image-container .text {
 }
 
 /* 프로필 스타일 */
-body .pbclick .diary .hdiary .image-container .profile {
+body .diary .hdiary .image-container .profile {
   display: flex;
   align-items: center;
   top: 10px;
@@ -296,20 +296,20 @@ body .pbclick .diary .hdiary .image-container .profile {
   width: 95%;
 }
 
-body .pbclick .diary .hdiary .image-container .profile img {
+body .diary .hdiary .image-container .profile img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-right: 10px;
 }
 
-body .pbclick .diary .hdiary .image-container .profile .id {
+body .diary .hdiary .image-container .profile .id {
   font-weight: bold;
   color: white;
 }
 
 /* 텍스트 스타일 */
-body .pbclick .diary .hdiary .image-container .text {
+body .diary .hdiary .image-container .text {
   bottom: 10px;
   left: 10px;
   color: white;
@@ -319,17 +319,17 @@ body .pbclick .diary .hdiary .image-container .text {
 }
 
 /* 이미지에 Hover */
-body .pbclick .diary .hdiary .image-container:hover .profile,
-body .pbclick .diary .hdiary .image-container:hover .text,
-body .pbclick .diary .hdiary .image-container:hover .carousel-button {
+body .diary .hdiary .image-container:hover .profile,
+body .diary .hdiary .image-container:hover .text,
+body .diary .hdiary .image-container:hover .carousel-button {
   opacity: 1;
 }
-body .pbclick .diary .hdiary .image-container:hover img {
+body .diary .hdiary .image-container:hover #pimg {
   opacity: 0.8;
 }
 
 /* 게시물 아이콘 */
-body .pbclick .diary .hdiary .cicon{
+body .diary .hdiary .cicon{
     display: flex;
     justify-content: space-between;
     background-color: white;
@@ -337,413 +337,457 @@ body .pbclick .diary .hdiary .cicon{
     margin-top: 20px;
 }
   
-body .pbclick .diary .hdiary .cicon .ciconl{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+body .diary .hdiary .cicon .ciconl{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
   
-body .pbclick .diary .hdiary .cicon .ci{
-    display: flex;
-    align-items: center;
+body .diary .hdiary .cicon .ci{
+  display: flex;
+  align-items: center;
 }
   
-body .pbclick .diary .hdiary .cicon img{
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    margin-right: 5px;
+body .diary .hdiary .cicon img{
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 5px;
 }
   
-body .pbclick .diary .hdiary .cicon .ci a{
-    font-weight: bold;
-    font-size: 13px;
+body .diary .hdiary .cicon .ci a{
+  font-weight: bold;
+  font-size: 13px;
 }
 
 
 
 /* 댓글 */
-body .pbclick .diary .hdiary .comments{
-    display: none;
-    flex-direction: column;
-    overflow: hidden;
-    margin-top: 20px;
-    width: 100%;
-    height: 392px;
-    border-top: 1px solid #6f3a00;
-    border-bottom: 1px solid #6f3a00;
+body .diary .hdiary .comments{
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-top: 20px;
+  width: 100%;
+  height: 392px;
+  border-top: 1px solid #6f3a00;
+  border-bottom: 1px solid #6f3a00;
 }
 
-body .pbclick .diary .hdiary .comments {
-    overflow-y: auto;   
+body .diary .hdiary .comments {
+  overflow-y: auto;   
 }
 
-body .pbclick .diary .hdiary .comments .pcom{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 90px;
-    margin: 5px 0;
+body .diary .hdiary .comments .pcom{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 90px;
+  margin: 5px 0;
+  margin-bottom: 20px;
 }
 
-body .pbclick .diary .hdiary .comments .middlecom{
-    display: block;
-    width: 80%;
-    height: 70px;
+body .diary .hdiary .comments .pcom .middlecom{
+  display: block;
+  width: 80%;
+  height: 70px;
 }
 
-body .pbclick .diary .hdiary .comments .pcom img{
-    border-radius: 50%;
+body .diary .hdiary .comments .pcom img{
+  border-radius: 50%;
 }
 
-body .pbclick .diary .hdiary .comments .pcom .id{
-    font-weight: bold;
-    margin: 0 0;
-    margin-left: 10px;
+body .diary .hdiary .comments .pcom .id{
+  text-align: left;
+  font-weight: bold;
+  margin: 0 0;
+  margin-left: 10px;
 }
 
-body .pbclick .diary .hdiary .comments .pcom .text {
-    width: 350px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-align: left;
-    line-height: 20px;
-    margin-top: 0px;
-    margin-left: 10px;
-    margin-bottom: 5px;
+body .diary .hdiary .comments .pcom .text {
+  font-weight: normal;
+  width: 340px;
+  text-align: left;
+  line-height: 20px;
+  margin-top: 0px;
+  margin-left: 10px;
+  margin-bottom: 5px;
 }
 
-body .pbclick .diary .hdiary .comments .pcom .heart{
-    display: flex;
-    height: 80%;
-    padding: 10px;
-    margin-top: 20px;
+body .diary .hdiary .comments .pcom .heart{
+  display: flex;
+  height: 80%;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+body .diary .hdiary .comments .rcom{
+  display: flex;
+  align-items: center;
+  width: 90%;
+  height: 90px;
+  padding-left: 45px;
+  margin: 5px 0;
+  margin-bottom: 20px;
+}
+
+body .diary .hdiary .comments .rcom .middlecom{
+  display: block;
+  width: 100%;
+  height: 70px;
+}
+
+body .diary .hdiary .comments .rcom img{
+  border-radius: 50%;
+}
+
+body .diary .hdiary .comments .rcom .id{
+  text-align: left;
+  font-weight: bold;
+  margin: 0 0;
+  margin-left: 10px;
+}
+
+body .diary .hdiary .comments .rcom .text {
+  font-weight: normal;
+  width: 290px;
+  text-align: left;
+  line-height: 20px;
+  margin-top: 0px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+body .diary .hdiary .comments .rcom .heart{
+  display: flex;
+  height: 80%;
+  padding: 10px;
+  margin-top: 20px;
 }
 
 /* 댓글 작성 */
-body .pbclick .diary .hdiary .plus{
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-    width: 448px;
-    height: 80px;
-    overflow: hidden;
-    margin-top: 10px;
+body .diary .hdiary .plus{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 448px;
+  height: 80px;
+  overflow: hidden;
+  margin-top: 10px;
 }
 
-body .pbclick .diary .hdiary .plus img{
-    border-radius: 50%;
+body .diary .hdiary .plus img{
+  border-radius: 50%;
 }
 
-body .pbclick .diary .hdiary .plus .pluscom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 345px;
-    height: 50px;
-    box-shadow: 0px 0px 5px rgba(113, 113, 113, 0.7);
-    border-radius: 50px;
-    padding: 0 20px;
-    margin-right: 5px;
+body .diary .hdiary .plus .pluscom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 345px;
+  height: 50px;
+  box-shadow: 0px 0px 5px rgba(113, 113, 113, 0.7);
+  border-radius: 50px;
+  padding: 0 20px;
+  margin-right: 5px;
 }
 
-body .pbclick .diary .hdiary .plus .pluscom  .combox{
-    width: 80%;
-    height: 90%;
-    border: none;
+body .diary .hdiary .plus .pluscom  .combox{
+  width: 80%;
+  height: 90%;
+  border: none;
 }
 
-body .pbclick .diary .hdiary .plus .pluscom  .combox:focus{
-    outline: none;
+body .diary .hdiary .plus .pluscom  .combox:focus{
+  outline: none;
 }
 
-body .pbclick .diary .hdiary .plus .pluscom img{
-    cursor: pointer;
+body .diary .hdiary .plus .pluscom img{
+  cursor: pointer;
 }
 
 .comments.open {
-    display: flex;
+  display: flex;
 }
 .plus.open {
-    display: flex;
+  display: flex;
 }
 .default.hidden {
-    display: none;
+  display: none;
 }
 
 
 /* 메인 검색 */
 .mainp {
-    display: block;
-    text-align: center;
-    padding-top: 50px;
-  }
+  display: block;
+  text-align: center;
+  padding-top: 50px;
+}
   
-  .mainp .psearch {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-    margin: 0 auto;
-  }
+.mainp .psearch {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin: 0 auto;
+}
   
-  select {
-    padding: 5px 10px;
-    font-size: 20px;
-    font-weight: bold;
-    border: 2px solid #6f3a00;
-    border-radius: 5px;
-    color: #6f3a00;
-    cursor: pointer;
-    outline: none;
-    max-height: 150px;
-    overflow-y: auto;
-  }
+select {
+  padding: 5px 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 2px solid #6f3a00;
+  border-radius: 5px;
+  color: #6f3a00;
+  cursor: pointer;
+  outline: none;
+  max-height: 150px;
+  overflow-y: auto;
+}
   
-  option {
-    background-color: #6f3a00;
-    color: #ffffff;
-  }
+option {
+  background-color: #6f3a00;
+  color: #ffffff;
+}
   
-  .search-hash {
-    float: right;
-    display: flex;
-    justify-content: center;
-    border: 2px solid #6f3a00;
-    border-radius: 5px;
-    overflow: hidden;
-    background-color: white;
-    width: 500px;
-    height: 50px;
-    margin-left: 20px;
-    padding-left: 15px;
-  }
+.search-hash {
+  float: right;
+  display: flex;
+  justify-content: center;
+  border: 2px solid #6f3a00;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: white;
+  width: 500px;
+  height: 50px;
+  margin-left: 20px;
+  padding-left: 15px;
+}
   
-  .search-hash a {
-    color: #dc8b35;
-    font-size: 25px;
-    margin-top: 8px;
-    font-weight: bold;
-  }
+.search-hash a {
+  color: #dc8b35;
+  font-size: 25px;
+  margin-top: 8px;
+  font-weight: bold;
+}
   
-  .search-box {
-    border: none;
-    padding: 10px;
-    font-size: 25px;
-    width: 100%;
-  }
+.search-box {
+  border: none;
+  padding: 10px;
+  font-size: 25px;
+  width: 100%;
+}
   
-  .search-box:focus {
-    outline: none;
-  }
+.search-box:focus {
+  outline: none;
+}
   
-  .search-button {
-    background-color: #ffffff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    width: 30%;
-  }
+.search-button {
+  background-color: #ffffff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  width: 30%;
+}
   
 
   
-  /* 메인 카드 */
-  .mainp .pplanner{
-    display: flex;
-    flex-direction: column;
-    width: 1300px;
-    height: 1770px;
-    cursor: pointer;
-    margin: 0 auto;
-    margin-bottom: 50px;
-  }
+/* 메인 카드 */
+.mainp .pplanner{
+  display: flex;
+  flex-direction: column;
+  width: 1300px;
+  height: 1770px;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
   
-  .mainp .pplanner .pcards{
-    display: flex;
-    flex-wrap: wrap;
-  }
+.mainp .pplanner .pcards{
+  display: flex;
+  flex-wrap: wrap;
+}
   
-  .mainp .pplanner .splanner {
-    display: flex;
-    justify-content: space-between;
-    width: 360px;
-    padding: 10px;
-    margin: 0 25px;
-    margin-top: 50px;
-    position: relative;
-    overflow: hidden;
-  }
+.mainp .pplanner .splanner {
+  display: flex;
+  justify-content: space-between;
+  width: 360px;
+  padding: 10px;
+  margin: 0 25px;
+  margin-top: 50px;
+  position: relative;
+  overflow: hidden;
+}
   
-  .mainp .pplanner .splanner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -75%;
-    z-index: 2;
-    display: block;
-    width: 50%;
-    height: 100%;
-    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
-    transform: skewX(-25deg);
+.mainp .pplanner .splanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  z-index: 2;
+  display: block;
+  width: 50%;
+  height: 100%;
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+  transform: skewX(-25deg);
+  opacity: 0;
+  transition: opacity 0.75s;
+}
+  
+.mainp .pplanner .splanner:hover::before {
+  animation: shine .75s;
+}
+
+@keyframes shine {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    left: 125%;
     opacity: 0;
-    transition: opacity 0.75s;
   }
+}
   
-  .mainp .pplanner .splanner:hover::before {
-    animation: shine .75s;
-  }
+.mainp .pplanner .splanner .pinfo {
+  display: inline-block;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.7);
+}
+
+.mainp .pplanner .splanner #mainimg {
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
   
-  @keyframes shine {
-    0% {
-      opacity: 1;
-    }
-    40% {
-      opacity: 1;
-    }
-    100% {
-      left: 125%;
-      opacity: 0;
-    }
-  }
+.mainp .pplanner .splanner .pfphotos {
+  display: flex;
+  justify-content: space-between;
+  position:relative;
+  align-items: center;
+  margin: 0 5px;
+  margin-top: 10px;
+}
   
-  .mainp .pplanner .splanner .pinfo {
-    display: inline-block;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.7);
-  }
+.mainp .pplanner .splanner .pfphotos .pfphoto {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-top: -40px;
+  margin-left: 10px;
+  padding: 0 0;
+  background-color: #6f3a00;
+}
   
-  .mainp .pplanner .splanner img {
-    width: 100%;
-    height: 250px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
+.mainp .pplanner .splanner .position {
+  display: flex;
+  width: 95%;
+  font-size: 15px;
+  font-weight: bold;
+  color: #dc8b35;
+  opacity: 0.7;
+  margin: 10px 0;
+  margin-left: 20px;
+}
   
-  .mainp .pplanner .splanner .pfphotos {
-    display: flex;
-    justify-content: space-between;
-    position:relative;
-    align-items: center;
-    margin: 0 5px;
-    margin-top: 10px;
-  }
+.mainp .pplanner .splanner .pinfo .title{
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+  margin-top: 20px;
+}
   
-  .mainp .pplanner .splanner .pfphotos .pfphoto {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 3px solid white;
-    margin-top: -40px;
-    margin-left: 10px;
-    padding: 0 0;
-    background-color: #6f3a00;
-  }
+.mainp .pplanner .splanner .con {
+  text-align: left;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  margin: 0 15px;
+  color: rgba(58, 58, 58, 0.7);
+  float: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0px;
+  white-space: pre-line;
+  word-break:keep-all;
+}
   
-  .mainp .pplanner .splanner .position {
-    display: flex;
-    width: 95%;
-    font-size: 15px;
-    font-weight: bold;
-    color: #dc8b35;
-    opacity: 0.7;
-    margin: 10px 0;
-    margin-left: 20px;
-  }
+/* 메인 카드 아이콘 */
+.mainp .pplanner .splanner .pinfo .cicon{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
   
-  .mainp .pplanner .splanner .pinfo .title{
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px 0;
-    margin-top: 20px;
-  }
+.mainp .pplanner .splanner .pinfo .cicon .ci{
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+}
+
+.mainp .pplanner .splanner .pinfo .cicon img{
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.mainp .pplanner .splanner .pinfo .cicon .ci a{
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* 메인 카드 페이지네이션 */
+.mainp .pplanner .paging {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1300px;
+  height: 50px;
+  margin: 50px auto;
+  margin-top: auto;
+}
   
-  .mainp .pplanner .splanner .text {
-    text-align: left;
-    box-sizing: border-box;
-    overflow-wrap: break-word;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    margin: 0 15px;
-    color: rgba(58, 58, 58, 0.7);
-    float: none;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: 0px;
-    white-space: pre-line;
-    word-break:keep-all;
-  }
+.mainp .pplanner .paging .pagination {
+  display: flex;
+  list-style: none;
+}
+
+.mainp .pplanner .paging .pagination a {
+  margin: 0 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.mainp .pplanner .paging .pagination a.page-number {
+  background-color: #ffeccc;
+  color: #333;
+}
   
-  /* 메인 카드 아이콘 */
-  .mainp .pplanner .splanner .pinfo .cicon{
-    display: flex;
-    justify-content: space-between;
-    margin: 0 15px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .mainp .pplanner .splanner .pinfo .cicon .ci{
-    display: flex;
-    align-items: center;
-    margin: 0 15px;
-  }
-  
-  .mainp .pplanner .splanner .pinfo .cicon img{
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-  }
-  .mainp .pplanner .splanner .pinfo .cicon .ci a{
-    font-weight: bold;
-    font-size: 13px;
-  }
-  /* 메인 카드 페이지네이션 */
-  .mainp .pplanner .paging {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1300px;
-    height: 50px;
-    margin: 50px auto;
-    margin-top: auto;
-  }
-  
-  .mainp .pplanner .paging .pagination {
-    display: flex;
-    list-style: none;
-  }
-  
-  .mainp .pplanner .paging .pagination a {
-    margin: 0 5px;
-    padding: 5px 10px;
-    text-decoration: none;
-    border-radius: 3px;
-  }
-  
-  .mainp .pplanner .paging .pagination a.page-number {
-    background-color: #ffeccc;
-    color: #333;
-  }
-  
-  .mainp .pplanner .paging .pagination a.active {
-    background-color: #dc8b35;
-    color: white;
-  }
-  
-  /* 화살표 버튼에 스타일 적용하지 않음 */
-  .mainp .pplanner .paging .pagination a.left,
-  .mainp .pplanner .paging .pagination a.right,
-  .mainp .pplanner .paging .pagination a.double-left,
-  .mainp .pplanner .paging .pagination a.double-right {
-    background-color: transparent;
-    color: inherit;
-  }
+.mainp .pplanner .paging .pagination a.active {
+  background-color: #dc8b35;
+  color: white;
+}
+
+/* 화살표 버튼에 스타일 적용하지 않음 */
+.mainp .pplanner .paging .pagination a.left,
+.mainp .pplanner .paging .pagination a.right,
+.mainp .pplanner .paging .pagination a.double-left,
+.mainp .pplanner .paging .pagination a.double-right {
+  background-color: transparent;
+  color: inherit;
+}

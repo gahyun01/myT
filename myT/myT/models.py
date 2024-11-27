@@ -144,7 +144,7 @@ class Scrap(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
-    is_reply = models.BooleanField(default=False) # True == 대댓글, False == 댓글
+    is_reply = models.IntegerField(default=False) # 댓글인 경우 False, 대댓글인 경우 : 댓글의 id
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

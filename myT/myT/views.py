@@ -21,6 +21,10 @@ import os
 def index(request):
     return render(request, 'index.html')
 
+def test(request):
+    
+    return render(request, 'myT/test.html')
+
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['user_id']
@@ -207,6 +211,40 @@ def Planner(request):
                 profile = os.path.join(settings.MEDIA_URL, 'profile', user_profile_base + file_extension)
                 profile = profile.replace("\\", "/")  # 역슬래시를 슬래시로 변경
                 break
+
+        # 댓글과 대댓글 가져오기
+        reply = []
+        comments = []
+        com = Comment.objects.filter(post=post)
+        for comment in com:
+            # 유저 프로필 가져오기
+            comment_profile_base = f"{comment.user.id}"
+            comment_profile_directory = os.path.join(settings.MEDIA_ROOT, 'profile')
+            comment_profile = f"{settings.MEDIA_URL}default_profile.jpeg"
+
+            for filename in os.listdir(comment_profile_directory):
+                if filename.startswith(comment_profile_base):
+                    file_extension = os.path.splitext(filename)[1]  # 확장자 추출
+                    comment_profile = os.path.join(settings.MEDIA_URL, 'profile', comment_profile_base + file_extension)
+                    comment_profile = comment_profile.replace("\\", "/")  # 역슬래시를 슬래시로 변경
+                    break
+
+            # 대댓글
+            if comment.is_reply:
+                reply.append({
+                    'comments': comment.is_reply,
+                    'user': comment.user.username,
+                    'profile': comment_profile,
+                    'content': comment.content,
+                })
+            # 댓글
+            else:
+                comments.append({
+                    'user': comment.user.username,
+                    'id': comment.id,
+                    'profile': comment_profile,
+                    'content': comment.content,
+                })
         
         # 하트, 스크립트 개수 가져오기
         hart = Heart.objects.filter(post=post).count()
@@ -229,6 +267,8 @@ def Planner(request):
             'hart': hart,
             'script': script,
             'comment': comment,
+            'reply': reply,
+            'comments': comments,
         })
 
     # 데이터가 비어있는지 확인
@@ -269,18 +309,77 @@ def Planner(request):
                     image = os.path.join(settings.MEDIA_URL, 'post', str(i.id), image_filename_base + file_extension)
                     break
 
+        # 게시물 이미지 전체 가져오기
+        images = []
+        # 디렉토리가 존재하면 이미지 파일을 모두 가져오기
+        if os.path.exists(post_directory):
+            for filename in os.listdir(post_directory):
+                # 확장자 추출
+                file_name, file_extension = os.path.splitext(filename)
+                
+                # 확장자에 따라 파일 처리
+                if file_extension.lower() in ['.jpg', '.png', '.jpeg']:  # 이미지 파일만 필터링
+                    img = os.path.join(settings.MEDIA_URL, 'post', str(i.id), filename)
+                    img = image.replace("\\", "/")  # 역슬래시를 슬래시로 변경
+                    images.append(img)
+
+        # 이미지가 하나도 없을 경우 디폴트 이미지 추가
+        if not images:
+            images.append(f"{settings.MEDIA_URL}default_image.png")
+
+        # 댓글과 대댓글 가져오기
+        reply = []
+        comments = []
+        com = Comment.objects.filter(post=i)
+        for comment in com:
+            # 유저 프로필 가져오기
+            comment_profile_base = f"{comment.user.id}"
+            comment_profile_directory = os.path.join(settings.MEDIA_ROOT, 'profile')
+            comment_profile = f"{settings.MEDIA_URL}default_profile.jpeg"
+
+            for filename in os.listdir(comment_profile_directory):
+                if filename.startswith(comment_profile_base):
+                    file_extension = os.path.splitext(filename)[1]  # 확장자 추출
+                    comment_profile = os.path.join(settings.MEDIA_URL, 'profile', comment_profile_base + file_extension)
+                    comment_profile = comment_profile.replace("\\", "/")  # 역슬래시를 슬래시로 변경
+                    break
+
+            # 대댓글
+            if comment.is_reply:
+                reply.append({
+                    'comments': comment.is_reply,
+                    'user': comment.user.username,
+                    'profile': comment_profile,
+                    'content': comment.content,
+                })
+            # 댓글
+            else:
+                comments.append({
+                    'user': comment.user.username,
+                    'id': comment.id,
+                    'profile': comment_profile,
+                    'content': comment.content,
+                })
+
         # 하트, 스크립트 개수 가져오기
         hart = Heart.objects.filter(post=i).count()
         script = Scrap.objects.filter(post=i).count()
+        comment = Comment.objects.filter(post=i).count()
+
         all.append({
             'profile': profile,
+            'country': i.plan.country,
             'user': i.user.username,
             'plan_name': i.plan.plan_name,
             'image': image,
+            'images': images,
             'content': i.content,
             'hashtags': i.hashtags,
             'hart': hart,
             'script': script,
+            'comment': comment,
+            'reply': reply,
+            'comments': comments,
         })
 
     context = {

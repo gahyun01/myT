@@ -1,38 +1,41 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Elements selection
-    const cards = document.querySelectorAll('.card');
-    const closeBtns = document.querySelectorAll('.close-btn');
-    const pbclicks = document.querySelectorAll('.pbclick');
-    const totalCards = $('.card').length; // 총 카드 개수
-    let currentStartIndex = 0; // 현재 표시되는 첫 번째 카드 인덱스
+    // DOM 요소들 선택
+    const cards = document.querySelectorAll('.card');  // 베스트 탑 10 카드 요소
+    const pinfos = document.querySelectorAll('.pinfo');  // 카드 요소
+    const closeBtns = document.querySelectorAll('.close-btn');  // 닫기 버튼
+    const pbclicks = document.querySelectorAll('.pbclick');  // 게시물 팝업
+    const totalCards = $('.card').length;  // 총 카드 개수
+    let currentStartIndex = 0;  // 현재 표시되는 첫 번째 카드 인덱스
 
-    // 카드 슬라이드 관련
+    // 카드 슬라이드 기능 업데이트
     function updateCardVisibility() {
         $('.card').each(function (index) {
-            $(this).toggle(index >= currentStartIndex && index < currentStartIndex + 5);
+            $(this).toggle(index >= currentStartIndex && index < currentStartIndex + 5);  // 5개씩 카드 보이게
         });
     }
 
-    // 처음 페이지 로드시 카드 업데이트
+    // 초기 카드 표시 업데이트
     updateCardVisibility();
 
-    // 'sab2' 버튼 클릭시 1칸 앞으로 이동
+    // 'sab2' 버튼 클릭 시 1칸 앞으로 이동
     $('.cardback .sab2').hover(
         () => $(this).css({ 'opacity': '1' }),
         () => $(this).css({ 'opacity': '0.5' })
     );
 
+    // 'sab2' 클릭 이벤트: 1칸 앞으로 이동
     $('.cardback .sab2').click(function () {
         currentStartIndex = (currentStartIndex + 1) % totalCards;
         updateCardVisibility();
     });
 
-    // 'sab1' 버튼 클릭시 1칸 뒤로 이동
+    // 'sab1' 버튼 클릭 시 1칸 뒤로 이동
     $('.cardback .sab1').hover(
         () => $(this).css({ 'opacity': '1' }),
         () => $(this).css({ 'opacity': '0.5' })
     );
 
+    // 'sab1' 클릭 이벤트: 1칸 뒤로 이동
     $('.cardback .sab1').click(function () {
         currentStartIndex = (currentStartIndex - 1 + totalCards) % totalCards;
         updateCardVisibility();
@@ -44,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateCardVisibility();
     }, 3000);
 
-    // 카드 게시물 열기/닫기
+    // 카드 클릭 시 게시물 열기/닫기
     function toggleDiary(pbclick, open = true) {
         if (!pbclick) return;
         pbclick.style.display = open ? 'flex' : 'none';
@@ -57,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // 카드 클릭 시 게시물 열기
+    // 카드 클릭 시 게시물 팝업 열기
     cards.forEach((card, index) => {
         card.addEventListener('click', function () {
             const pbclick = card.nextElementSibling;
@@ -82,29 +85,109 @@ document.addEventListener('DOMContentLoaded', function () {
         pbclick.addEventListener('click', (e) => e.stopPropagation());
     });
 
-    // 이미지 슬라이드
-    const images = document.getElementById('carousel-inner').getAttribute('data-images').split(', ');
+    // 카드 클릭 시 게시물 열기/닫기
+    function toggleDiary(pbclick, open = true) {
+        if (!pbclick) return;
+        pbclick.style.display = open ? 'flex' : 'none';
+        if (open) {
+            currentImageIndex = 0;
+            showImage(currentCardIndex, currentImageIndex); // 현재 이미지를 보여주는 함수
+            resetComments(); // 댓글을 초기화하는 함수
+        } else {
+            hideAllImages(); // 모든 이미지를 숨기는 함수
+        }
+    }
+
+    // .pinfo 클릭 시 게시물 팝업 열기
+    pinfos.forEach((pinfo, index) => {
+        pinfo.addEventListener('click', function () {
+            const pbclick = pinfo.nextElementSibling; // 바로 다음에 있는 .pbclick 요소 찾기
+            if (pbclick?.classList.contains('pbclick')) {
+                currentCardIndex = index; // 현재 카드의 인덱스 업데이트
+                toggleDiary(pbclick, true); // 다이어리 열기
+            }
+        });
+    });
+
+    // 닫기 버튼 클릭 시 게시물 닫기
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation(); // 클릭 이벤트가 부모 요소로 전파되지 않도록 차단
+            const pbclick = btn.closest('.pbclick'); // 해당 닫기 버튼의 부모 .pbclick 요소 찾기
+            toggleDiary(pbclick, false); // 다이어리 닫기
+        });
+    });
+
+    // .pbclick 내부 클릭 시 닫히지 않게 처리
+    pbclicks.forEach(pbclick => {
+        pbclick.addEventListener('click', (e) => e.stopPropagation());
+    });
+
+    // 이미지 슬라이드 관련 설정
+    const images = document.getElementById('carousel-inner').getAttribute('data-images').split(', ');  // 이미지 목록
     let currentIndex = 0;
     const carouselInner = document.getElementById('carousel-inner');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
 
+    // 이미지들 추가하기 (클론 없이)
+    function createCarouselItems() {
+        images.forEach((image, index) => {
+            const imgElement = document.createElement('img');
+            imgElement.src = image;
+            imgElement.classList.add('carousel-item');  // 클래스 추가
+            carouselInner.appendChild(imgElement);
+        });
+
+        // 첫 번째 이미지를 마지막에 클론으로 추가하여 무한 루프처럼 보이게 함
+        const firstImageClone = carouselInner.firstElementChild.cloneNode(true);
+        carouselInner.appendChild(firstImageClone);
+    }
+
     // 슬라이드 이동
     function updateCarousel() {
-        const imageWidth = 448;
+        const imageWidth = 448;  // 각 이미지의 너비
         carouselInner.style.transition = 'transform 0.5s ease-in-out';
         carouselInner.style.transform = `translateX(${-imageWidth * currentIndex}px)`;
     }
 
-    // 이전/다음 버튼 클릭 이벤트
+    // 이전/다음 버튼 클릭 시 이미지 이동
     prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        updateCarousel();
+        if (currentIndex === 0) {
+            currentIndex = images.length - 1;
+            updateCarousel();
+            setTimeout(() => {
+                carouselInner.style.transition = 'none';
+                carouselInner.style.transform = `translateX(${-imageWidth * currentIndex}px)`;
+            }, 500);
+        } else {
+            currentIndex--;
+            updateCarousel();
+        }
     });
+
     nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateCarousel();
+        if (currentIndex === images.length) {
+            currentIndex = 0;
+            setTimeout(() => {
+                carouselInner.style.transition = 'none';
+                carouselInner.style.transform = `translateX(0)`;
+            }, 500);
+            setTimeout(() => {
+                carouselInner.style.transition = 'transform 0.5s ease-in-out';
+            }, 600);
+        } else {
+            currentIndex++;
+            updateCarousel();
+        }
     });
+
+    // 초기화 함수 호출
+    createCarouselItems();
+    updateCarousel();
+
+
+
 
     // 페이지네이션 (플래너)
     const itemsPerPage = 9;
@@ -124,31 +207,26 @@ document.addEventListener('DOMContentLoaded', function () {
     function generatePagination() {
         let paginationHtml = '';
 
-        // << 버튼 (첫 페이지가 아닐 때만)
         if (totalPages > 10 && currentPage > 1) {
             paginationHtml += `<a href="#" data-page="1" class="double-left">&lt;&lt;</a>`;
         }
 
-        // < 버튼 (첫 페이지가 아닐 때만) - 첫 페이지일 때는 링크 비활성화
         if (currentPage > 1) {
             paginationHtml += `<a href="#" data-page="${currentPage - 1}" class="left">&lt;</a>`;
         } else {
-            paginationHtml += `<a href="#" class="left disabled">&lt;</a>`; // 첫 페이지에서 비활성화 처리
+            paginationHtml += `<a href="#" class="left disabled">&lt;</a>`;
         }
 
-        // 숫자 버튼
         for (let i = 1; i <= totalPages; i++) {
             paginationHtml += `<a href="#" data-page="${i}" class="${i === currentPage ? 'active page-number' : 'page-number'}">${i}</a>`;
         }
 
-        // > 버튼 (마지막 페이지가 아닐 때만)
         if (currentPage < totalPages) {
             paginationHtml += `<a href="#" data-page="${currentPage + 1}" class="right">&gt;</a>`;
         } else {
-            paginationHtml += `<a href="#" class="right disabled">&gt;</a>`; // 마지막 페이지에서 비활성화 처리
+            paginationHtml += `<a href="#" class="right disabled">&gt;</a>`;
         }
 
-        // >> 버튼 (마지막 페이지가 아닐 때만)
         if (totalPages > 10 && currentPage < totalPages) {
             paginationHtml += `<a href="#" data-page="${totalPages}" class="double-right">&gt;&gt;</a>`;
         }
@@ -190,3 +268,4 @@ document.addEventListener('DOMContentLoaded', function () {
     showItems();
     generatePagination();
 });
+  
